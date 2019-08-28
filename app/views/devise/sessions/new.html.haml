@@ -10,6 +10,5 @@
           = f.password_field :password, autocomplete: "off", class: "new_user__input user-pass",placeholder: "  あなたのパスワード(8文字以上)"
           .alert パスワードの入力をお願いします。
         = f.submit "ログイン", class: 'btn-login'
-      = render 'layouts/flash'
       %p.login-wrapper__container__forget-pass
         パスワードを忘れた場合こちら！

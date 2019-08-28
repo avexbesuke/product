@@ -1,0 +1,41 @@
+.login-body{
+  @include body();
+}
+.login-wrapper{
+  @include devise_wrraper();
+  &__container{
+    @include devise_container();
+    & h2{
+      margin: 0 0 40px 0;
+      border-bottom: solid 0.5px;
+    }
+    &__forget-pass{
+      opacity: 0.7;
+      transition: 0.5s;
+      width: 300px;
+      display: inline-block;
+    }
+    &__forget-pass:hover{
+      background: #0066ff;
+      font-size: 101%
+    }
+  }
+  & .new_user *{
+    margin: 0 0 25px 0;
+    font-size: 16px;
+  }
+  & .new_user{
+    &__input{
+      @include input_field ();
+    }
+    & .alert{
+      @include input_alert();
+    }
+    & .btn-login{
+      @include btn();
+    }
+    & .btn-login:hover{
+      background: #0d1c36;
+    }
+  }
+}
