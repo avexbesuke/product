@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'emotions/create'
   get 'books/index'
   root 'pages#index'
 
