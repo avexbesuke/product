@@ -1,0 +1,9 @@
+%body.book-search
+  .book-search__wrapper
+    .book-search__wrapper__container
+      %h2 本の検索
+      .form-group{id:"get-book"}
+        %input{type:"text",class:"form-control",placeholder:"ISBNを入力して下さい",id:"isbn"}
+      .form-submit
+        %button{type:"submit",id:"submit",class:"btn btn-outline-dark"} 本検索
+      .result
