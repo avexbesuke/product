@@ -13,4 +13,7 @@
             = f.hidden_field :author, value: book["volumeInfo"]["authors"]
             = f.hidden_field :image_url, value: book["volumeInfo"]["imageLinks"]["thumbnail"]
             = f.hidden_field :synopsis, value: book["volumeInfo"]["description"]
-            = f.submit 'マイベスト'
+            - if current_user.books.where(title: book["volumeInfo"]["title"]).length == 0
+              = f.submit 'マイベスト'
+            - else
+              = "本棚に入っている"

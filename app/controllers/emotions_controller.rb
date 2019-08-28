@@ -10,7 +10,6 @@ class EmotionsController < ApplicationController
     book_id = Book.find_by(title: params[:title]).id
     @emotion = Emotion.new(emotion_params)
     @emotion.book_id = book_id
-
     if @emotion.save
       redirect_to root_path
     else

@@ -4,4 +4,5 @@
   = f.text_field :author, value: params[:author],readonly: true
   = f.text_area  :body
   = f.hidden_field :synopsis, value: params[:synopsis]
+  = f.hidden_field :image_url, value: params[:image_url]
   = f.submit '決定'

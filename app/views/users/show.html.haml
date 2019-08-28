@@ -1,0 +1,32 @@
+%body
+  .mybest-book-wrapper
+    %h2 あなたのマイベストブック！
+    .mybest-book-wrapper__list
+      - @user_books.each do |book|
+        - emotion = @user_emotions[@i]
+        - @i += 1
+        .mybest-book-wrapper__list__view
+          .mybest-book-wrapper__list__view__data
+            .mybest-book-wrapper__list__view__image
+              = image_tag(book.image_url, size: "226x316")
+            .mybest-book-wrapper__list__view__title
+              = book.title
+          .mybest-book-wrapper__list__view__emotion
+            = emotion.body
+        - @othere_users = book.users.where.not(id: current_user.id).limit(5)
+        - @other_user_like_book = []
+        .mybest-book-wrapper__list__heading
+          = "”#{book.title}” を ”好きな人が好きな本”"
+        - if @othere_users.length != 0
+          .mybest-book-wrapper__list__view-other
+            - @othere_users.each do |othere_user|
+              - @other_user_like_book.push(othere_user.books.where.not(id: book.id).limit(1))
+            - @other_user_like_book.each do |othere_book|
+              .mybest-book-wrapper__list__view-other__list
+                .mybest-book-wrapper__list__view-other__list__image
+                  = link_to(image_tag(othere_book[0].image_url), book_path(othere_book[0].id))
+                .mybest-book-wrapper__list__view-other__list__title
+                  = othere_book[0].title
+        - else
+          .yohaku
+           

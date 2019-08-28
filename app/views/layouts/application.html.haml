@@ -12,9 +12,14 @@
     %header.devise-box
       %ul.devise-box__nav
         %li.devise-box__nav__edit.one 
-          = link_to '本を探す',new_book_path
-        %li.devise-box__nav__edit.two 機能2
+          = link_to new_book_path do
+            = fa_icon 'search', class: "one-btn"
+            = '本を探す'
         - if user_signed_in?
+          %li.devise-box__nav__edit.two 
+            = link_to user_path(current_user.id) do
+              = fa_icon 'bookmark', class: "two-btn"
+              = '本棚'
           %li
             = link_to current_user.username, root_path
           %li.three

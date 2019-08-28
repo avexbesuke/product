@@ -4,5 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :emotions
+  has_many :emotions, dependent: :destroy
+  has_many :books, through: :emotions
+
+  def user_mybest?(target)
+    current_user.book
+  end
 end

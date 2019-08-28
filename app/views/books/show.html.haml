@@ -1,0 +1,15 @@
+%body
+  = image_tag(@book.image_url)
+  .a
+    = "タイトル:"
+    = @book.title
+  .a
+    = "作者:"
+    = @book.author
+  .a
+    = "あらすじ" 
+    = simple_format(@book.synopsis)
+  .a
+    = "#{@book.title}が好きな人が好きな本"
+  .a
+    = "#{@book.title}が好きな人"
