@@ -3,7 +3,7 @@
     .book-index-wrapper__menu
       - @books["items"].each do |book|
         .book-index-wrapper__menu__book
-          = form_with url:books_path,method: :post,local: true do |f|
+          = form_with url:emotion_write_path,method: :post,local: true do |f|
             = image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"])
             .book-index-wrapper__menu__book__title
               = book["volumeInfo"]["title"]

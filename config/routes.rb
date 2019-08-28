@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'emotions/create'
-  get 'books/index'
   root 'pages#index'
 
   devise_for :users, :controllers => {
@@ -16,4 +14,6 @@ Rails.application.routes.draw do
   resources :books, only: [:new,:create]
   post 'book_search', to: 'books#index'
 
+  resources :emotions, only: [:new,:create]
+  post 'emotion_write', to: 'emotions#new'
 end
