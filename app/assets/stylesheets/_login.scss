@@ -1,0 +1,21 @@
+.devise-box__nav{
+  display: flex;
+  height: 40px;
+  background-color: rgba(231, 231, 221,0.6);
+  & li{
+    width: 200px;
+    text-align: center;
+    padding-top: 10px;
+    & a{
+      text-decoration: none;
+      color: #000;
+      transition: .4s;
+    }
+  }
+  & .three {
+    margin-left: auto;
+  }
+  & .devise-box__nav__edit:hover{
+    background: rgba(2, 37, 83, 0.5);
+  }
+}
