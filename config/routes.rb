@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
 
-  resources :books
+  resources :books, only: [:new,:create]
+  post 'book_search', to: 'books#index'
 
 end

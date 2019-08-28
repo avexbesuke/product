@@ -1,0 +1,21 @@
+.book-index-wrapper{
+  position: relative;
+  &__menu{
+    margin: 0 0 0 30px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    &__book{
+      width: 250px;
+      height: 300px;
+      min-width: 250px;
+      min-height: 300px;
+      text-align: center;
+      margin: 10px;
+    }
+  }
+}

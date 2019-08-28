@@ -11,7 +11,8 @@
     = render 'layouts/flash'
     %header.devise-box
       %ul.devise-box__nav
-        %li.devise-box__nav__edit.one 機能1
+        %li.devise-box__nav__edit.one 
+          = link_to '本を探す',new_book_path
         %li.devise-box__nav__edit.two 機能2
         - if user_signed_in?
           %li

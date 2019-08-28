@@ -1,26 +1,25 @@
 class BooksController < ApplicationController
-  def index
-  end
-
   def show
     @book = Book.find(params[:id])
   end
 
   def new
-    @book = Book.new
-    respond_to do |format|
-      format.html
-      format.json
+  end
+
+  def index
+    if params[:keyword].present?
+      url = 'https://www.googleapis.com/books/v1/volumes?q='
+      request = url + params[:keyword]
+      enc_str = URI.encode(request)
+      uri = URI.parse(enc_str)
+      json = Net::HTTP.get(uri)
+      @books = JSON.parse(json)
+    else
+      @books = 'なし'
     end
   end
 
   def create
-    @book = Book.new(book_params)
-    if @bool.save
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
   end
 
 
