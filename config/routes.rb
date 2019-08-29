@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root 'pages#about'
+
+  resources :pages , only: [:show,:index]
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

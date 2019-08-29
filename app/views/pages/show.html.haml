@@ -1,5 +1,23 @@
-%h1
-  こんにちは  
-  = current_user.username
-  さん
-%p Find me in app/views/pages/show.html.haml
+= @user.username
+
+.mypage-wrapper
+  .fast-book
+    %p 最初のBest本！
+    .fast-book__view
+      .image
+        = link_to(image_tag(@fast_best_book.image_url),book_path(@fast_best_book.id))
+      .title-syno
+        .title
+          = @fast_best_book.title
+        .synopsis
+          .lead
+            = '思い出:'
+          .emotion
+            = @fast_best_emotion.body
+  .read
+    - @readed_books.each do |book|
+      .read__books
+        .image
+          = link_to(image_tag(book.image_url,size: "96x146"),book_path(book.id))
+        .title
+          = book.title

@@ -1,6 +1,7 @@
 %body
   .mybest-book-wrapper
-    %h2 本の詳細
+    %h2 
+      = "”#{@book.title}” について"
     .mybest-book-wrapper__list
       .mybest-book-wrapper__list__view
         .mybest-book-wrapper__list__view__data
@@ -29,4 +30,3 @@
             .yohaku 
 
     .book-show__other-user
-      = "#{@book.title}が好きな人"

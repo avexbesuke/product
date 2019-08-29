@@ -10,38 +10,34 @@
   %body
     // = render 'layouts/flash'
     %header.devise-box
-      %h2 サイト名
+      %h2 
+        = link_to root_path do 
+          = "MyBest_Books"
       %ul.devise-box__nav
         %li.devise-box__nav__edit.one 
-          = link_to new_book_path do
-            = fa_icon 'search', class: "one-btn"
-            = '本を探す'
+          = form_with url:book_search_path,method: :post,local: true,class:'book-search-form' do |f|
+            = f.text_field :keyword,placeholder: "好きな本を探す",class:'book-search-form__text'
+            %label.label
+              = f.submit '' , class: 'book-search-form__submit'
+              = fa_icon 'search', class: "one-btn"
         - if user_signed_in?
           %li.devise-box__nav__edit.two 
             = link_to user_path(current_user.id) do
               = fa_icon 'bookmark', class: "two-btn"
-              = 'ベスト本！'
           %li.devise-box__nav__edit.two 
             = link_to reads_path do
               = fa_icon 'history', class: "two-btn"
-              = '読書履歴'
+          %li.devise-box__nav__edit.two 
+            = link_to page_path(current_user.id) do
+              = fa_icon 'user', class: "two-btn"
           %li.three
-            %li.devise-box__nav__edit
-              = link_to root_path do
-                = fa_icon 'home', class: "two-btn"
-                = 'ホーム'
-            %li.devise-box__nav__edit
-              = link_to edit_user_registration_path do
-                = fa_icon 'user', class: "two-btn"
-                = 'プロフィール'
-            %li.devise-box__nav__edit  
+            %ui.devise-box__nav__edit  
               = link_to destroy_user_session_path, method: :delete do
                 = fa_icon 'sign-out', class: "two-btn"
-                = '退室'
         - else
-          %li.three
-            %li.devise-box__nav__edit
+          .three
+            %li.devise-box__nav__edit.outer-btn
               = link_to '新規登録', new_user_registration_path
-            %li.devise-box__nav__edit 
+            %li.devise-box__nav__edit.outer-btn
               = link_to 'ログイン', new_user_session_path
     = yield
