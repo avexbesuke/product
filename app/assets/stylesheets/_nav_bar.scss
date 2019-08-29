@@ -1,8 +1,11 @@
+.devise-box{
+  background-color: rgba(231, 231, 221,0.6);
+}
+
 .devise-box__nav{
   display: flex;
-  height: 40px;
-  background-color: rgba(231, 231, 221,0.6);
   & li{
+    height: 30px;
     width: 130px;
     min-width: 130px;
     text-align: center;

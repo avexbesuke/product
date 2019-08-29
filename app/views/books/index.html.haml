@@ -23,6 +23,6 @@
             = f.hidden_field :image_url, value: book["volumeInfo"]["imageLinks"]["thumbnail"]
             = f.hidden_field :synopsis, value: book["volumeInfo"]["description"]
             - if current_user.books.where(title: book["volumeInfo"]["title"]).length == 0
-              = f.submit 'マイベスト'
+              = f.submit 'マイベストに登録する'
             - else
-              = "本棚に入っている"
+              = "マイベストブック！！"

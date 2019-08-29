@@ -17,7 +17,7 @@
         - @other_user_like_book = []
         .mybest-book-wrapper__list__heading
           = "”#{book.title}” を ”好きな人が好きな本”"
-        - if @othere_users.length != 0
+        - if @othere_users.length > 1
           .mybest-book-wrapper__list__view-other
             - @othere_users.each do |othere_user|
               - @other_user_like_book.push(othere_user.books.where.not(id: book.id).limit(1))

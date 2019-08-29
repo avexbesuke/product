@@ -8,8 +8,9 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'layouts/flash'
+    // = render 'layouts/flash'
     %header.devise-box
+      %h2 サイト名
       %ul.devise-box__nav
         %li.devise-box__nav__edit.one 
           = link_to new_book_path do
@@ -24,16 +25,19 @@
             = link_to reads_path do
               = fa_icon 'history', class: "two-btn"
               = '読書履歴'
-          %li.devise-box__nav__edit.two 
-            = link_to root_path do
-              = fa_icon 'home', class: "two-btn"
           %li.three
+            %li.devise-box__nav__edit
+              = link_to root_path do
+                = fa_icon 'home', class: "two-btn"
+                = 'ホーム'
             %li.devise-box__nav__edit
               = link_to edit_user_registration_path do
                 = fa_icon 'user', class: "two-btn"
+                = 'プロフィール'
             %li.devise-box__nav__edit  
               = link_to destroy_user_session_path, method: :delete do
                 = fa_icon 'sign-out', class: "two-btn"
+                = '退室'
         - else
           %li.three
             %li.devise-box__nav__edit
