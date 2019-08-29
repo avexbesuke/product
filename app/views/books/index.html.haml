@@ -4,7 +4,16 @@
       - @books["items"].each do |book|
         .book-index-wrapper__menu__book
           = form_with url:emotion_write_path,method: :post,local: true do |f|
-            = image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"])
+            .book-index-wrapper__menu__book__image
+              = image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class: 's')
+              = link_to reads_path(title:book["volumeInfo"]["title"],author:book["volumeInfo"]["authors"] ,image_url:book["volumeInfo"]["imageLinks"]["thumbnail"],synopsis:book["volumeInfo"]["description"]), method: :post,class: "book__image__link", remote: true do
+                -if Book.find_by(title: book["volumeInfo"]["title"]) != nil
+                  - if Book.find_by(title: book["volumeInfo"]["title"]).reads.where(user_id: current_user.id).exists?
+                    = fa_icon 'book',class: 'read-btn read-btn-on'
+                  -else
+                    = fa_icon 'book',class: 'read-btn read-btn-off'
+                -else
+                  = fa_icon 'book',class: 'read-btn read-btn-off'
             .book-index-wrapper__menu__book__title
               = book["volumeInfo"]["title"]
             .book-index-wrapper__menu__book__authors

@@ -1,6 +1,19 @@
 class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
+    @other_user = @book.users.limit(5)
+    @other_books = []
+    @other_user.each do |user|
+      while true
+        other_book = user.books.order("RAND()").limit(1)
+        if other_book[0].id != params[:id].to_i
+          @other_books.push(other_book)
+          break
+        else user.books.length == 0
+          break
+        end
+      end
+    end
   end
 
   def new
@@ -22,9 +35,4 @@ class BooksController < ApplicationController
   def create
   end
 
-
-  private
-  def book_params
-    params.require.permit(:title,:author,:synopsis,:image_url)
-  end
 end

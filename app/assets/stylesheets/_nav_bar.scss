@@ -3,7 +3,8 @@
   height: 40px;
   background-color: rgba(231, 231, 221,0.6);
   & li{
-    width: 200px;
+    width: 130px;
+    min-width: 130px;
     text-align: center;
     padding-top: 10px;
     & a{

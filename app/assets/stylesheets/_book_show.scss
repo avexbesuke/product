@@ -1,0 +1,15 @@
+.mybest-book-wrapper__list__view__image-show{
+  display: flex;
+  &__syno-title{
+    padding: 0 30px;
+    width: 550px;
+    word-break: keep-all;
+    & .title{
+      font-size: 20px;
+      padding: 0 0 5px 0;
+    }
+    & .lead{
+      font-size: 18px;
+    }
+  }
+}

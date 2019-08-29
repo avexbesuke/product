@@ -1,8 +1,6 @@
 .mybest-book-wrapper{
   & h2{
-    padding: 40px;
-    font-size: 38px;
-    font-weight: bold;
+    @include h2();
   }
   &__list{
     &__view{

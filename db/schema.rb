@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_073500) do
+ActiveRecord::Schema.define(version: 2019_08_28_145526) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2019_08_28_073500) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_emotions_on_book_id"
     t.index ["user_id"], name: "index_emotions_on_user_id"
+  end
+
+  create_table "reads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reads_on_book_id"
+    t.index ["user_id"], name: "index_reads_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,4 +72,6 @@ ActiveRecord::Schema.define(version: 2019_08_28_073500) do
 
   add_foreign_key "emotions", "books"
   add_foreign_key "emotions", "users"
+  add_foreign_key "reads", "books"
+  add_foreign_key "reads", "users"
 end

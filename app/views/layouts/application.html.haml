@@ -19,14 +19,21 @@
           %li.devise-box__nav__edit.two 
             = link_to user_path(current_user.id) do
               = fa_icon 'bookmark', class: "two-btn"
-              = '本棚'
-          %li
-            = link_to current_user.username, root_path
+              = 'ベスト本！'
+          %li.devise-box__nav__edit.two 
+            = link_to reads_path do
+              = fa_icon 'history', class: "two-btn"
+              = '読書履歴'
+          %li.devise-box__nav__edit.two 
+            = link_to root_path do
+              = fa_icon 'home', class: "two-btn"
           %li.three
             %li.devise-box__nav__edit
-              = link_to 'プロフィール変更', edit_user_registration_path
+              = link_to edit_user_registration_path do
+                = fa_icon 'user', class: "two-btn"
             %li.devise-box__nav__edit  
-              = link_to 'ログアウト'     , destroy_user_session_path, method: :delete
+              = link_to destroy_user_session_path, method: :delete do
+                = fa_icon 'sign-out', class: "two-btn"
         - else
           %li.three
             %li.devise-box__nav__edit

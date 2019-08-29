@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
   root 'pages#index'
 
   devise_for :users, :controllers => {
@@ -19,4 +18,6 @@ Rails.application.routes.draw do
   post 'emotion_write', to: 'emotions#new'
 
   resources :users, only: [:show]
+
+  resources :reads, only: [:create,:index]
 end

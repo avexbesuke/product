@@ -16,6 +16,13 @@
       min-height: 300px;
       text-align: center;
       margin: 10px;
+      &__image{
+        position: relative;
+        & .read-btn{
+          position: absolute;
+          right: 70px;
+        }
+      }
     }
   }
 }
