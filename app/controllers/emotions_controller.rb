@@ -19,9 +19,11 @@ class EmotionsController < ApplicationController
   end
 
   def index
+    @search_emotions = Emotion.order("created_at DESC").ransack(params[:q])
+    @emotions = @search_emotions.result(distinct: true).page(params[:page]).per(10)
     @tags = Emotion.all_tags
-    @emotions = Emotion.all
     if params[:tag_name]
+      @emotions = Emotion.all.page(params[:page]).per(10)
       @emotions = @emotions.tagged_with("#{params[:tag_name]}")
     end
   end
