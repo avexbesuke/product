@@ -16,7 +16,7 @@
         = f.submit '' , class: 'book-search-form__submit'
         = fa_icon 'search', class: "one-btn"
 - @emotions.each do |emotion|
-  = image_tag(emotion.book.image_url)
+  = link_to(image_tag(emotion.book.image_url),book_path(emotion.book.id))
   = "本への思い"
   = emotion.body
   = link_to emotion.user.username, page_path(emotion.user.id)
