@@ -10,7 +10,17 @@ class User < ApplicationRecord
   has_many :reads
   has_many :read_books, through: :reads, source: :book
 
-  def user_mybest?(target)
+  has_many :active_relationships, class_name: "Relationship",foreign_key: :following_id
+  has_many :followings, through: :active_relationships, source: :follower
+
+  has_many :passive_relationships, class_name: "Relationship",foreign_key: :follower_id
+  has_many :followers, through: :passive_relationships, source: :following
+
+  def user_mybest?(book)
     current_user.book
+  end
+
+  def followed_by?(user)
+    passive_relationships.find_by(following_id: user.id).present?
   end
 end

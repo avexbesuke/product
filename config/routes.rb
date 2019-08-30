@@ -22,4 +22,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :reads, only: [:create,:index]
+
+  resources :users do
+    resources :relationships, onry: [:create, :destroy]
+    get :follows, on: :member
+    get :followers, on: :member
+  end
 end
