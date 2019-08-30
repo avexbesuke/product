@@ -21,12 +21,11 @@
   = emotion.body
   = link_to emotion.user.username, page_path(emotion.user.id)
   - if current_user != emotion.user
-    - if emotion.user.followed_by?(current_user)
-      = link_to user_relationships_path(emotion.user.id), method: :post do
-        = fa_icon 'user', class: "one-btn"
-    - else
-      = link_to user_relationships_path(emotion.user.id), method: :post do
-        = fa_icon 'user-o', class: "one-btn"
+    = link_to user_relationships_path(emotion.user.id), method: :post,remote: true,class: "emotion__follow__link" do
+      - if emotion.user.followed_by?(current_user)
+        = fa_icon 'user', class: "follow-btn follow-btn-on"
+      - else
+        = fa_icon 'user', class: "follow-btn follow-btn-off"
 
   = emotion.created_at.strftime("%y年%m月%d日")
 

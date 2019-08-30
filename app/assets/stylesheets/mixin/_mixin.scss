@@ -47,3 +47,11 @@
   font-size: 38px;
   font-weight: bold;
 }
+
+@mixin follow-btn($coloer:#f3f3f3,$font-size:16px,$border-coler:#000000){
+  color: $coloer;
+  transition: .3s;
+  font-size: $font-size;
+  border-bottom: solid 0.5px;
+  border-color: $border-coler;
+}

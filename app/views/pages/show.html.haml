@@ -21,3 +21,19 @@
           = link_to(image_tag(book.image_url,size: "96x146"),book_path(book.id))
         .title
           = book.title
+
+= "フォローユーザの最近のマイベスト"
+- @othere_emotions.each do |emotion|
+  .a
+    = image_tag(emotion.book.image_url, siz:"20x40")
+    = emotion.book.title
+    = emotion.created_at.strftime("%y.%m.%d")
+    = emotion.user.username
+
+= "フォローユーザの最近の読書履歴"
+- @othere_reads.each do |read|
+  .a
+    = image_tag(read.book.image_url, siz:"20x40")
+    = read.book.title
+    = read.created_at.strftime("%y.%m.%d")
+    = read.user.username

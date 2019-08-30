@@ -1,14 +1,15 @@
 .read-btn-on{
-  color: #ffef15;
-  transition: .3s;
-  font-size: 20px;
-  border-bottom: solid 0.5px;
-  border-color: #3d00e6
+  @include follow-btn(#ffef15,20px,#3d00e6);
 }
 
 .read-btn-off{
-  transition: .3s;
-  color: #f3f3f3;
-  border-bottom: solid 0.5px;
-  border-color: #000000
+  @include follow-btn();
+}
+
+.follow-btn-on{
+  @include follow-btn(#9906ee,20px,#ebd725);
+}
+
+.follow-btn-off{
+  @include follow-btn();
 }
