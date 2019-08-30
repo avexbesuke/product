@@ -1,0 +1,52 @@
+.mybest-book-wrapper{
+  & h2{
+    @include h2();
+  }
+  &__list{
+    &__view{
+      display: flex;
+      position: relative;
+      padding: 20px 0 ;
+      &__data{
+        padding: 0 0 0 40px;
+      }
+      &__emotion{
+        margin: auto 0;
+        padding: 0 0 0 40px;
+      }
+    }
+    &__heading{
+      padding: 20px 40px;
+      font-size: 24px;
+    }
+    &__view-other{
+      margin: 0 0 40px 30px;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      &__list{
+        width: 200px;
+        height: 200px;
+        min-width: 200px;
+        min-height: 200px;
+        text-align: center;
+        margin: 10px;
+        &__image{
+          transition-duration: 0.3s;
+        }
+        &__image:hover{
+          opacity: 0.6;
+          transition-duration: 0.3s;
+        }
+      }
+    }
+  }
+}
+
+.yohaku{
+  height: 296px;
+}

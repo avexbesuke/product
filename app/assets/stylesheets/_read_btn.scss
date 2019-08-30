@@ -1,0 +1,15 @@
+.read-btn-on{
+  @include follow-btn(#ffef15,20px,#3d00e6);
+}
+
+.read-btn-off{
+  @include follow-btn();
+}
+
+.follow-btn-on{
+  @include follow-btn(#9906ee,20px,#ebd725);
+}
+
+.follow-btn-off{
+  @include follow-btn();
+}

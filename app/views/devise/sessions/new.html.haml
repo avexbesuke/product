@@ -1,0 +1,14 @@
+%body.login-body
+  .login-wrapper
+    .login-wrapper__container
+      %h2 ログイン
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .new_user__field.new_user__email
+          = f.email_field :email, autofocus: true, class: "new_user__input user-email",placeholder: "  あなたのメールアドレス"
+          .alert メールアドレスの入力をお願いします。
+        .new_user__field.new_user__pass
+          = f.password_field :password, autocomplete: "off", class: "new_user__input user-pass",placeholder: "  あなたのパスワード(8文字以上)"
+          .alert パスワードの入力をお願いします。
+        = f.submit "ログイン", class: 'btn-login'
+      %p.login-wrapper__container__forget-pass
+        パスワードを忘れた場合こちら！

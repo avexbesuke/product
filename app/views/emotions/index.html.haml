@@ -1,0 +1,33 @@
+%body
+  .emotions-index
+    %h2 本への思い
+  - @tags.each do |tag|
+    %span.tag
+      = link_to tag, emotions_path(tag_name: tag.name)
+    
+  = search_form_for @search_emotions do |f|
+    = f.search_field :body_or_book_title_cont,placeholder: "本についての思いを探す"
+    %label.label
+      = f.submit '' , class: 'book-search-form__submit'
+      = fa_icon 'search', class: "one-btn"
+    = form_with url:emotions_path(tag_name: :tag_name) do |f|
+      = f.text_field :tag_name, placeholder: "感動"
+      %label.label
+        = f.submit '' , class: 'book-search-form__submit'
+        = fa_icon 'search', class: "one-btn"
+- @emotions.each do |emotion|
+  = link_to(image_tag(emotion.book.image_url),book_path(emotion.book.id))
+  = "本への思い"
+  = emotion.body
+  = link_to emotion.user.username, page_path(emotion.user.id)
+  - if current_user != emotion.user
+    = link_to user_relationships_path(emotion.user.id), method: :post,remote: true,class: "emotion__follow__link" do
+      - if emotion.user.followed_by?(current_user)
+        = fa_icon 'user', class: "follow-btn follow-btn-on"
+      - else
+        = fa_icon 'user', class: "follow-btn follow-btn-off"
+
+  = emotion.created_at.strftime("%y年%m月%d日")
+
+= paginate @emotions
+

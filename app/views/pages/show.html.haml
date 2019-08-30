@@ -1,0 +1,42 @@
+= @user.username
+= image_tag(@user.image)
+= @user.profile
+= link_to '編集', edit_user_registration_path
+.mypage-wrapper
+  .fast-book
+    %p 最初のBest本
+    .fast-book__view
+      -if @fast_best_book != nil
+        .image
+          = link_to(image_tag(@fast_best_book.image_url),book_path(@fast_best_book.id))
+        .title-syno
+          .title
+            = @fast_best_book.title
+          .synopsis
+            .lead
+              = '思い出:'
+            .emotion
+              = @fast_best_emotion.body
+  .read
+    - @readed_books.each do |book|
+      .read__books
+        .image
+          = link_to(image_tag(book.image_url,size: "96x146"),book_path(book.id))
+        .title
+          = book.title
+
+= "フォローユーザの最近のマイベスト"
+- @othere_emotions.each do |emotion|
+  .a
+    = link_to(image_tag(emotion.book.image_url, siz:"20x40"),book_path(emotion.book.id))
+    = emotion.book.title
+    = emotion.created_at.strftime("%y.%m.%d")
+    = emotion.user.username
+
+= "フォローユーザの最近の読書履歴"
+- @othere_reads.each do |read|
+  .a
+    = link_to(image_tag(read.book.image_url, siz:"20x40"),book_path(read.book.id))
+    = read.book.title
+    = read.created_at.strftime("%y.%m.%d")
+    = read.user.username

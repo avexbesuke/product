@@ -1,0 +1,31 @@
+.signup-body{
+  @include body($url:'write.jpg');
+}
+.signup-wrapper{
+  @include devise_wrraper();
+  &__container{
+    @include devise_container($height:600px);
+    & h2{
+      margin: 0 0 40px 0;
+      border-bottom: solid 0.5px;
+    }
+  }
+  & .new_user *{
+    margin: 0 0 25px 0;
+    font-size: 16px;
+  }
+  & .new_user{
+    &__input{
+      @include input_field ();
+    }
+    & .alert{
+      @include input_alert();
+    }
+    & .btn-signup{
+      @include btn();
+    }
+    & .btn-signup:hover{
+      background: #0d1c36;
+    }
+  }
+}

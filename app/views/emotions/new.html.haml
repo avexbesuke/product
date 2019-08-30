@@ -1,0 +1,10 @@
+= form_with model:@emotion,url: emotions_path, method: :post,local: true do |f|
+  = f.label :title ,'あたなに影響を与えた本のタイトル' 
+  = f.text_field :title, value: params[:title],readonly: true
+  = f.text_field :author, value: params[:author],readonly: true
+  = f.text_area  :body
+  = f.hidden_field :synopsis, value: params[:synopsis]
+  = f.hidden_field :image_url, value: params[:image_url]
+  
+  = f.text_field :tag_list, value: @emotion.tag_list.join(',')
+  = f.submit '決定'
