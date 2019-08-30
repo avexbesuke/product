@@ -1,17 +1,12 @@
 class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
-    @other_user = @book.users.limit(5)
+    @other_user = @book.users.order("RAND()").limit(5)
     @other_books = []
     @other_user.each do |user|
-      while true
-        other_book = user.books.order("RAND()").limit(1)
-        if other_book[0].id != params[:id].to_i
-          @other_books.push(other_book)
-          break
-        else user.books.length == 0
-          break
-        end
+      if user.books.length != 0
+        other_book = user.books.where.not(id: params[:id].to_i).order("RAND()").limit(1)
+        @other_books.push(other_book)
       end
     end
   end

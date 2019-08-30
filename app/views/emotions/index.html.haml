@@ -1,0 +1,13 @@
+%body
+  .emotions-index
+    %h2 本への思い
+
+- @emotions.each do |emotion|
+  = image_tag(emotion.book.image_url)
+  = "本への思い"
+  = emotion.body
+  = link_to emotion.user.username, page_path(emotion.user.id)
+  = emotion.created_at.strftime("%y年%m月%d日")
+
+- @tags.each do |tag|
+  = link_to tag, emotions_path(tag_name: tag)

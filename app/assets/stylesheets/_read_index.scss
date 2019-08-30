@@ -1,5 +1,16 @@
-.readed-lists__list{
-  display: flex;
+.rade-index-wrapper{
+  & h2{
+    @include h2();
+  }
+  & .readed-lists{
+    .readed-lists__list{
+      display: flex;
+      position: relative;
+      &__image-title{
+        
+      }
+    }
+  }
 }
 
 .pagination{

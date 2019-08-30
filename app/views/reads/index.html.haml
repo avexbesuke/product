@@ -1,14 +1,16 @@
 %body
-  .readed-lists
-    - @user_read_books.each do |book|
-      .readed-lists__list
-        .readed-lists__list__image-titel
-          = link_to(image_tag(book.image_url), book_path(book.id))
-        .readed-lists__list__date
-          .readed-lists__list__date__title
-            = book.title
-          .readed-lists__list__date__day
-            = '読み終わり日:'
-            = book.reads.find_by(user_id: current_user.id).created_at.strftime("%y年%m月%d日")
-  .readed-pagenate
-    = paginate @user_read_books
+  .rade-index-wrapper
+    %h2 あなたが読んだ本
+    .readed-lists
+      - @user_read_books.each do |book|
+        .readed-lists__list
+          .readed-lists__list__image-titel
+            = link_to(image_tag(book.image_url), book_path(book.id))
+          .readed-lists__list__date
+            .readed-lists__list__date__title
+              = book.title
+            .readed-lists__list__date__day
+              = '読み終わり日:'
+              = book.reads.find_by(user_id: current_user.id).created_at.strftime("%y年%m月%d日")
+    .readed-pagenate
+      = paginate @user_read_books

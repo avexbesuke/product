@@ -11,4 +11,5 @@ class Book < ApplicationRecord
   def readed_by?(user)
     Read.where(user_id: user.id).exists?
   end
+
 end

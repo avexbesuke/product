@@ -28,6 +28,9 @@
             = link_to reads_path do
               = fa_icon 'history', class: "two-btn"
           %li.devise-box__nav__edit.two 
+            = link_to emotions_path do
+              = fa_icon 'commenting', class: "two-btn"
+          %li.devise-box__nav__edit.two 
             = link_to page_path(current_user.id) do
               = fa_icon 'user', class: "two-btn"
           %li.three

@@ -12,6 +12,8 @@
             .mybest-book-wrapper__list__view__title
               = book.title
           .mybest-book-wrapper__list__view__emotion
+            - if emotion.tag_list.length != 0
+              = render 'emotions/tag_list', tag_list: emotion.tag_list
             = emotion.body
         - @othere_users = book.users.where.not(id: current_user.id).limit(5)
         - @other_user_like_book = []
