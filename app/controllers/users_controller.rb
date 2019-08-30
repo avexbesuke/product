@@ -4,4 +4,7 @@ class UsersController < ApplicationController
     @user_emotions = current_user.emotions
     @i = 0
   end
+
+  def index
+  end
 end

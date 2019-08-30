@@ -1,19 +1,21 @@
 = @user.username
-
+= link_to '編集', edit_user_registration_path
+= link_to '編集', edit_user_password_path
 .mypage-wrapper
   .fast-book
-    %p 最初のBest本！
+    %p 最初のBest本
     .fast-book__view
-      .image
-        = link_to(image_tag(@fast_best_book.image_url),book_path(@fast_best_book.id))
-      .title-syno
-        .title
-          = @fast_best_book.title
-        .synopsis
-          .lead
-            = '思い出:'
-          .emotion
-            = @fast_best_emotion.body
+      -if @fast_best_book != nil
+        .image
+          = link_to(image_tag(@fast_best_book.image_url),book_path(@fast_best_book.id))
+        .title-syno
+          .title
+            = @fast_best_book.title
+          .synopsis
+            .lead
+              = '思い出:'
+            .emotion
+              = @fast_best_emotion.body
   .read
     - @readed_books.each do |book|
       .read__books
@@ -33,7 +35,7 @@
 = "フォローユーザの最近の読書履歴"
 - @othere_reads.each do |read|
   .a
-    = link_to(image_tag(read.book.image_url, siz:"20x40"),book_path(reads.book.id))
+    = link_to(image_tag(read.book.image_url, siz:"20x40"),book_path(read.book.id))
     = read.book.title
     = read.created_at.strftime("%y.%m.%d")
     = read.user.username
