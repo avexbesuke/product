@@ -1,7 +1,9 @@
 = @user.username
-= image_tag(@user.image)
+-if @user.image.attached?
+  = image_tag(@user.image)
 = @user.profile
-= link_to '編集', edit_user_registration_path
+-if current_user.id == @user.id
+  = link_to '編集', edit_user_registration_path
 .mypage-wrapper
   .fast-book
     %p 最初のBest本
