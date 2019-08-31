@@ -1,16 +1,25 @@
-%body
-  .rade-index-wrapper
-    %h2 あなたが読んだ本
-    .readed-lists
-      - @user_read_books.each do |book|
-        .readed-lists__list
-          .readed-lists__list__image-titel
-            = link_to(image_tag(book.image_url), book_path(book.id))
-          .readed-lists__list__date
-            .readed-lists__list__date__title
-              = book.title
-            .readed-lists__list__date__day
-              = '読み終わり日:'
-              = book.reads.find_by(user_id: current_user.id).created_at.strftime("%y年%m月%d日")
-    .readed-pagenate
-      = paginate @user_read_books
+%html.default
+  %body
+    .rade-index-wrapper
+      %h2 あなたが読んだ本
+      .readed-lists
+        - @user_read_books.each do |book|
+          .readed-lists__list
+            .readed-lists__list__image
+              = link_to(image_tag(book.image_url,size: '158x208'), book_path(book.id))
+            .readed-lists__list__date
+              .readed-lists__list__date__title
+                = book.title
+              .readed-lists__list__date__day
+                .readed-lists__list__date__day__label
+                  = '読了日:'
+                .readed-lists__list__date__day__body
+                  = book.reads.find_by(user_id: current_user.id).created_at.strftime("%y年%m月%d日")
+              .readed-lists__list__date__mybest
+                = form_with url:emotion_write_path,method: :post,local: true do |f|
+                  = f.hidden_field :image_url, value: book.image_url
+                  = f.hidden_field :title, value: book.title
+                  = f.hidden_field :author, value: book.author
+                  = f.hidden_field :synopsis, value: book.synopsis
+                  = f.submit 'マイベストにする!!'
+        = paginate @user_read_books

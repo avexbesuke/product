@@ -28,34 +28,6 @@
   & .one{
     width: 230px;
     min-width: 230px;
-    & .book-search-form{
-      padding: 0 0 0 30px;
-      position: relative;
-      & .one-btn{
-        position: absolute;
-        top: 5px;
-        right: 25px;
-      }
-      &__text{
-        display: inline-block;
-        width: 80%;
-        height: 25px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        color: #555;
-        background-color: #fff;
-        padding: 0 12px;
-      }
-      & .label{
-        cursor: pointer;
-      }
-      &__submit{
-        display: none;
-      }
-      & .one-btn{
-        color: rgb(128, 128, 128);
-      }
-    }
   }
   & .two{
     width: 30px;

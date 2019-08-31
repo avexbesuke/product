@@ -1,0 +1,41 @@
+@mixin search_form($width,$btn-raight:25px) {
+    & .one-btn{
+      position: absolute;
+      top: 5px;
+      right: $btn-raight;
+      color: rgb(128, 128, 128);
+    }
+    &__text{
+      display: inline-block;
+      width: $width;
+      height: 25px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      color: #555;
+      background-color: rgba(114, 104, 104, 0.1);
+      padding: 0 12px;
+    }
+    & .label{
+      cursor: pointer;
+    }
+    &__submit{
+      display: none;
+    }
+}
+
+.book-search-form{
+  padding: 0 0 0 30px;
+  position: relative;
+  @include search_form(80%);
+}
+
+.emotion-search-form{
+  padding: 3px 0;
+  position: relative;
+  @include search_form(230px,15px);
+}
+
+.tag-search-form{
+  position: relative;
+  @include search_form(205px,15px);
+}

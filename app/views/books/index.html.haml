@@ -34,11 +34,13 @@
                 = book["volumeInfo"]["authors"]
               -if book["volumeInfo"]["imageLinks"] != nil
                 = f.hidden_field :image_url, value: book["volumeInfo"]["imageLinks"]["thumbnail"]
+              -else
+                = f.hidden_field :image_url, value:"noimage.png"
               = f.hidden_field :title, value: book["volumeInfo"]["title"]
               = f.hidden_field :author, value: book["volumeInfo"]["authors"]
               = f.hidden_field :synopsis, value: book["volumeInfo"]["description"]
               - if user_signed_in?
                 - if current_user.books.where(title: book["volumeInfo"]["title"]).length == 0
-                  = f.submit 'マイベストに登録する'
+                  = f.submit 'マイベストにする!!'
                 - else
                   = "マイベストブック！！"

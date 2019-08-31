@@ -18,7 +18,7 @@ class ReadsController < ApplicationController
   end
 
   def index
-    @user_read_books = current_user.read_books.page(params[:page]).per(5)
+    @user_read_books = current_user.read_books.page(params[:page]).per(10)
   end
 
   private
