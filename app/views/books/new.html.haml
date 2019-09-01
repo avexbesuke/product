@@ -1,6 +1,0 @@
-%body.book-search
-  .book-search__wrapper
-    .book-search__wrapper__container
-      = form_with url:book_search_path,method: :post,local: true do |f|
-        = f.text_field :keyword
-        = f.submit '検索'

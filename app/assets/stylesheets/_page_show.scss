@@ -1,0 +1,90 @@
+.page_show_title{
+  @include h2();
+}
+.page-show-wrapper{
+  display: flex;
+  &__mypage{
+    position: relative;
+    padding: 20px 100px 20px 100px;
+  }
+  &__side{
+    padding: 50px 0 0 0;
+    &__content{
+      & .tab1{
+        & .data{
+          max-width: 850px;
+          display: flex;
+          padding: 20px 0 0 0;
+          & .title-synops{
+            padding: 0 0 0 20px;
+            & .title{
+              font-size: 16px;
+              padding: 0 0 5px 0;
+            }
+            & .synopsis{
+              word-break: keep-all;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+      & .tab2{
+        & .data{
+          max-width: 850px;
+          display: flex;
+          padding: 20px 0 0 0;
+          & .title-name-emotion{
+            padding: 0 0 0 20px;
+            & .title-name{
+              display: flex;
+              & .title{
+                font-size: 16px;
+                padding: 0 20px 5px 0;
+              }
+              & .name{
+                & a{
+                  text-decoration: none;
+                  color: #a5a1a1;
+                }
+              }
+            }
+            & .emotion{
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      & .tab3{
+        & .data{
+          max-width: 850px;
+          display: flex;
+          padding: 20px 0 0 0;
+          & .title-name-crated-synopsis{
+            padding: 0 0 0 20px;
+            & .title-name-created{
+              display: flex;
+              & .title{
+                font-size: 16px;
+                padding: 0 20px 5px 0;
+              }
+              & .name{
+                & a{
+                  text-decoration: none;
+                  color: #a5a1a1;
+                  padding: 0 20px 0 0;
+                }
+              }
+              & .created{
+                color: #a5a1a1;
+              }
+            }
+            & .synopsis{
+              word-break: keep-all;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

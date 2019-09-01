@@ -48,10 +48,34 @@
   font-weight: bold;
 }
 
-@mixin follow-btn($coloer:#f3f3f3,$font-size:16px,$border-coler:#000000){
+@mixin follow-btn($coloer:#f3f3f3,$font-size:16px,$border-coler:none){
   color: $coloer;
   transition: .3s;
   font-size: $font-size;
   border-bottom: solid 0.5px;
   border-color: $border-coler;
+}
+
+@mixin best-btn{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: double 4px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+@mixin best-btn-hover {
+  background: #fffbef;
+}
+
+@mixin best-btn-after {
+  background: #fffbef;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #930ea5;
+  border: double 4px #9e0992;
+  border-radius: 3px;
 }

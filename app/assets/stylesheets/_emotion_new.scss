@@ -1,19 +1,10 @@
-.emotions-index-wrapper{
-  &__head{
-    position: relative;
-    display: flex;
-    & h2{
-      @include h2();
-    }
-    &__search{
-      padding: 0 0 0 70px;
-      margin: auto 0;
-    }
+.emotions-new-wrapper{
+  & h2{
+    @include h2();
   }
   &__list{
     word-wrap:break-all;
     display: flex;
-    flex-wrap: wrap;
     &__view{
       padding: 20px 70px 40px 40px;
       &__data{
@@ -31,8 +22,7 @@
               color: #a5a1a1;
               font-size: 14px;
               & .name{
-                padding: 0 10px 0 5px;
-                text-decoration: none;
+                padding: 0 0 0 5px;
                 color: #a5a1a1;
               }
               & .day{
@@ -43,9 +33,24 @@
           & .lead{
             font-size: 18px;
             padding: 0 0 5px 0;
-          }
-          & .emotion{
-            width: 400px;
+            & .emotion_create_form{
+              & .emotion-area{
+                height: 200px;
+                width: 400px;
+                resize: none;
+                padding: 0 12px;
+                border-radius: 5px;
+                background-color: rgba(238, 238, 238, 0.1)
+              }
+              & .tag-area{
+                font-size: 12px;
+                width: 160px;
+                background-color: rgba(238, 238, 238, 0.1);
+                padding: 0 12px;
+                border-radius: 1px;
+                border: solid, 1px;
+              }
+            }
           }
         }
       }

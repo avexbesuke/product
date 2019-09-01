@@ -11,8 +11,17 @@
         padding: 0 0 0 40px;
       }
       &__emotion{
-        margin: auto 0;
-        padding: 0 0 0 40px;
+        padding: 0 30px;
+        & .lead{
+          font-size: 20px;
+          padding: 0 0 5px 0;
+        }
+        & .label{
+          font-size: 18px;
+        }
+        & .body{
+          width: 550px;
+        }
       }
     }
     &__heading{

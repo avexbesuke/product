@@ -1,48 +1,44 @@
-%body
-  .emotions-index-wrapper
-    .emotions-index-wrapper__head
-      %h2 本への思い
-      .emotions-index-wrapper__head__search
-        .emotions-index-wrapper__head__search_tags
-          = "タグ一覧:"
-          - @tags.each do |tag|
-            %span.tag
-              = link_to tag, emotions_path(tag_name: tag.name)
-        = search_form_for @search_emotions,class:'emotion-search-form' do |f|
-          = f.search_field :body_or_book_title_cont,placeholder: "本についての思いを探す",class:'emotion-search-form__text'
-          %label.label
-            = f.submit '' , class: 'emotion-search-form__submit'
-            = fa_icon 'search', class: "one-btn"
-        = form_with url:emotions_path(tag_name: :tag_name),class: 'tag-search-form' do |f|
-          = f.text_field :tag_name, placeholder: "タグ検索(感動,笑える)",class:'tag-search-form__text'
-          %label.label
-            = f.submit '' , class: 'tag-search-form__submit'
-            = fa_icon 'search', class: "one-btn"    
+%html.default
+  %body
+    .emotions-index-wrapper
+      .emotions-index-wrapper__head
+        %h2 本への思い
+        .emotions-index-wrapper__head__search
+          .emotions-index-wrapper__head__search_tags
+            = "タグ検索:"
+            - @tags.each do |tag|
+              %span.tag
+                = link_to tag, emotions_path(tag_name: tag.name)
+          = search_form_for @search_emotions,class:'emotion-search-form' do |f|
+            = f.search_field :body_or_book_title_cont,placeholder: "本についての思いを探す",class:'emotion-search-form__text'
+            %label.label
+              = f.submit '' , class: 'emotion-search-form__submit'
+              = fa_icon 'search', class: "one-btn"
 
-    .emotions-index-wrapper__list
-      - @emotions.each do |emotion|
-        .emotions-index-wrapper__list__view
-          .emotions-index-wrapper__list__view__data
-            .mybest-book-wrapper__list__view__image
-              = link_to(image_tag(emotion.book.image_url, size: "186x276"),book_path(emotion.book.id))
-            .data
-              .title
-                = emotion.book.title
-                .user
-                  = "この本が好きな人:"
-                  = link_to emotion.user.username, page_path(emotion.user.id),class: "name"
-                  .day
-                  = emotion.created_at.strftime("%y年%m月%d日")
-              .lead
-                = "本への思い"
-              = simple_format(emotion.body,class:'emotion')
-              .follow
-                - if current_user != emotion.user
-                  = link_to user_relationships_path(emotion.user.id), method: :post,remote: true,class: "emotion__follow__link" do
-                    - if emotion.user.followed_by?(current_user)
-                      = fa_icon 'user', class: "follow-btn follow-btn-on"
-                    - else
-                      = fa_icon 'user', class: "follow-btn follow-btn-off"
+      .emotions-index-wrapper__list
+        - @emotions.each do |emotion|
+          .emotions-index-wrapper__list__view
+            .emotions-index-wrapper__list__view__data
+              .mybest-book-wrapper__list__view__image
+                = link_to(image_tag(emotion.book.image_url, size: "186x276"),book_path(emotion.book.id))
+              .data
+                .title
+                  = emotion.book.title
+                  .user
+                    = "この本が好きな人:"
+                    = link_to emotion.user.username, page_path(emotion.user.id),class: "name"
+                    .follow
+                      - if current_user != emotion.user
+                        = link_to user_relationships_path(emotion.user.id), method: :post,remote: true,class: "emotion__follow__link" do
+                          - if emotion.user.followed_by?(current_user)
+                            = fa_icon 'user', class: "follow-btn follow-btn-on"
+                          - else
+                            = fa_icon 'user', class: "follow-btn follow-btn-off"
+                    .day
+                    = emotion.created_at.strftime("%y年%m月%d日")
+                .lead
+                  = "本への思い"
+                = simple_format(emotion.body,class:'emotion')
 
-= paginate @emotions
+    = paginate @emotions
 

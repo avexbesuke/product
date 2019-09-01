@@ -1,10 +1,29 @@
-= form_with model:@emotion,url: emotions_path, method: :post,local: true do |f|
-  = f.label :title ,'あたなに影響を与えた本のタイトル' 
-  = f.text_field :title, value: params[:title],readonly: true
-  = f.text_field :author, value: params[:author],readonly: true
-  = f.text_area  :body
-  = f.hidden_field :synopsis, value: params[:synopsis]
-  = f.hidden_field :image_url, value: params[:image_url]
-  
-  = f.text_field :tag_list, value: @emotion.tag_list.join(',')
-  = f.submit '決定'
+%html.default
+  %body
+    .emotions-new-wrapper
+      %h2 
+        = "”#{params[:title]}” を好きなわけ"
+      .emotions-new-wrapper__list
+        .emotions-new-wrapper__list__view
+          .emotions-new-wrapper__list__view__data
+            .emotions-new-wrapper__list__view__data__image
+              = image_tag(params[:image_url], size: "186x276")
+            .data
+              .title
+                = params[:title]
+                .user
+                  = "この本が好きな人:"
+                  .name
+                    = current_user.username
+                  .day
+                    = Date.today.to_time.strftime("%y年%m月%d日")
+              .lead
+                = "本への思い"
+                = form_with model:@emotion,url: emotions_path, method: :post,local: true,class: 'emotion_create_form' do |f|
+                  = f.hidden_field :title, value: params[:title]
+                  = f.hidden_field :author, value: params[:author]
+                  = f.text_area :body,class: 'emotion-area',maxlength: "200"
+                  = f.hidden_field :synopsis, value: params[:synopsis]
+                  = f.hidden_field :image_url, value: params[:image_url]
+                  = f.text_field :tag_list,class: 'tag-area', value: @emotion.tag_list.join(','),placeholder: "タグ付け(感動,シリアス)",maxlength: "20"
+                  = f.submit '決定'

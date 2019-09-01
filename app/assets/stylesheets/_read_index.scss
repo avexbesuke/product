@@ -26,6 +26,25 @@
         &__title{
           font-size: 18px;
           padding: 0 0 10px 0;
+          max-width: 200px;
+          max-height: 37px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        &__submit{
+          text-align: center;
+          & .best-btn{
+            @include best-btn;
+          }
+          & .best-btn:hover{
+            @include best-btn-hover;
+          }
+          & .best-btn-after{
+            width: 133px;
+            height: 22px;
+            @include best-btn-after;
+          }
         }
       }
     }

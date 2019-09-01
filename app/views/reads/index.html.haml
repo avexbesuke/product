@@ -21,5 +21,10 @@
                   = f.hidden_field :title, value: book.title
                   = f.hidden_field :author, value: book.author
                   = f.hidden_field :synopsis, value: book.synopsis
-                  = f.submit 'マイベストにする!!'
-        = paginate @user_read_books
+                  .readed-lists__list__date__submit
+                    - if current_user.books.where(id: book.id).length == 0
+                      = f.submit 'マイベストにする!',class: 'best-btn'
+                    - else
+                      .best-btn-after
+                        = "マイベスト！"
+      = paginate @user_read_books

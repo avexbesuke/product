@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @user_books    = current_user.books
-    @user_emotions = current_user.emotions
-    @i = 0
+    @user = User.find(params[:id])
+    @user_emotions =  User.find(params[:id]).emotions.page(params[:page]).per(10)
   end
 
   def index

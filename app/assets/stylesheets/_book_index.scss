@@ -23,6 +23,34 @@
           right: 70px;
         }
       }
+      &__title{
+        max-width: 250px;
+        max-height: 24px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      &__authors{
+        max-width: 250px;
+        max-height: 24px;
+        min-width: 250px;
+        min-height: 24px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      &__submit{
+        & .best-btn{
+          @include best-btn;
+        }
+        & .best-btn:hover{
+          @include best-btn-hover;
+        }
+        & .best-btn-after{
+          width: 143px;
+          @include best-btn-after;
+        }
+      }
     }
   }
 }
