@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post 'book_search', to: 'books#index'
   get 'book_search', to: 'books#index'
 
-  resources :emotions, only: [:new,:create,:index]
+  resources :emotions, only: [:new,:create,:index,:edit,:update,:destroy]
   post 'emotion_write', to: 'emotions#new'
 
   resources :users, only: [:show]
@@ -29,4 +29,6 @@ Rails.application.routes.draw do
     get :follows, on: :member
     get :followers, on: :member
   end
+
+  get 'emotion_write', to: 'emotions#new'
 end

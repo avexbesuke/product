@@ -13,12 +13,18 @@
               - if emotion.tag_list.length != 0
                 = render 'emotions/tag_list', tag_list: emotion.tag_list
               .lead
-                = emotion.book.title
+                .title
+                  = emotion.book.title
+                .edit
+                  = link_to edit_emotion_path(emotion.id) do
+                    = fa_icon "edit"
+                .delete
+                  = link_to emotion_path(emotion.id),method: :delete do
+                    = fa_icon "trash"
               .label
                 = "好きなわけ:"
               .body  
                 = simple_format(emotion.body)
-          
           - @othere_users = emotion.book.users.where.not(id: emotion.user.id).order("RAND()").limit(5)
           - @other_books = []
           .mybest-book-wrapper__list__heading

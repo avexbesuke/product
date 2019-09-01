@@ -1,5 +1,8 @@
 class EmotionsController < ApplicationController
   def new
+    if params[:title] == nil
+      redirect_to root_path
+    end
     @emotion = Emotion.new()
   end
 
@@ -12,9 +15,31 @@ class EmotionsController < ApplicationController
     @emotion = Emotion.new(emotion_params)
     @emotion.book_id = book_id
     if @emotion.save
-      redirect_to root_path
+      redirect_to user_path(@emotion.user.id)
     else
       render :new
+    end
+  end
+
+  def edit
+    @emotion = Emotion.find(params[:id])
+  end
+
+  def update
+    @emotion = Emotion.find(params[:id])
+    if @emotion.update(emotion_params)
+      redirect_to user_path(@emotion.user.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @emotion = Emotion.find(params[:id])
+    if @emotion.destroy
+      redirect_to user_path(@emotion.user.id)
+    else 
+      redirect_to user_path(@emotion.user.id)
     end
   end
 
