@@ -1,6 +1,6 @@
 @mixin body($url:'book.jpg'){
   background-color: rgba(52, 152, 247, 0.4);
-  background: url($url) fixed;
+  background: asset-url($url) fixed;
   background-size: cover;
 }
 
