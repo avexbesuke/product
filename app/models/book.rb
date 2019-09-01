@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   has_many :emotions, dependent: :destroy
-  has_many :users, through: :emotions
+  has_many :users, through: :emotions, dependent: :destroy
   has_many :reads
   has_many :read_users, through: :reads, source: :user
 

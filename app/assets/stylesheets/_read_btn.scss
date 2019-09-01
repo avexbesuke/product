@@ -7,9 +7,9 @@
 }
 
 .follow-btn-on{
-  @include follow-btn(#9906ee,20px,#ebd725);
+  @include follow-btn(#f7289a);
 }
 
 .follow-btn-off{
-  @include follow-btn();
+  @include follow-btn(#443e3e);
 }

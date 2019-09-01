@@ -1,0 +1,54 @@
+.emotions-index-wrapper{
+  &__head{
+    position: relative;
+    display: flex;
+    & h2{
+      @include h2();
+    }
+    &__search{
+      padding: 0 0 0 70px;
+      margin: auto 0;
+    }
+  }
+  &__list{
+    word-wrap:break-all;
+    display: flex;
+    flex-wrap: wrap;
+    &__view{
+      padding: 20px 70px 40px 40px;
+      &__data{
+        display: flex;
+        position: relative;
+        width: 550px;
+        & .data{
+          padding: 0 30px;
+          & .title{
+            font-size: 18px;
+            padding: 0 0 5px 0;
+            & .user{
+              padding: 2px 0 0 0;
+              display: flex;
+              color: #a5a1a1;
+              font-size: 14px;
+              & .name{
+                padding: 0 10px 0 5px;
+                text-decoration: none;
+                color: #a5a1a1;
+              }
+              & .day{
+                padding: 0 0 0 65px;
+              }
+            }
+          }
+          & .lead{
+            font-size: 18px;
+            padding: 0 0 5px 0;
+          }
+          & .emotion{
+            width: 400px;
+          }
+        }
+      }
+    }
+  }
+}

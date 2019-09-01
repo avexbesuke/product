@@ -3,11 +3,49 @@
     @include h2();
   }
   & .readed-lists{
-    .readed-lists__list{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    padding: 0 0 0 40px;
+    &__list{
+      display: inline-block;
+      padding: 20px 20px 30px 20px;
+      height: 300px;
+      min-height: 300px;
       display: flex;
       position: relative;
-      &__image-title{
-        
+      &__image{
+        transition-duration: 0.3s;
+      }
+      &__image:hover{
+        opacity: 0.6;
+        transition-duration: 0.3s;
+      }
+      &__date{
+        padding: 0 0 0 15px;
+        &__title{
+          font-size: 18px;
+          padding: 0 0 10px 0;
+          max-width: 200px;
+          max-height: 37px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        &__submit{
+          text-align: center;
+          & .best-btn{
+            @include best-btn;
+          }
+          & .best-btn:hover{
+            @include best-btn-hover;
+          }
+          & .best-btn-after{
+            width: 133px;
+            height: 22px;
+            @include best-btn-after;
+          }
+        }
       }
     }
   }

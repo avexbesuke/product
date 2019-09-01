@@ -11,8 +11,28 @@
         padding: 0 0 0 40px;
       }
       &__emotion{
-        margin: auto 0;
-        padding: 0 0 0 40px;
+        padding: 0 30px;
+        & .lead{
+          display: flex;
+          & .title{
+            font-size: 20px;
+            padding: 0 0 5px 0;
+          }
+          & .edit{
+            padding: 3px 0 0 10px;
+          }
+          & .delete{
+            padding: 2px 0 0 5px;
+            text-decoration: none;
+            color: #000;
+          }
+        }
+        & .label{
+          font-size: 18px;
+        }
+        & .body{
+          width: 550px;
+        }
       }
     }
     &__heading{

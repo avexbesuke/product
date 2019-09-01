@@ -1,34 +1,45 @@
-%body
-  .mybest-book-wrapper
-    %h2 あなたのマイベストブック！
-    .mybest-book-wrapper__list
-      - @user_books.each do |book|
-        - emotion = @user_emotions[@i]
-        - @i += 1
-        .mybest-book-wrapper__list__view
-          .mybest-book-wrapper__list__view__data
-            .mybest-book-wrapper__list__view__image
-              = image_tag(book.image_url, size: "226x316")
-            .mybest-book-wrapper__list__view__title
-              = book.title
-          .mybest-book-wrapper__list__view__emotion
-            - if emotion.tag_list.length != 0
-              = render 'emotions/tag_list', tag_list: emotion.tag_list
-            = emotion.body
-        - @othere_users = book.users.where.not(id: current_user.id).limit(5)
-        - @other_user_like_book = []
-        .mybest-book-wrapper__list__heading
-          = "”#{book.title}” を ”好きな人が好きな本”"
-        - if @othere_users.length > 1
-          .mybest-book-wrapper__list__view-other
-            - @othere_users.each do |othere_user|
-              - @other_user_like_book.push(othere_user.books.where.not(id: book.id).limit(1))
-            - @other_user_like_book.each do |othere_book|
-              .mybest-book-wrapper__list__view-other__list
-                .mybest-book-wrapper__list__view-other__list__image
-                  = link_to(image_tag(othere_book[0].image_url), book_path(othere_book[0].id))
-                .mybest-book-wrapper__list__view-other__list__title
-                  = othere_book[0].title
-        - else
-          .yohaku
-           
+%html.default
+  %body
+    .mybest-book-wrapper
+      %h2 
+        = "”#{@user.username}”のマイベストブック！"
+      .mybest-book-wrapper__list
+        - @user_emotions.each do |emotion|
+          .mybest-book-wrapper__list__view
+            .mybest-book-wrapper__list__view__data
+              .mybest-book-wrapper__list__view__image
+                = link_to(image_tag(emotion.book.image_url, size: "226x316"),book_path(emotion.book.id))
+            .mybest-book-wrapper__list__view__emotion
+              - if emotion.tag_list.length != 0
+                = render 'emotions/tag_list', tag_list: emotion.tag_list
+              .lead
+                .title
+                  = emotion.book.title
+                .edit
+                  = link_to edit_emotion_path(emotion.id) do
+                    = fa_icon "edit"
+                .delete
+                  = link_to emotion_path(emotion.id),method: :delete do
+                    = fa_icon "trash"
+              .label
+                = "好きなわけ:"
+              .body  
+                = simple_format(emotion.body)
+          - @othere_users = emotion.book.users.where.not(id: emotion.user.id).order("RAND()").limit(5)
+          - @other_books = []
+          .mybest-book-wrapper__list__heading
+            = "”#{emotion.book.title}” を ”好きな人が好きな本”"
+          - if @othere_users.length > 1
+            .mybest-book-wrapper__list__view-other
+              - @othere_users.each do |user|
+                -if user.emotions.length > 1
+                  - @other_books.push(user.books.where.not(id: emotion.book.id).order("RAND()").limit(1))
+              - @other_books.each do |book|
+                .mybest-book-wrapper__list__view-other__list
+                  .mybest-book-wrapper__list__view-other__list__image
+                    = link_to(image_tag(book[0].image_url,size: "128x192"), book_path(book[0].id))
+                  .mybest-book-wrapper__list__view-other__list__title
+                    = book[0].title
+          - else
+            .yohaku
+    = paginate @user_emotions

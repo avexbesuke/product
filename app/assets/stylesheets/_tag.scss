@@ -1,4 +1,16 @@
 .tag{
-  background-color: #21bec9; 
-  border-radius: 2px;
+  margin: 0 2px 0 0;
+  width: 48px;
+  & a{
+    border-radius: 2px;
+    background-color: #21bec9; 
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    transition-duration: 0.3s;
+  }
+  & a:hover{
+    opacity: 0.6;
+    transition-duration: 0.3s;
+  }
 }

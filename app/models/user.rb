@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :emotions, dependent: :destroy
-  has_many :books, through: :emotions
+  has_many :books, through: :emotions, dependent: :destroy
   
   has_many :reads
   has_many :read_books, through: :reads, source: :book
