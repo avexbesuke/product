@@ -25,8 +25,10 @@
                 .title
                   = emotion.book.title
                   .user
-                    = "この本が好きな人:"
-                    = link_to emotion.user.username, page_path(emotion.user.id),class: "name"
+                    .lead
+                      = "この本が好きな人:"
+                    .name
+                      = link_to emotion.user.username, page_path(emotion.user.id),class: "name"
                     .follow
                       - if current_user != emotion.user
                         = link_to user_relationships_path(emotion.user.id), method: :post,remote: true,class: "emotion__follow__link" do
@@ -35,7 +37,7 @@
                           - else
                             = fa_icon 'user', class: "follow-btn follow-btn-off"
                     .day
-                    = emotion.created_at.strftime("%y年%m月%d日")
+                      = emotion.created_at.strftime("%y年%m月%d日")
                 .lead
                   = "本への思い"
                 = simple_format(emotion.body,class:'emotion')
