@@ -19,7 +19,7 @@
                         -else
                           = fa_icon 'book',class: 'read-btn read-btn-off'
                   -else
-                    = image_tag("noimage", size:"128x181")
+                    = image_tag("noimage.png", size:"128x181")
                     = link_to reads_path(title:book["volumeInfo"]["title"],author:book["volumeInfo"]["authors"],image_url:"noimage.png",synopsis:book["volumeInfo"]["description"]), method: :post,class: "book__image__link", remote: true do
                       -if user_signed_in?
                         -if Book.find_by(title: book["volumeInfo"]["title"]) != nil
