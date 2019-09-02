@@ -1,7 +1,7 @@
-@mixin search_form($width,$btn-raight:25px) {
+@mixin search_form($width,$btn-raight:25px,$top:5px) {
     & .one-btn{
       position: absolute;
-      top: 5px;
+      top: $top;
       right: $btn-raight;
       color: rgb(128, 128, 128);
     }
@@ -32,5 +32,5 @@
 .emotion-search-form{
   padding: 3px 0;
   position: relative;
-  @include search_form(230px,15px);
+  @include search_form(230px,5px,7px);
 }
