@@ -1,5 +1,6 @@
-%body.login-body
+%html.login-body
   .login-wrapper
+    = render "devise/shared/error_messages", resource: resource
     .login-wrapper__container
       %h2 ログイン
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

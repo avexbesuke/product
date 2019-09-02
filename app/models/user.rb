@@ -26,8 +26,8 @@ class User < ApplicationRecord
     passive_relationships.find_by(following_id: user.id).present?
   end
 
-  validate :file_type?
-  validate :image_size
+  #validate :file_type?
+  #validate :image_size
 
   private
   def image_size
@@ -37,8 +37,10 @@ class User < ApplicationRecord
   end
 
   def file_type?
-    if !image.content_type.in?(%('image/jpec image/png'))
-      errors.add(:images, 'needs to be a JPEG or PNG')
+    if image.attached?
+      if !image.content_type.in?(%('image/jpeg image/png'))
+        errors.add(:images, 'needs to be a JPEG or PNG')
+      end
     end
   end
 end

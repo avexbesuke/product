@@ -27,7 +27,7 @@
           .page-show-wrapper__side__profile__lead
             = "自己紹介"
           .page-show-wrapper__side__profile__body
-            = simple_format(@user.profile)
+            = @user.profile
         %ul.tab_ul
           %li.tab_li
             %a.current.tab1.tab_a{href:"#tab1"}= "直近読書履歴"
