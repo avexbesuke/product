@@ -1,23 +1,66 @@
 %html.default
-  .a
-    = fa_icon "search"
-    %h2.a= "あなたの好きな本を好きな理由を記録しよう！！！"
-    = "あなたの好きな本を検索！！！"
-    = "好きな理由を登録！！！！"
-  .a
-    = fa_icon "bookmark"
-    %h2.b="あなただけのマイベストブックス！！"
-    = "あなたの好きな本を好きな人が好きな本が表示！！"
-  .a
-    = fa_icon "book"
-    %h2.c= "読書履歴を残そう！！！"
-    = "いつどの本をどの順番で読んできたか、わかる！！"
-  .a
-    = fa_icon "commenting"
-    %h2.d= "色々な人の好きな本を好きな理由が見れる！！"
-    = "趣味があいそうな人はフォーロしよう！！"
-  .a
-    = fa_icon "user"
-    %h2.e="マイページ！！"
-    = "あなたのマイページにフォローしたユーザのマイベスト・読書履歴が表示される！"
-    = "早速ログインした使ってみよう！！！"
+  .page_about-wrapper
+    .page_about-wrapper__left
+      .page_about-wrapper__left__content
+        .page_about-wrapper__left__content__icon-title
+          .icon
+            = fa_icon "search"
+          .title
+            %h2= "”好きな本” を 好きな”わけ”を投稿しよう！"
+        .page_about-wrapper__left__content__descript
+          .first
+            = "あなたのマイベストな本を検索"
+          .second
+            = "好きな”わけ”を書いてマイベストに登録"
+      .page_about-wrapper__left__image
+        .image
+          = image_tag("about.jpg",size: "670x390")
+    .page_about-wrapper__right
+      .page_about-wrapper__right__content
+        .page_about-wrapper__right__content__icon-title
+          .icon
+            = fa_icon "bookmark"
+          .title
+            %h2.b="あなたのマイベストブックス！"
+        .page_about-wrapper__right__content__descript
+          .first
+            = "あなたが ”好きな本” を ”好きな人” が ”好きな本” も表示されます"
+          .second  
+            = "好きな本から、また別の本へと繋がります"
+      .page_about-wrapper__right__content
+        .page_about-wrapper__right__content__icon-title
+          .icon
+            = fa_icon "history"
+          .title
+            %h2.c= "読書履歴！"
+        .page_about-wrapper__right__content__descript
+          .first
+            = "本を読んできたあなたの歴史が、分かる"
+          .second
+            = "本の検索結果から読書ボタンを押すだけ"
+            = fa_icon "book"
+          
+      .page_about-wrapper__right__content
+        .page_about-wrapper__right__content__icon-title
+          .icon
+            = fa_icon "commenting"
+          .title
+            %h2.d= "様々な人の、本が好きな”わけ”"
+        .page_about-wrapper__right__content__descript
+          = "好みがあいそうな人はフォローしよう"
+          = fa_icon "user-circle"
+      .page_about-wrapper__right__content
+        .page_about-wrapper__right__content__icon-title
+          .icon
+            = fa_icon "user"
+          .title
+            %h2.e="マイページ！"
+        .page_about-wrapper__right__content__descript
+          .first
+            = "マイページにフォローユーザ直近のマイベスト・読書履歴が表示されます"
+          - if user_signed_in?
+          - else
+            .last
+              = "早速登録して使ってみてください"
+            .btn
+              = link_to "ログイン",new_user_session_path

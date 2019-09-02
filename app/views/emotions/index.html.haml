@@ -33,9 +33,9 @@
                       - if current_user != emotion.user
                         = link_to user_relationships_path(emotion.user.id), method: :post,remote: true,class: "emotion__follow__link" do
                           - if emotion.user.followed_by?(current_user)
-                            = fa_icon 'user', class: "follow-btn follow-btn-on"
+                            = fa_icon 'user-circle', class: "follow-btn follow-btn-on"
                           - else
-                            = fa_icon 'user', class: "follow-btn follow-btn-off"
+                            = fa_icon 'user-circle', class: "follow-btn follow-btn-off"
                     .day
                       = emotion.created_at.strftime("%y年%m月%d日")
                 .lead
