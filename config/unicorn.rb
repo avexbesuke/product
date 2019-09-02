@@ -1,11 +1,8 @@
 #サーバ上でのアプリケーションコードが設置されているディレクトリを変数に入れておく
-app_path = File.expand_path('../../', __FILE__)
+app_path = File.expand_path('../../../', __FILE__)
 
 #アプリケーションサーバの性能を決定する
 worker_processes 1
-
-#アプリケーションの設置されているディレクトリを指定
-working_directory app_path
 # currentを指定
 working_directory "#{app_path}/current"
 
