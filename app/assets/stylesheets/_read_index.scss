@@ -1,4 +1,5 @@
 .rade-index-wrapper{
+  position: relative;
   & h2{
     @include h2();
   }
@@ -49,8 +50,4 @@
       }
     }
   }
-}
-
-.pagination{
-  display: flex;
 }

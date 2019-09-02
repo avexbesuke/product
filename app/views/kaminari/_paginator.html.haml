@@ -1,18 +1,10 @@
--#  The container tag
--#  available local variables
--#    current_page:  a page object for the currently displayed page
--#    total_pages:   total number of pages
--#    per_page:      number of items to fetch per page
--#    remote:        data-remote
--#    paginator:     the paginator that renders the pagination tags inside
+:css
+  .pagination{padding:.3em;margin:.3em; font: 13.34px helvetica,arial,freesans,clean,sans-serif;}
+  .pagination a{padding:.1em .3em;margin:.2em;border:1px solid #aad;text-decoration:none;color:#369;}
+  .pagination a:hover,.pagination a:active{border:1px solid #369;color:#000;}
+  .pagination span.current{padding:.1em .3em;margin:.2em;border:1px solid #369;font-weight:bold;background-color:#369;color:#FFF;}
+  .pagination span.disabled{padding:.1em .3em;margin:.2em;border:1px solid #eee;color:#ddd;}
 = paginator.render do
-  %nav.pagination
-    = first_page_tag unless current_page.first?
-    = prev_page_tag unless current_page.first?
-    - each_page do |page|
-      - if page.left_outer? || page.right_outer? || page.inside_window?
-        = page_tag page
-      - elsif !page.was_truncated?
-        = gap_tag
-    = next_page_tag unless current_page.last?
-    = last_page_tag unless current_page.last?
+  .pagination<
+    = prev_page_tag
+    = next_page_tag

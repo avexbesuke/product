@@ -3,7 +3,7 @@
 }
 
 .read-btn-off{
-  @include follow-btn();
+  @include follow-btn(#000000);
 }
 
 .follow-btn-on{

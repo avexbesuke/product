@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
-  def index
-  end
+  def index; end
 
   def show
     @user = User.find(params[:id])
@@ -18,13 +17,13 @@ class PagesController < ApplicationController
         reads = Read.where(user_id: user.id).order(created_at: :desc)
         @othere_reads.concat(reads)
       end
-      @othere_emotions = @othere_emotions.sort_by!{|emotion| emotion.created_at}.reverse!
-      @othere_reads = @othere_reads.sort_by!{|read| read.created_at}.reverse!
+      @othere_emotions = @othere_emotions.sort_by!(&:created_at).reverse!
+      @othere_reads = @othere_reads.sort_by!(&:created_at).reverse!
     end
-
   end
 
   private
+
   def follows
     user = User.find(params[:id])
     @users = user.followings
