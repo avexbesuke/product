@@ -42,5 +42,8 @@
                   = "本への思い"
                 = simple_format(emotion.body,class:'emotion')
 
-    = paginate @emotions
+      .pagenate-top
+        = paginate @emotions
+      .pagenate-bottom
+        = paginate @emotions
 

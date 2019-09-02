@@ -27,4 +27,7 @@
                     - else
                       .best-btn-after
                         = "マイベスト！"
-      = paginate @user_read_books
+      .pagenate-top
+        = paginate @user_read_books
+      .pagenate-bottom
+        = paginate @user_read_books
