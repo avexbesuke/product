@@ -89,3 +89,5 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ransack'
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
+gem 'mini_magick'
+gem 'aws-sdk-s3', require: false
