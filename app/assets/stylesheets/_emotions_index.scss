@@ -31,16 +31,17 @@
               color: #a5a1a1;
               font-size: 14px;
               & .lead{
-                min-width: 150px;
+                font-size: 14px;
+                min-width: 120px;
               }
               & .name{
-                padding: 0 5px 0 15px;
+                padding: 0 3px 0 0px;
                 text-decoration: none;
                 color: #a5a1a1;
               }
               & .day{
                 min-width: 115px;
-                padding: 0 0 0 25px;
+                padding: 0 0 0 10px;
               }
             }
           }
