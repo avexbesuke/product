@@ -1,10 +1,11 @@
-%body.signup-body
+%html.signup-body
   .signup-wrapper
+    = render "devise/shared/error_messages", resource: resource
     .signup-wrapper__container
       %h2 新規登録
       = form_for(resource, as: resource_name, url: user_registration_path,method: :post) do |f|
         .new_user__field.new_user__username
-          = f.text_field :username, autofocus: true, class: "new_user__input user-username",placeholder: "  あなたのお名前"
+          = f.text_field :username, autofocus: true, class: "new_user__input user-username",placeholder: "  あなたのお名前(10文字以内)",maxlength: "10"
           .alert お名前の入力をお願いします。
         .new_user__field.new_user__email
           = f.email_field :email, autofocus: true, class: "new_user__input user-email",placeholder: "  あなたのメールアドレス"

@@ -25,4 +25,22 @@ class User < ApplicationRecord
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
+
+  #validate :file_type?
+  #validate :image_size
+
+  private
+  def image_size
+    if image.attached?
+      errors.add(:images, '1メガバイト以上は添付できません。') if image.blob.byte_size > 1.megabytes
+    end
+  end
+
+  def file_type?
+    if image.attached?
+      if !image.content_type.in?(%('image/jpeg image/png'))
+        errors.add(:images, 'needs to be a JPEG or PNG')
+      end
+    end
+  end
 end
