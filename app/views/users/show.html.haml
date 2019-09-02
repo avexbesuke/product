@@ -25,21 +25,30 @@
                 = "好きなわけ:"
               .body  
                 = simple_format(emotion.body)
-          - @othere_users = emotion.book.users.where.not(id: emotion.user.id).order("RAND()").limit(5)
-          - @other_books = []
           .mybest-book-wrapper__list__heading
             = "”#{emotion.book.title}” を ”好きな人が好きな本”"
-          - if @othere_users.length > 1
-            .mybest-book-wrapper__list__view-other
-              - @othere_users.each do |user|
-                -if user.emotions.length > 1
-                  - @other_books.push(user.books.where.not(id: emotion.book.id).order("RAND()").limit(1))
-              - @other_books.each do |book|
-                .mybest-book-wrapper__list__view-other__list
-                  .mybest-book-wrapper__list__view-other__list__image
-                    = link_to(image_tag(book[0].image_url,size: "128x192"), book_path(book[0].id))
-                  .mybest-book-wrapper__list__view-other__list__title
-                    = book[0].title
-          - else
-            .yohaku
+
+          - @book_users = emotion.book.users.where.not(id: emotion.user.id).order("RAND()").limit(5)
+          - @other_users = []
+          - @book_users.each do |user|
+            - if user.books.length > 1
+              - @other_users.push(user)
+          - @other_books = []
+          - 5.times do
+            - if @other_users.length == 0
+              - break
+            - user = @other_users.sample
+            - other_book = user.books.where.not(id: emotion.book.id).order("RAND()").limit(1)
+            - @other_books.push(other_book)
+            - @other_users.delete(user)
+          .mybest-book-wrapper__list__view-other    
+            - @other_books.each do |book|
+              .mybest-book-wrapper__list__view-other__list
+                .mybest-book-wrapper__list__view-other__list__image
+                  = link_to(image_tag(book[0].image_url,size: "128x192"), book_path(book[0].id))
+                .mybest-book-wrapper__list__view-other__list__title
+                  = book[0].title
+            - if @other_books.length == 0
+              .yohaku
+
     = paginate @user_emotions

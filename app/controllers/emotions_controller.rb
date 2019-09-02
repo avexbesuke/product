@@ -36,7 +36,7 @@ class EmotionsController < ApplicationController
 
   def destroy
     @emotion = Emotion.find(params[:id])
-    if @emotion.destroy
+    if @emotion.delete
       redirect_to user_path(@emotion.user.id)
     else 
       redirect_to user_path(@emotion.user.id)
