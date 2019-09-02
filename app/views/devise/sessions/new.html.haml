@@ -13,3 +13,8 @@
         = f.submit "ログイン", class: 'btn-login'
       %p.login-wrapper__container__forget-pass
         パスワードを忘れた場合こちら！
+
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = f.hidden_field :email,value:"karimen@karimen.com"
+        = f.hidden_field :password,value:"karimen@karimen.com"
+        = f.submit "確認用ログイン", class: 'btn-easylogin'

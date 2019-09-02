@@ -37,5 +37,11 @@
     & .btn-login:hover{
       background: #0d1c36;
     }
+    & .btn-easylogin{
+      @include btn();
+    }
+    & .btn-easylogin:hover{
+      background: #0d1c36;
+    }
   }
 }
