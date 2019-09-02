@@ -6,9 +6,31 @@
   &__mypage{
     position: relative;
     padding: 20px 100px 20px 100px;
+    text-align: center;
+    &__image{
+      padding: 0 0 10px 0;
+    }
+    &__best-book{
+      &__lead{
+        padding: 0 0 5px 0;
+        font-size: 18px;
+      }
+    }
   }
   &__side{
     padding: 50px 0 0 0;
+    &__profile{
+      padding: 0 0 70px 0;
+      &__lead{
+        font-size: 18px;
+        padding: 0 0 5px 0;
+      }
+      &__body{
+        word-break: keep-all;
+        font-size: 16px;
+        max-width: 850px;
+      }
+    }
     &__content{
       & .tab1{
         & .data{

@@ -5,25 +5,29 @@
     .page-show-wrapper
       .page-show-wrapper__mypage
         .page-show-wrapper__mypage__image
-        -if @user.image.attached?
-          -if current_user.id == @user.id
-            = link_to(image_tag(@user.image,size:"128x128"),edit_user_registration_path(@user.id))
-          -else
-            = image_tag(@user.image,size:"128x128")
-        -else 
-          -if current_user.id == @user.id
-            = link_to(image_tag("default.png"),edit_user_registration_path(@user.id))
-          -else
-            = image_tag("default.png")
-        .page-show-wrapper__mypage__profile
-          = @user.profile
+          -if @user.image.attached?
+            -if current_user.id == @user.id
+              = link_to(image_tag(@user.image,size:"128x128"),edit_user_registration_path(@user.id))
+            -else
+              = image_tag(@user.image,size:"128x128")
+          -else 
+            -if current_user.id == @user.id
+              = link_to(image_tag("default.png"),edit_user_registration_path(@user.id))
+            -else
+              = image_tag("default.png")
         .page-show-wrapper__mypage__best-book
-          = "最初のベスト!"
+          .page-show-wrapper__mypage__best-book__lead
+            = "最初のベスト本!"
           -if @fast_best_book != nil
             .page-show-wrapper__mypage__best-book__image
               = link_to(image_tag(@fast_best_book.image_url,size: "148x228"),book_path(@fast_best_book.id))
       
       .page-show-wrapper__side
+        .page-show-wrapper__side__profile
+          .page-show-wrapper__side__profile__lead
+            = "自己紹介"
+          .page-show-wrapper__side__profile__body
+            = simple_format(@user.profile)
         %ul.tab_ul
           %li.tab_li
             %a.current.tab1.tab_a{href:"#tab1"}= "直近読書履歴"
