@@ -7,7 +7,7 @@ jobs:
         environment:
           RAILS_ENV: test
           BUNDLE_PATH: "vendor/bundle"
-          BUNDLER_VERSION: 2.0.2
+          BUNDLER_VERSION: 1.16.1
       - image: circleci/mysql:5.7
         environment:
           #MYSQL_ALLOW_EMPTY_PASSWORD: true yesで、rootユーザに空のパスワードを設定してコンテナを起動することを許可
@@ -16,15 +16,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run:
-          name: bundle のｾｯﾄｱｯﾌﾟ bundler2系に対応
-          command: |
-            sudo gem update --system
-            yes | sudo gem uninstall bundler
-            #yes | sudo rm /usr/local/bin/bundle
-            #yes | sudo rm /usr/local/bin/bundler
-            yes | sudo gem install bundler -v 1.16.1
-            when: always
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
