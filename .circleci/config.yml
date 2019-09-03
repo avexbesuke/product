@@ -9,10 +9,11 @@ jobs:
           BUNDLER_VERSION: 1.16.1
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: '20186hinsitu@'
-          MYSQL_PORT: 3306
-      - image: circleci/mysql:5.7
-        environment:
           MYSQL_DATABASE: app_name_test
+          MYSQL_PORT: 3306
+          DB_HOST: 127.0.0.1
+      - image: circleci/mysql:5.7
+          
     working_directory: ~/repo
     steps:
       - checkout
