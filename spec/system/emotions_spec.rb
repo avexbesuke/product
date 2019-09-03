@@ -5,7 +5,7 @@ describe '本を好きなわけ機能', type: :system do
     before do
       user_a = FactoryBot.create(:user)
       FactoryBot.create(:book)
-  
+
       visit new_user_session_path
       fill_in 'user_email', with: 'test@test.com'
       fill_in 'user_password', with: 'testpass'
