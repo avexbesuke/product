@@ -22,7 +22,7 @@ jobs:
             sudo gem update --system
             yes | sudo gem uninstall bundler
             yes | sudo rm /usr/local/bin/bundle
-            yes | sudo rm /usr/local/bin/bundler
+            #yes | sudo rm /usr/local/bin/bundler
             yes | sudo gem install bundler
       - restore_cache:
           keys:
