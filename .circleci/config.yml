@@ -10,11 +10,9 @@ jobs:
           BUNDLER_VERSION: 1.16.1
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-          MYSQL_ROOT_PASSWORD: ''
-          #MYSQL_ROOT_PASSWORD: root
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: test_db
-          DB_HOST: 127.0.0.1
+          #DB_HOST: 127.0.0.1
     working_directory: ~/repo
     steps:
       - checkout
