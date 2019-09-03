@@ -32,7 +32,7 @@ jobs:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
 
-      - run: mv config/database.yml.ci config/database.yml
+      #- run: mv config/database.yml.ci config/database.yml
       #- run: bundle exec rake db:create
       
       - run:
