@@ -8,7 +8,9 @@ jobs:
           RAILS_ENV: test
           BUNDLE_PATH: "vendor/bundle"
           BUNDLER_VERSION: 1.16.1
-          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_PASSWORD: ''
+          #MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: test_db
           DB_HOST: 127.0.0.1
       - image: circleci/mysql:5.7
