@@ -20,10 +20,10 @@ jobs:
           name: bundle のｾｯﾄｱｯﾌﾟ bundler2系に対応
           command: |
             sudo gem update --system
-            sudo gem uninstall bundler
-            sudo rm /usr/local/bin/bundle -y
-            sudo rm /usr/local/bin/bundler -y
-            sudo gem install bundler -y
+            yes | sudo gem uninstall bundler
+            yes | sudo rm /usr/local/bin/bundle
+            yes | sudo rm /usr/local/bin/bundler
+            yes | sudo gem install bundler
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
