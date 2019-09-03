@@ -5,18 +5,14 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.0-node-browsers
         environment:
-          #RAILS_ENV: test
-          #BUNDLE_PATH: "vendor/bundle"
-          #BUNDLER_VERSION: 1.16.1
-          #MYSQL_ALLOW_EMPTY_PASSWORD: true
+          RAILS_ENV: test
+          BUNDLE_PATH: "vendor/bundle"
+          BUNDLER_VERSION: 1.16.1
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           #MYSQL_ROOT_PASSWORD: ''
           #MYSQL_ROOT_PASSWORD: 'root'
-          MYSQL_DATABASE: test_db
+          MYSQL_DATABASE: app_name_test
           DB_HOST: 127.0.0.1
-          RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
       - image: circleci/mysql:5.7
     working_directory: ~/repo
     steps:
