@@ -20,7 +20,7 @@ jobs:
           name: bundle のｾｯﾄｱｯﾌﾟ bundler2系に対応
           command: |
             sudo gem update --system
-            sudo gem uninstall bundler -y
+            sudo gem uninstall bundler
             sudo rm /usr/local/bin/bundle -y
             sudo gem install bundler -y
       - restore_cache:
