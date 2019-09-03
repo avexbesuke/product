@@ -24,6 +24,7 @@ jobs:
             yes | sudo rm /usr/local/bin/bundle
             yes | sudo rm /usr/local/bin/bundler
             yes | sudo gem install bundler -v 1.16.1
+            when: always
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
