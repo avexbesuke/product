@@ -22,6 +22,7 @@ jobs:
             sudo gem update --system
             sudo gem uninstall bundler
             sudo rm /usr/local/bin/bundle -y
+            sudo rm /usr/local/bin/bundler -y
             sudo gem install bundler -y
       - restore_cache:
           keys:
