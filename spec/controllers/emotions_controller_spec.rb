@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe EmotionsController, type: :request do
   describe 'GET #index' do
-    it 'indexへ遷移するか' do
+    it 'indexに遷移するか' do
       get emotions_path
       expect(response).to render_template :index
     end
