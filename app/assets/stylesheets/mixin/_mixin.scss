@@ -90,6 +90,7 @@
   }
   &__text{
     display: inline-block;
+    max-width: 240px;
     width: $width;
     height: 25px;
     border: 1px solid #ccc;
