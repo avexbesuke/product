@@ -1,0 +1,78 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: circleci/ruby:2.5.0-node-browsers
+        environment:
+          RAILS_ENV: test
+          BUNDLE_PATH: "vendor/bundle"
+          BUNDLER_VERSION: 2.0.2
+      - image: circleci/mysql:5.7
+        environment:
+          #MYSQL_ALLOW_EMPTY_PASSWORD: true yesで、rootユーザに空のパスワードを設定してコンテナを起動することを許可
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: test_db
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: bundle のｾｯﾄｱｯﾌﾟ bundler2系に対応
+          command: |
+            sudo gem update --system
+            sudo gem uninstall bundler
+            sudo rm /usr/local/bin/bundle
+            #sudo rm /usr/local/bin/bundler
+            sudo gem install bundler
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+          name: install bundle
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: データベースの起動を待機
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+      - run:
+          name: データベースのセットアップ
+          command: bundle exec rake db:schema:load
+      - run:
+          name: gem install bundler
+          command: gem install bundler
+      - run: 
+          name: rspecを実行
+          command: bundle exec rspec
+  
+  code-check:
+    docker:
+      - image: circleci/ruby:2.5.0-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: bundle のｾｯﾄｱｯﾌﾟ bundler2系に対応
+          command: |
+            sudo gem update --system
+            sudo gem uninstall bundler
+            sudo rm /usr/local/bin/bundle
+            sudo rm /usr/local/bin/bundler
+            sudo gem install bundler
+      - run:
+          name: bundle install
+          command: bundle install
+      - run: 
+          name: rubocopを実行
+          command: bundle exec rubocop
+
+workflows:
+  version: 2
+  workflows:
+    jobs:
+      - test
+      - code-check
