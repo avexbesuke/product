@@ -42,6 +42,13 @@ jobs:
       - run:
           name: gem install bundler
           command: gem install bundler
+            # Align chrome-driver's version installed by chromedriver-helper
+      - run:
+          name: クロームドライバーのバージョンを合わせる
+          command: |
+            CHROME_VERSION=$(google-chrome --version | sed -r 's/[^0-9]+([0-9]+\.[0-9]+\.[0-9]+).*/\1/g')
+            CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
+            bundle exec chromedriver-update $CHROMEDRIVER_VERSION
       - run: 
           name: rspecを実行
           command: bundle exec rspec
