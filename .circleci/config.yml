@@ -7,16 +7,12 @@ jobs:
         environment:
           BUNDLE_PATH: "vendor/bundle"
           BUNDLER_VERSION: 1.16.1
-          #MYSQL_ALLOW_EMPTY_PASSWORD: true
-          #MYSQL_ROOT_PASSWORD: ''
-          #MYSQL_ROOT_PASSWORD: 'root'
-          #MYSQL_DATABASE: app_name_test
-          #DB_HOST: 127.0.0.1
-          #RAILS_ENV: test
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: '20186Hinsitu@'
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: '20186hinsitu@'
+          MYSQL_PORT: 3306
+      - image: circleci/mysql:5.7
+        environment:
           MYSQL_DATABASE: app_name_test
-      - image: circleci/mysql:5.6
     working_directory: ~/repo
     steps:
       - checkout
@@ -35,6 +31,10 @@ jobs:
       - run:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+
+      - run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rake db:create
+      
       - run:
           name: データベースのセットアップ
           command: bundle exec rake db:schema:load
