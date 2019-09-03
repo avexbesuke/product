@@ -5,14 +5,15 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.0-node-browsers
         environment:
-          RAILS_ENV: test
           BUNDLE_PATH: "vendor/bundle"
           BUNDLER_VERSION: 1.16.1
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: '20186hinsitu@'
+          MYSQL_DATABASE: app_name_test
+          MYSQL_PORT: 3306
+          DB_HOST: 127.0.0.1
       - image: circleci/mysql:5.7
-        environment:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: test_db
-          #DB_HOST: 127.0.0.1
+          
     working_directory: ~/repo
     steps:
       - checkout
@@ -31,12 +32,17 @@ jobs:
       - run:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+
+      #- run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rake db:create
+      
       - run:
           name: データベースのセットアップ
           command: bundle exec rake db:schema:load
       - run:
           name: gem install bundler
           command: gem install bundler
+            # Align chrome-driver's version installed by chromedriver-helper
       - run: 
           name: rspecを実行
           command: bundle exec rspec
