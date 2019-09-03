@@ -21,8 +21,8 @@ jobs:
           command: |
             sudo gem update --system
             yes | sudo gem uninstall bundler
-            yes | sudo rm /usr/local/bin/bundle
-            yes | sudo rm /usr/local/bin/bundler
+            #yes | sudo rm /usr/local/bin/bundle
+            #yes | sudo rm /usr/local/bin/bundler
             yes | sudo gem install bundler -v 1.16.1
             when: always
       - restore_cache:
