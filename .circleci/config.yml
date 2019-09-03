@@ -4,6 +4,7 @@ jobs:
   test:
     docker:
       - image: circleci/ruby:2.5.0-node-browsers
+      - image: circleci/mysql:5.7
         environment:
           RAILS_ENV: test
           BUNDLE_PATH: "vendor/bundle"
@@ -13,7 +14,6 @@ jobs:
           #MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: test_db
           DB_HOST: 127.0.0.1
-      - image: circleci/mysql:5.7
     working_directory: ~/repo
     steps:
       - checkout
