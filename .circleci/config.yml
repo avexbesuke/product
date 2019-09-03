@@ -32,6 +32,8 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: データベースのセットアップ
+          command: |
+            sudo touch /tmp/mysql.sock
           command: bundle exec rake db:schema:load
       - run:
           name: gem install bundler
