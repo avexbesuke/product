@@ -19,7 +19,7 @@ jobs:
       - run:
           name: bundle のｾｯﾄｱｯﾌﾟ bundler2系に対応
           command: |
-            sudo gem update --system
+            #sudo gem update --system
             #yes | sudo gem uninstall bundler
             #yes | sudo rm /usr/local/bin/bundle
             #yes | sudo rm /usr/local/bin/bundler
