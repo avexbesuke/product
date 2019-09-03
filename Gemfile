@@ -70,7 +70,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   #gem 'chromedriver-helper' 
   gem 'rspec-rails', '~> 3.7'
-  gem 'webdrivers'
+  gem 'webdrivers' unless ENV.key?('CIRCLECI')
 end
 
 group :production do
