@@ -1,5 +1,26 @@
 {
   "name": "app_name",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chart.js": "^2.7.1"
+  },
+  "description": "好きな本を検索→好きな本が好きなわけを投稿・共有できます。 詳しくはこちらをご覧ください。 <http://54.92.102.61/>",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avexbesuke/product.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avexbesuke/product/issues"
+  },
+  "homepage": "https://github.com/avexbesuke/product#readme"
 }

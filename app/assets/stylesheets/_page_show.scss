@@ -5,7 +5,7 @@
   display: flex;
   &__mypage{
     position: relative;
-    padding: 20px 100px 20px 100px;
+    padding: 0 100px 20px 100px;
     text-align: center;
     &__image{
       padding: 0 0 10px 0;
@@ -15,10 +15,33 @@
         padding: 0 0 5px 0;
         font-size: 18px;
       }
+      & .tab_li{
+        list-style: none;
+        & .chart{
+          color: black;
+          text-decoration: none;
+          position: relative;
+          & .title{
+            padding: 10px 0 0 0;
+            font-size: 18px;
+          }
+          & .icon{
+            position: absolute;
+            font-size: 98px;
+            top: -25px;
+            left: -50px;
+            color: #00a008
+          }
+          & .icon:hover{
+            opacity: 0.6;
+            transition-duration: 0.3s;
+          }
+        }
+      }
     }
   }
   &__side{
-    padding: 50px 0 0 0;
+    padding: 10px 0 0 0;
     &__profile{
       padding: 0 0 70px 0;
       &__lead{
