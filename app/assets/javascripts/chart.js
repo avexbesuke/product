@@ -1,11 +1,13 @@
 document.addEventListener('turbolinks:load',function(){
-  var ctx = document.getElementById("myChart").getContext('2d');
+
+  var ctx = document.getElementById("read_chart").getContext('2d');
+
   var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: ["19年3月","4月","5月","6月","7月"],
+          labels: [gon.year_month[5],gon.year_month[4],gon.year_month[3],gon.year_month[2],gon.year_month[1],gon.year_month[0]],
           datasets: [{
-              data: [1,2,10,0,5],
+              data: [gon.reads[0][1],gon.reads[1][1],gon.reads[2][1],gon.reads[3][1],gon.reads[4][1],gon.reads[5][1]],
               backgroundColor: 'rgba(255, 99, 132, 0.7)',
               borderColor: 'rgba(255, 50, 132, 0.9)',
               fill: true
@@ -19,7 +21,7 @@ document.addEventListener('turbolinks:load',function(){
         title:  {
           display: true,
           fontSize: 18,
-          text: "読書グラフ"
+          text: "読書数グラフ"
         },
         scales: {                          //軸設定
           yAxes: [{                      //y軸設定
@@ -31,7 +33,7 @@ document.addEventListener('turbolinks:load',function(){
               },
               ticks: {                      //最大値最小値設定
                   min: 0,                   //最小値
-                  max: 10,                  //最大値
+                  max: gon.max,                  //最大値
                   fontSize: 18,             //フォントサイズ
                   stepSize: 5               //軸間隔
               },
@@ -52,8 +54,8 @@ document.addEventListener('turbolinks:load',function(){
         },
         layout: {                             //レイアウト
           padding: {                          //余白設定
-              left: 100,
-              right: 50,
+              left: 50,
+              right: 80,
               top: 0,
               bottom: 0
           }

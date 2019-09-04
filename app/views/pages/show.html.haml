@@ -2,7 +2,6 @@
   %body
     %h2.page_show_title
       = "”#{@user.username}”さんのマイページ"
-      = fa_icon 'bar-chart'
     .page-show-wrapper
       .page-show-wrapper__mypage
         .page-show-wrapper__mypage__image
@@ -22,6 +21,12 @@
           -if @fast_best_book != nil
             .page-show-wrapper__mypage__best-book__image
               = link_to(image_tag(@fast_best_book.image_url,size: "148x228"),book_path(@fast_best_book.id))
+            %li.tab_li
+              %a.tab4.tab_a.chart{href:"#tab4"}
+                .title
+                  = "読書量グラフ"      
+                .icon  
+                  = fa_icon 'bar-chart'
       
       .page-show-wrapper__side
         .page-show-wrapper__side__profile
@@ -76,5 +81,6 @@
                       = read.created_at.strftime("%y.%m.%d")
                   .synopsis
                     = read.book.synopsis
-
-%canvas#myChart{width: "400",height: "200"}
+          .tab4#tab4.tab_b
+            .data
+              %canvas#read_chart
