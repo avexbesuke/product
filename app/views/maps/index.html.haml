@@ -1,0 +1,10 @@
+.body
+  //form_forを使って店舗の情報を保存する
+  = form_for @shop do |f|
+    = f.text_field :address, class:"city_address"
+    %button{id:"searchAddressBtn", value:"検索", type:"button"}
+    = f.text_field :latiude, readonly:"readonly"
+    = f.text_field :longitude, readonly:"readonly"
+    = f.submit "登録する", class: "submit_btn"
+
+    #map{:style => "width: 100%; height: 660px;"}

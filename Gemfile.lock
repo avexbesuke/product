@@ -145,8 +145,10 @@ GEM
     ffi (1.11.1)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
+    geocoder (1.5.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     gon (6.2.1)
       actionpack (>= 3.0)
       multi_json
@@ -405,6 +407,8 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails (~> 4.11)
   font-awesome-rails
+  geocoder
+  gmaps4rails
   gon
   haml-rails (~> 2.0)
   jbuilder (~> 2.5)
