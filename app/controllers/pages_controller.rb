@@ -21,33 +21,35 @@ class PagesController < ApplicationController
       @othere_reads = @othere_reads.sort_by!(&:created_at).reverse!
     end
     
-    reads = @user.reads.group("CONCAT(YEAR(created_at), MONTH(created_at))").count.sort.pop(6)
-    reads_flat = reads.flatten!
-    reads_numeric = []
-    reads_flat.each do |read|
-      if read.is_a? Numeric
-        reads_numeric.push(read)
+    if @user.reads.length != 0
+      reads = @user.reads.group("CONCAT(YEAR(created_at), MONTH(created_at))").count.sort.pop(6)
+      reads_flat = reads.flatten!
+      reads_numeric = []
+      reads_flat.each do |read|
+        if read.is_a? Numeric
+          reads_numeric.push(read)
+        end
       end
-    end
-    gon.max_read = reads_numeric.max
+      gon.max_read = reads_numeric.max
 
-    read_date = @user.reads.group("CONCAT(YEAR(created_at), MONTH(created_at))").count
-    now = Date.today
-    month = Date.today >> 1
-    year_month = []
-    6.times do
-      if read_date.has_key?("#{now.year}" + "#{now.month}")
-        read_date[now] = read_date.delete("#{now.year}" + "#{now.month}")
-      else
-        read_date[now] = 0
+      read_date = @user.reads.group("CONCAT(YEAR(created_at), MONTH(created_at))").count
+      now = Date.today
+      month = Date.today >> 1
+      year_month = []
+      6.times do
+        if read_date.has_key?("#{now.year}" + "#{now.month}")
+          read_date[now] = read_date.delete("#{now.year}" + "#{now.month}")
+        else
+          read_date[now] = 0
+        end
+        year_month.push("#{month.year.to_s[2,2]}" + "/" + "#{month.month}")
+        month = month << 1
+        now = now << 1
       end
-      year_month.push("#{month.year.to_s[2,2]}" + "/" + "#{month.month}")
-      month = month << 1
-      now = now << 1
-    end
 
-    gon.reads = read_date.sort.pop(6)
-    gon.year_month = year_month
+      gon.reads = read_date.sort.pop(6)
+      gon.year_month = year_month
+    end
   end
 
   private
