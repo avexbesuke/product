@@ -2,6 +2,7 @@
   %body
     %h2.page_show_title
       = "”#{@user.username}”さんのマイページ"
+      = fa_icon 'bar-chart'
     .page-show-wrapper
       .page-show-wrapper__mypage
         .page-show-wrapper__mypage__image
@@ -75,3 +76,5 @@
                       = read.created_at.strftime("%y.%m.%d")
                   .synopsis
                     = read.book.synopsis
+
+%canvas#myChart{width: "400",height: "200"}

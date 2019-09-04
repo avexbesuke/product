@@ -20,6 +20,10 @@ class PagesController < ApplicationController
       @othere_emotions = @othere_emotions.sort_by!(&:created_at).reverse!
       @othere_reads = @othere_reads.sort_by!(&:created_at).reverse!
     end
+
+
+    #グラフ練習
+    @reads = @user.reads.group("CONCAT(YEAR(created_at), MONTH(created_at))").count
   end
 
   private
