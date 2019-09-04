@@ -1,4 +1,6 @@
 %html.default
+  %head
+    = Gon::Base.render_data
   %body
     %h2.page_show_title
       = "”#{@user.username}”さんのマイページ"
