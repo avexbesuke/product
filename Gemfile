@@ -94,3 +94,4 @@ gem 'ransack'
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
 gem 'aws-sdk-s3', require: false
+gem 'chart-js-rails', '~> 0.1.4' 
