@@ -20,7 +20,7 @@ document.addEventListener('turbolinks:load',function(){
           title:  {
             display: true,
             fontSize: 18,
-            text: "読書数グラフ"
+            text: "読書量グラフ"
           },
           scales: {                          //軸設定
             yAxes: [{                      //y軸設定

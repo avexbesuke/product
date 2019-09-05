@@ -1,10 +1,21 @@
 .body
-  //form_forを使って店舗の情報を保存する
-  = form_for @shop do |f|
-    = f.text_field :address, class:"city_address"
-    %button{id:"searchAddressBtn", value:"検索", type:"button"}
-    = f.text_field :latiude, readonly:"readonly"
-    = f.text_field :longitude, readonly:"readonly"
-    = f.submit "登録する", class: "submit_btn"
+  = form_with(model: @map, url:maps_path ,class:"map_form",method: :GET) do |f|
+    = f.text_field :address, id: 'address'
+    = f.submit "移動"
+  .map#map{:style => "width: 55%; height: 660px;"}
 
-    #map{:style => "width: 100%; height: 660px;"}
+  .btn
+    とりあえず
+  .haikei
+
+  .fooorm
+    .fooormcon
+      = form_with(model: @map, url: maps_path, method: :post, local: true) do |f|
+        = f.text_field :address
+        = f.text_field :latitude
+        = f.text_field :longitude
+        = f.text_area :memori,placeholder: "思い出を記録しよう！！"
+        = f.file_field :images, multiple: true
+        = f.submit '打ち込み！！！！'
+      .fomdele
+        けせるか？
