@@ -47,6 +47,10 @@
                 .address
                   = '住所:'
                   = map.address
+                - if map.user.id == current_user.id
+                  .delete-icon
+                    = link_to map_path(map.id), method: :delete do
+                      = fa_icon "trash"
   .model-backgraund
 
   .map-form-wrapper

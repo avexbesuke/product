@@ -15,6 +15,15 @@ class MapsController < ApplicationController
     end
   end
 
+  def destroy
+    @map = Map.find(params[:id])
+    if @map.delete
+      redirect_to maps_path
+    else
+      render :index
+    end
+  end
+
   private
   def map_params
     params.require(:map).permit(:memori, :address, :latitude, :longitude,images: []).merge(user_id: current_user.id)
