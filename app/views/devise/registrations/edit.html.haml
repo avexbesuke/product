@@ -5,7 +5,7 @@
       %h2 プロフィール編集
       = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
         .edit-user-wrapper__container__username.edit-form-item
-          = f.text_field :usernamec,maxlength: "10", class:"user-edit-input"
+          = f.text_field :username,maxlength: "10", class:"user-edit-input"
         .edit-user-wrapper__container__image.edit-form-item
           %label.label
             .lead
