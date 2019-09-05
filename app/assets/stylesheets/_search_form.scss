@@ -9,3 +9,9 @@
   position: relative;
   @include search_form(230px,10px,7px);
 }
+
+.map-search-form{
+  padding: 3px 0;
+  position: relative;
+  @include search_form(230px,15px,13px);
+}

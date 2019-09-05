@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require Chart.min
+//= require underscore
+//= require gmaps/google
 //= require rails-ujs
 //= require jquery.turbolinks
 //= require activestorage

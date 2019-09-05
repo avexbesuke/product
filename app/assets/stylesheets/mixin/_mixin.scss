@@ -43,9 +43,9 @@
   background: rgba(145, 196, 243, 0.8);
 }
 
-@mixin h2{
-  padding: 40px;
-  font-size: 38px;
+@mixin h2($padding:40px,$font-size:38px){
+  padding: $padding;
+  font-size: $font-size;
   font-weight: bold;
 }
 

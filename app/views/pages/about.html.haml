@@ -57,7 +57,18 @@
             %h2.e="マイページ！"
         .page_about-wrapper__right__content__descript
           .first
-            = "マイページにフォローユーザ直近のマイベスト・読書履歴が表示されます"
+            = "読書グラフ,フォローユーザ直近のマイベスト・読書履歴が表示されます"
+      .page_about-wrapper__right__content
+        .page_about-wrapper__right__content__icon-title
+          .icon
+            = fa_icon "map"
+          .title
+            %h2.e="聖地巡礼！！"
+        .page_about-wrapper__right__content__descript
+          .first
+            = "自分の好きな本の舞台に旅行したら写真と思い出を投稿しよう！！"
+          .second
+            = "住所を入力して、マップの行った場所をクリック！！！！！！！！！"
           - if user_signed_in?
           - else
             .last
