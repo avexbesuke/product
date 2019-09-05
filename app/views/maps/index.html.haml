@@ -62,7 +62,7 @@
           %label.label
             .lead
               = "画像選択"
-            = f.file_field :image, class:"file_field"
+            = f.file_field :images,multiple: true, class:"file_field"
             = fa_icon 'image', class: "file-icon"
         = f.submit '投稿！',class: "map-create-form__submit"
         = f.hidden_field :address
