@@ -36,6 +36,9 @@
           %li.devise-box__nav__edit.two 
             = link_to page_path(current_user.id) do
               = fa_icon 'user', class: "two-btn"
+          %li.devise-box__nav__edit.two 
+            = link_to maps_path do
+              = fa_icon 'map', class: "two-btn"
           %li.three
             %ui.devise-box__nav__edit  
               = link_to destroy_user_session_path, method: :delete do

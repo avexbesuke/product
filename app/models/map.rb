@@ -3,4 +3,7 @@ class Map < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   has_many_attached :images
+
+  belongs_to :user
+  belongs_to :book
 end

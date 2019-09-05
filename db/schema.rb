@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_091744) do
+ActiveRecord::Schema.define(version: 2019_09_05_024420) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(version: 2019_09_04_091744) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "memori"
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
+    t.index ["book_id"], name: "index_maps_on_book_id"
+    t.index ["user_id"], name: "index_maps_on_user_id"
   end
 
   create_table "reads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -135,6 +140,8 @@ ActiveRecord::Schema.define(version: 2019_09_04_091744) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "emotions", "books"
   add_foreign_key "emotions", "users"
+  add_foreign_key "maps", "books"
+  add_foreign_key "maps", "users"
   add_foreign_key "reads", "books"
   add_foreign_key "reads", "users"
 end

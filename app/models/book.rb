@@ -4,6 +4,9 @@ class Book < ApplicationRecord
   has_many :reads
   has_many :read_users, through: :reads, source: :user
 
+  has_many :maps
+  has_many :map_users, through: :maps, source: :user
+
   def read?(book, user)
     book.reads.find_by(user_id: user.id)
   end

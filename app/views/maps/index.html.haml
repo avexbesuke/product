@@ -1,21 +1,67 @@
-.body
-  = form_with(model: @map, url:maps_path ,class:"map_form",method: :GET) do |f|
-    = f.text_field :address, id: 'address'
-    = f.submit "移動"
-  .map#map{:style => "width: 55%; height: 660px;"}
+%body.default
+  %h2.map-title 本を片手に町へ行こう！
+  .map-index-wrapper
+    .map-index-wrapper__map
+      .map#map
+      .map-index-wrapper__map__search
+        = form_with(model: @map, url:maps_path ,class:"map-search-form",method: :GET) do |f|
+          = f.text_field :address, id: 'address',class: 'map-text',placeholder: "住所に移動"
+          %label.label
+            = f.submit '' , class: 'map-search-form__submit'
+            = fa_icon 'search', class: "one-btn"
+    .map-index-wrapper__views
+      - @maps.each do |map|
+        .map-index-wrapper__views__view
+          .map-index-wrapper__views__view__main
+            .image
+              = link_to(image_tag(map.book.image_url,size: '125x176'),book_path(map.book.id))
+            .title-name-memori
+              .title-name
+                .title
+                  = map.book.title
+                .map
+                  = form_with(url: maps_path, method: :post, local: true,class: 'memori-search-form') do |f|
+                    %label.label
+                      = f.submit '', class: 'memori-search-form__submit'
+                      = fa_icon 'map',class: 'one-btn'
+                    = f.hidden_field :address,id: 'memori-address', value: map.address
+              .memori-images
+                - if map.images.attached?
+                  - map.images.each do |image|
+                    .memori-images__image
+                      = image_tag(image, size: "190x147")
+          .map-index-wrapper__views__view__panel
+            %dt.accordion-icon
+              = fa_icon "caret-down"
+            %dd.map-index-wrapper__views__view__panel__content
+              .memori
+                .lead
+                  = '思い出'
+                .body
+                  = simple_format(map.memori)
+              .name-address
+                .name
+                  = '投稿者:'
+                  = link_to page_path(map.user.id) do
+                    = map.user.username
+                .address
+                  = '住所:'
+                  = map.address
+  .model-backgraund
 
-  .btn
-    とりあえず
-  .haikei
-
-  .fooorm
-    .fooormcon
-      = form_with(model: @map, url: maps_path, method: :post, local: true) do |f|
-        = f.text_field :address
-        = f.text_field :latitude
-        = f.text_field :longitude
-        = f.text_area :memori,placeholder: "思い出を記録しよう！！"
-        = f.file_field :images, multiple: true
+  .map-from-wrapper
+    .map-form-wrapper__form
+      = form_with(model: @map, url: maps_path, method: :post, local: true,class: 'map-create-form') do |f|
+        .map-create-form__book
+          = f.select :book,@books
+        .map-create-form__memori
+          = f.text_area :memori,placeholder: "思い出を記録しよう！！"
+        .map-create-form__images
+          = f.file_field :images, multiple: true
+        .map-create-form__submit
         = f.submit '打ち込み！！！！'
-      .fomdele
+        = f.text_field :address
+        = f.hidden_field :latitude
+        = f.hidden_field :longitude
+      .form-delete-btn
         けせるか？

@@ -1,4 +1,121 @@
-.haikei {
+.map-title{
+  @include h2(20px 40px 0 40px);
+}
+.map-index-wrapper{
+  display: flex;
+  &__map{
+    position: relative;
+    width: 40%;
+    height: 75vh;
+    padding: 20px 20px 0px 0px;
+    & .map{
+      width: 100%;
+      height: 100%;
+    }
+    &__search{
+      position: absolute;
+      top: 27px;
+      right: 210px;
+      z-index: 0;
+      & .map-text{
+        height: 37px;
+        padding: 0 0 0 10px;
+        border: solid 1px;
+        border-radius: 2px;
+      }
+    }
+  }
+  &__views{
+    overflow: scroll;
+    height: 80vh;
+    width: 60%;
+    position: relative;
+    &__view{
+      padding: 0 0 20px 0;
+      border-top: dotted 1px;
+      &__main{
+        padding: 10px 0 0 0;
+        display: flex;
+        & .title-name-memori{
+          & .title-name{
+            display: flex;
+            & .title{
+              padding: 0 10px 5px 10px
+            }
+          }
+        }
+        & .memori-images{
+          display: flex;
+          &__image{
+            padding: 0 0 0 20px;
+          }
+        }
+        & .map{
+          & .memori-search-form{
+            & .one-btn{
+              color: rgb(0, 160, 8);
+              transition: .4s;
+            }
+            & .one-btn:hover{
+              opacity: 0.6;
+              transition-duration: 0.3s;
+            }
+            & .label{
+              cursor: pointer;
+            }
+            &__submit{
+              display: none;
+            }
+          }
+        }
+      }
+      &__panel{
+        position: relative;
+        & .accordion-icon{
+          position: absolute;
+          top: -188px;
+          right: 320px;
+          font-size: 26px;
+          color: rgb(0, 160, 8);
+          transition: .4s;
+        }
+        & .accordion-icon:hover{
+          opacity: 0.6;
+          transition-duration: 0.3s;
+        }
+        &__content{
+          & .memori{
+            width: 100%;
+            height: 100%;
+            padding: 0 0 5px 0;
+            & .lead{
+              font-size: 18px;
+            }
+            & .body{
+              width: 100%;
+              height: 100%;
+              padding: 0 0 5px 10px;
+              word-break: break-all;
+            }
+          }
+          & .name-address{
+            display: flex;
+            color: #a5a1a1;
+            font-size: 14px;
+            & .name{
+              padding: 0 20px 0 0;
+            }
+            & .title{
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.model-backgraund {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -9,7 +126,7 @@
   display: none;
 }
 
-.fooorm {
+.map-from-wrapper{
   position: absolute;
   background-color: #fff;
   width: 450px;
@@ -24,7 +141,7 @@
   text-align: right;
 }
 
-.fooormcon {
+.map-form-wrapper__form {
   display: none;
   text-align: center;
 }

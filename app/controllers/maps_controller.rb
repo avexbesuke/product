@@ -1,11 +1,13 @@
 class MapsController < ApplicationController
   def index
     @map = Map.new
+    @maps = current_user.maps
+    @books = current_user.books.pluck('title')
   end
 
   def create
-    binding.pry
     @map = Map.new(map_params)
+    @map.book_id = Book.find_by(title: params.require(:map).require(:book)).id
     if @map.save
       redirect_to maps_path
     else
@@ -15,6 +17,6 @@ class MapsController < ApplicationController
 
   private
   def map_params
-    params.require(:map).permit(:memorie, :book_id, :address, :latitude, :longitude,images: [])
+    params.require(:map).permit(:memori, :address, :latitude, :longitude,images: []).merge(user_id: current_user.id)
   end
 end
