@@ -16,7 +16,7 @@
       %h2 
         = link_to root_path do 
           = "MyBest_Books"
-      %ul.devise-box__nav
+      %ul.devise-box__nav.nav-menu
         %li.devise-box__nav__edit.one 
           = form_with url:book_search_path,method: :post,local: true,class:'book-search-form' do |f|
             = f.text_field :keyword,placeholder: "好きな本を探す",class:'book-search-form__text'
@@ -24,21 +24,31 @@
               = f.submit '' , class: 'book-search-form__submit'
               = fa_icon 'search', class: "one-btn"
         - if user_signed_in?
-          %li.devise-box__nav__edit.two 
-            = link_to user_path(current_user.id) do
-              = fa_icon 'bookmark', class: "two-btn"
-          %li.devise-box__nav__edit.two 
-            = link_to reads_path do
-              = fa_icon 'history', class: "two-btn"
-          %li.devise-box__nav__edit.two 
-            = link_to emotions_path do
-              = fa_icon 'commenting', class: "two-btn"
-          %li.devise-box__nav__edit.two 
-            = link_to page_path(current_user.id) do
-              = fa_icon 'user', class: "two-btn"
-          %li.devise-box__nav__edit.two 
-            = link_to maps_path do
-              = fa_icon 'map', class: "two-btn"
+          .div
+            %li.devise-box__nav__edit.two 
+              = link_to user_path(current_user.id) do
+                = fa_icon 'bookmark', class: "two-btn"
+            %p.arrow_box 好きな本たち
+          .div
+            %li.devise-box__nav__edit.two 
+              = link_to reads_path do
+                = fa_icon 'history', class: "two-btn"
+            %p.arrow_box 読書履歴
+          .div
+            %li.devise-box__nav__edit.two 
+              = link_to emotions_path do
+                = fa_icon 'commenting', class: "two-btn"
+            %p.arrow_box みんなの本への思い
+          .div
+            %li.devise-box__nav__edit.two 
+              = link_to page_path(current_user.id) do
+                = fa_icon 'user', class: "two-btn"
+            %p.arrow_box マイページ
+          .div
+            %li.devise-box__nav__edit.two 
+              = link_to maps_path do
+                = fa_icon 'map', class: "two-btn"
+            %p.arrow_box 聖地巡礼
           %li.three
             %ui.devise-box__nav__edit  
               = link_to destroy_user_session_path, method: :delete do
