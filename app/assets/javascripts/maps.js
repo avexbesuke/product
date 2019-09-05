@@ -77,7 +77,9 @@ document.addEventListener('turbolinks:load',function(){
     })
   }
 
-  initMap()
+  $(document).ready(function(){
+    initMap()
+  });
 
   $(document).on('click', '.model-backgraund, .form-delete-btn', function() {
     $('.model-backgraund').hide();
