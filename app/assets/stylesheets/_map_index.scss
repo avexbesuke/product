@@ -15,10 +15,11 @@
     &__search{
       position: absolute;
       top: 27px;
-      right: 210px;
+      right: 140px;
       z-index: 0;
       & .map-text{
         height: 37px;
+        width: 240px;
         padding: 0 0 0 10px;
         border: solid 1px;
         border-radius: 2px;
@@ -126,11 +127,12 @@
   display: none;
 }
 
-.map-from-wrapper{
+.map-form-wrapper{
   position: absolute;
   background-color: #fff;
-  width: 450px;
-  height: 350px;
+  border-radius: 10px;
+  width: 550px;
+  height: 450px;
   top: 0;
   left: 0;
   bottom: 0;

@@ -1,7 +1,7 @@
 document.addEventListener('turbolinks:load',function(){
   function form_show(address,latitude,longitude){
     $('.model-backgraund').show();
-    $('.map-from-wrapper').show();
+    $('.map-form-wrapper').show();
     $('.map-form-wrapper__form').show();
     $('#map_address').val(address)
     $('#map_latitude').val(latitude)
@@ -77,7 +77,7 @@ document.addEventListener('turbolinks:load',function(){
 
   $(document).on('click', '.model-backgraund, .form-delete-btn', function() {
     $('.model-backgraund').hide();
-    $('.map-from-wrapper').hide();
+    $('.map-form-wrapper').hide();
     $('.map-form-wrapper__form').hide();
   })
 })

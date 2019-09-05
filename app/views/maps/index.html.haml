@@ -5,7 +5,7 @@
       .map#map
       .map-index-wrapper__map__search
         = form_with(model: @map, url:maps_path ,class:"map-search-form",method: :GET) do |f|
-          = f.text_field :address, id: 'address',class: 'map-text',placeholder: "住所に移動"
+          = f.text_field :address, id: 'address',class: 'map-text',placeholder: "移動してマップをクリック！"
           %label.label
             = f.submit '' , class: 'map-search-form__submit'
             = fa_icon 'search', class: "one-btn"
@@ -49,7 +49,9 @@
                   = map.address
   .model-backgraund
 
-  .map-from-wrapper
+  .map-form-wrapper
+    .form-delete-btn
+      = fa_icon "remove"
     .map-form-wrapper__form
       = form_with(model: @map, url: maps_path, method: :post, local: true,class: 'map-create-form') do |f|
         .map-create-form__book
@@ -57,11 +59,12 @@
         .map-create-form__memori
           = f.text_area :memori,placeholder: "思い出を記録しよう！！"
         .map-create-form__images
-          = f.file_field :images, multiple: true
-        .map-create-form__submit
-        = f.submit '打ち込み！！！！'
-        = f.text_field :address
+          %label.label
+            .lead
+              = "画像選択"
+            = f.file_field :image, class:"file_field"
+            = fa_icon 'image', class: "file-icon"
+        = f.submit '投稿！',class: "map-create-form__submit"
+        = f.hidden_field :address
         = f.hidden_field :latitude
         = f.hidden_field :longitude
-      .form-delete-btn
-        けせるか？
