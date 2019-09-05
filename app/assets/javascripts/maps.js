@@ -51,29 +51,33 @@ document.addEventListener('turbolinks:load',function(){
     $(".memori-search-form__submit").removeAttr("disabled");
   })
 
-  $(function(){
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 17,
-      mapTypeId: google.maps.MapTypeId.HYBRID,
-      center: {lat: 35.038037, lng: 135.772773},
-    });
+  function initMap(){
+    $(function(){
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.HYBRID,
+        center: {lat: 35.038037, lng: 135.772773},
+      });
+  
+      function myListener(event){
+        var marker = new google.maps.Marker();
+        marker.setPosition(new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()));
+        marker.setMap(map);
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({location: event.latLng},function(results,status){
+          if (status === 'OK' && results[0]){
+            form_show(results[0].formatted_address,event.latLng.lat(),event.latLng.lng())
+          } else{
+            alert('処理失敗:' + status)
+          }
+        })
+      }
+  
+      google.maps.event.addListener(map,'click',myListener);
+    })
+  }
 
-    function myListener(event){
-      var marker = new google.maps.Marker();
-      marker.setPosition(new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()));
-      marker.setMap(map);
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({location: event.latLng},function(results,status){
-        if (status === 'OK' && results[0]){
-          form_show(results[0].formatted_address,event.latLng.lat(),event.latLng.lng())
-        } else{
-          alert('処理失敗:' + status)
-        }
-      })
-    }
-
-    google.maps.event.addListener(map,'click',myListener);
-  })
+  initMap()
 
   $(document).on('click', '.model-backgraund, .form-delete-btn', function() {
     $('.model-backgraund').hide();
