@@ -27,13 +27,13 @@ document.addEventListener('turbolinks:load',function(){
             if (status === 'OK' && results[0]){
               form_show(results[0].formatted_address,event.latLng.lat(),event.latLng.lng())
             } else{
-              alert('処理失敗:' + status)
+              alert("住所の入力をお願いいたします")
             }
           })
         }
         google.maps.event.addListener(map,'click',myListener);
       } else{
-        alert('処理失敗:' + status);
+        alert("住所の入力をお願いいたします");
       }
     })
   }
@@ -68,7 +68,7 @@ document.addEventListener('turbolinks:load',function(){
           if (status === 'OK' && results[0]){
             form_show(results[0].formatted_address,event.latLng.lat(),event.latLng.lng())
           } else{
-            alert('処理失敗:' + status)
+            alert("住所の入力をお願いいたします")
           }
         })
       }
