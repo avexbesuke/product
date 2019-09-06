@@ -25,7 +25,8 @@ class MapsController < ApplicationController
   end
 
   private
+
   def map_params
-    params.require(:map).permit(:memori, :address, :latitude, :longitude,images: []).merge(user_id: current_user.id)
+    params.require(:map).permit(:memori, :address, :latitude, :longitude, images: []).merge(user_id: current_user.id)
   end
 end

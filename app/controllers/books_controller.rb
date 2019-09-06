@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  skip_before_action :authenticate_user! , only: [:index]
+  skip_before_action :authenticate_user!, only: [:index]
   def show
     @book = Book.find(params[:id])
     @other_users = []

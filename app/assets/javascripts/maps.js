@@ -78,10 +78,8 @@ document.addEventListener('turbolinks:load',function(){
       })
     }
 
+    google.maps.event.addDomListener(window, "load", initMap);
     
-      initMap()
-    
-
     $(document).on('click', '.model-backgraund, .form-delete-btn', function() {
       $('.model-backgraund').hide();
       $('.map-form-wrapper').hide();
