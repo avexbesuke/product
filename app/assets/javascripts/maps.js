@@ -46,8 +46,9 @@ document.addEventListener('turbolinks:load',function(){
     }
 
     $('.map-search-form').on('submit',function(e){
-      var address = document.getElementById('address').value;
       e.preventDefault();
+      var address = document.getElementById('address').value;
+      $(".map-initial").remove();
       codeAddress(address);
     })
 
