@@ -2,6 +2,8 @@
   %h2.map-title 本を片手に町へ行こう！
   .map-index-wrapper
     .map-index-wrapper__map
+      .map-initial
+        = image_tag("fotor.png",class: 'image')
       .map#map
       .map-index-wrapper__map__search
         = form_with(model: @map, url:maps_path ,class:"map-search-form",method: :GET) do |f|
