@@ -4,7 +4,7 @@ describe '本を好きなわけ機能', type: :system do
   describe 'わけ登録' do
     before do
       user_a = FactoryBot.create(:user)
-      FactoryBot.create(:book)
+      FactoryBot.build(:book)
 
       visit new_user_session_path
       fill_in 'user_email', with: 'test@test.com'
