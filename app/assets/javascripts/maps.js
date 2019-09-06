@@ -1,14 +1,20 @@
 document.addEventListener('turbolinks:load',function(){
-  $(document).ready(function(){
-    function form_show(address,latitude,longitude){
-      $('.model-backgraund').show();
-      $('.map-form-wrapper').show();
-      $('.map-form-wrapper__form').show();
-      $('#map_address').val(address)
-      $('#map_latitude').val(latitude)
-      $('#map_longitude').val(longitude)
-    }
+  function form_show(address,latitude,longitude){
+    $('.model-backgraund').show();
+    $('.map-form-wrapper').show();
+    $('.map-form-wrapper__form').show();
+    $('#map_address').val(address)
+    $('#map_latitude').val(latitude)
+    $('#map_longitude').val(longitude)
+  }
 
+  $(document).on('click', '.model-backgraund, .form-delete-btn', function() {
+    $('.model-backgraund').hide();
+    $('.map-form-wrapper').hide();
+    $('.map-form-wrapper__form').hide();
+  })
+
+  $(document).ready(function(){
     function codeAddress(address){
       var geocoder = new google.maps.Geocoder();
       var map = new google.maps.Map(document.getElementById('map'), {
@@ -79,11 +85,5 @@ document.addEventListener('turbolinks:load',function(){
     }
 
     google.maps.event.addDomListener(window, "load", initMap);
-    
-    $(document).on('click', '.model-backgraund, .form-delete-btn', function() {
-      $('.model-backgraund').hide();
-      $('.map-form-wrapper').hide();
-      $('.map-form-wrapper__form').hide();
-    })
   });
 })
