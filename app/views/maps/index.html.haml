@@ -5,7 +5,7 @@
       .map#map
       .map-index-wrapper__map__search
         = form_with(model: @map, url:maps_path ,class:"map-search-form",method: :GET) do |f|
-          = f.text_field :address, id: 'address',class: 'map-text',placeholder: "移動してマップをクリック！"
+          = f.text_field :address, id: 'address',class: 'map-text',placeholder: "住所入力⇨マップクリック！"
           %label.label
             = f.submit '' , class: 'map-search-form__submit'
             = fa_icon 'search', class: "one-btn"
