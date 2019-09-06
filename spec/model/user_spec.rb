@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'バリデーション' do
     it 'メルーアドレスとパスワードがあれば登録できる' do
-      user = FactoryBot.create(:user)
+      user = FactoryBot.build(:user)
       expect(user).to be_valid
     end
 
@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to include("が入力されていません。")
     end
 
-    it 'パスウワードがないと登録できない' do
+    it 'パスワードがないと登録できない' do
       user = FactoryBot.build(:user, password: '')
       user.valid?
       expect(user.errors[:password]).to include("が入力されていません。")
