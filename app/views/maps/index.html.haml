@@ -25,7 +25,7 @@
                   = form_with(url: maps_path, method: :post, local: true,class: 'memori-search-form') do |f|
                     %label.label
                       = f.submit '', class: 'memori-search-form__submit'
-                      = fa_icon 'map',class: 'one-btn'
+                      = fa_icon 'map',class: 'one-btn map-move'
                     = f.hidden_field :address,id: 'memori-address', value: map.address
               .memori-images
                 - if map.images.attached?
