@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user! , only: [:about]
+  skip_before_action :authenticate_user!, only: [:about]
   def index; end
 
   def show
@@ -21,15 +21,13 @@ class PagesController < ApplicationController
       @othere_emotions = @othere_emotions.sort_by!(&:created_at).reverse!
       @othere_reads = @othere_reads.sort_by!(&:created_at).reverse!
     end
-    
-    if @user.reads.length != 0
+
+    unless @user.reads.empty?
       reads = @user.reads.group("CONCAT(YEAR(created_at), MONTH(created_at))").count.sort.pop(6)
       reads_flat = reads.flatten!
       reads_numeric = []
       reads_flat.each do |read|
-        if read.is_a? Numeric
-          reads_numeric.push(read)
-        end
+        reads_numeric.push(read) if read.is_a? Numeric
       end
       gon.max_read = reads_numeric.max
 
@@ -38,12 +36,12 @@ class PagesController < ApplicationController
       month = Date.today >> 1
       year_month = []
       6.times do
-        if read_date.has_key?("#{now.year}" + "#{now.month}")
-          read_date[now] = read_date.delete("#{now.year}" + "#{now.month}")
-        else
-          read_date[now] = 0
-        end
-        year_month.push("#{month.year.to_s[2,2]}" + "/" + "#{month.month}")
+        read_date[now] = if read_date.key?(now.year.to_s + now.month.to_s)
+                           read_date.delete(now.year.to_s + now.month.to_s)
+                         else
+                           0
+                         end
+        year_month.push(month.year.to_s[2, 2].to_s + "/" + month.month.to_s)
         month = month << 1
         now = now << 1
       end
