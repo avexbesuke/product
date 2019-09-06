@@ -53,8 +53,9 @@ document.addEventListener('turbolinks:load',function(){
     })
 
     $('.memori-search-form').on('submit',function(e){
-      var address = $(this).children('#memori-address').val();
       e.preventDefault();
+      var address = $(this).children('#memori-address').val();
+      $(".map-initial").remove();
       codeAddress(address);
       $(".memori-search-form__submit").removeAttr("disabled");
     })
