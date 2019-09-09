@@ -6,9 +6,10 @@
     = Gon::Base.render_data
     = csrf_meta_tags
     = csp_meta_tag
+    %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=" + Rails.application.credentials.dig(:google, :maps_access_key_id) + "&callback=initMap"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=" + Rails.application.credentials.dig(:google, :maps_access_key_id) + "&callback=initMap"}
+    -# %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=" + Rails.application.credentials.dig(:google, :maps_access_key_id) + "&callback=initMap"}
     %script{src: "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
   %body
     // = render 'layouts/flash'
