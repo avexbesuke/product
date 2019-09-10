@@ -60,7 +60,7 @@ document.addEventListener('turbolinks:load',function(){
       $(".memori-search-form__submit").removeAttr("disabled");
     })
 
-    function initMap(){
+    $(function initMap(){
       $(function(){
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 17,
@@ -84,7 +84,7 @@ document.addEventListener('turbolinks:load',function(){
     
         google.maps.event.addListener(map,'click',myListener);
       })
-    }
+    })
 
     google.maps.event.addDomListener(window, "load", initMap);
   });
