@@ -85,7 +85,5 @@ document.addEventListener('turbolinks:load',function(){
         google.maps.event.addListener(map,'click',myListener);
       })
     })
-
-    google.maps.event.addDomListener(window, "load", initMap);
   });
 })
