@@ -5,20 +5,23 @@
   & .tab_li{
     & .tab_a{
       font-size:1em;
+      font-size: 14px;
+      text-align: center;
       font-weight:bold;
       color:#FFF;
       text-decoration:none;
       display:block;
-      width:250px;
+      width:170px;
       padding:15px 20px;
       background:rgb(114, 113, 113);
+      height: 40px;
     }
     & .tab_a:hover{
       background:rgb(99, 98, 98);
       color:#FFF;
     }
     & .tab_a.current{
-      background:#F5F4F2;
+      background:#00a008;;
       color:rgb(0, 0, 0);
     }
   }

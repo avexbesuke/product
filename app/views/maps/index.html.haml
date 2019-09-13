@@ -11,7 +11,11 @@
           %label.label
             = f.submit '' , class: 'map-search-form__submit'
             = fa_icon 'search', class: "one-btn"
+
     .map-index-wrapper__views
+      %h3.map-index-wrapper__views__h3
+        = "みんなのベスト本の聖地巡礼履歴"
+        = fa_icon "caret-down"
       - @maps.each do |map|
         .map-index-wrapper__views__view
           .map-index-wrapper__views__view__main

@@ -47,6 +47,10 @@
     height: 80vh;
     width: 60%;
     position: relative;
+    &__h3{
+      font-size: 20px;
+      margin: 0 0 10px;
+    }
     &__view{
       padding: 0 0 20px 0;
       border-top: dotted 1px;
