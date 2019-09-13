@@ -1,14 +1,11 @@
 FROM ruby:2.5.0
 
 # docker側のosアップデート
-RUN apt-get update -qq && \
-    apt-get install -y build-essential \ 
-                       libpq-dev \        
-                       nodejs           
+RUN apt-get update && apt-get install -y \
+    libpq-dev  \
+    nodejs \
+    git
 
-
-# 作業ディレクトリの作成、設定 app_nameと言うディレクトリ作成
-RUN mkdir /app_name 
 #環境変数 APP_ROOT(任意名)を 作業ディレクトリ /app_nameに設定
 ENV APP_ROOT /app_name 
 #作業ディレクトリをAPP_ROOT(=/app_name)に設定
