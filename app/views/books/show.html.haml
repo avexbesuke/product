@@ -17,17 +17,16 @@
                     = "あらすじ:" 
                   .body
                     = simple_format(@book.synopsis)
-        .book-show__other-book
-          .mybest-book-wrapper__list__heading
-            = "”#{@book.title}” を ”好きな人が好きな本”"
-          .mybest-book-wrapper__list__view-other
-            - @other_books.each do |book|
-              .mybest-book-wrapper__list__view-other__list
-                .mybest-book-wrapper__list__view-other__list__image
-                  = link_to(image_tag(book[0].image_url,size: "128x192"),book_path(book[0].id))
-                .mybest-book-wrapper__list__view-other__list__title
-                  = book[0].title
-            - if @other_books.length == 0
-              .yohaku 
+        - if @other_books.length != 0
+          .book-show__other-book
+            .mybest-book-wrapper__list__heading
+              = "”#{@book.title}” を ”好きな人が好きな本”"
+            .mybest-book-wrapper__list__view-other
+              - @other_books.each do |book|
+                .mybest-book-wrapper__list__view-other__list
+                  .mybest-book-wrapper__list__view-other__list__image
+                    = link_to(image_tag(book.image_url,size: "128x192"),book_path(book.id))
+                  .mybest-book-wrapper__list__view-other__list__title
+                    = book.title
 
       .book-show__other-user

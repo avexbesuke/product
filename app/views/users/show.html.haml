@@ -22,33 +22,24 @@
                   = link_to emotion_path(emotion.id),method: :delete do
                     = fa_icon "trash"
               .label
-                = "好きなわけ:"
+                = "好きな理由:"
               .body  
                 = simple_format(emotion.body)
-          .mybest-book-wrapper__list__heading
-            = "”#{emotion.book.title}” を ”好きな人が好きな本”"
-
-          - @book_users = emotion.book.users.where.not(id: emotion.user.id).order("RAND()").limit(5)
-          - @other_users = []
-          - @book_users.each do |user|
-            - if user.books.length > 1
-              - @other_users.push(user)
-          - @other_books = []
-          - 5.times do
-            - if @other_users.length == 0
-              - break
-            - user = @other_users.sample
-            - other_book = user.books.where.not(id: emotion.book.id).order("RAND()").limit(1)
-            - @other_books.push(other_book)
-            - @other_users.delete(user)
-          .mybest-book-wrapper__list__view-other    
-            - @other_books.each do |book|
-              .mybest-book-wrapper__list__view-other__list
-                .mybest-book-wrapper__list__view-other__list__image
-                  = link_to(image_tag(book[0].image_url,size: "128x192"), book_path(book[0].id))
-                .mybest-book-wrapper__list__view-other__list__title
-                  = book[0].title
-            - if @other_books.length == 0
-              .yohaku
+                
+          -  other_user = emotion.book.users.where.not(id: current_user.id ).pluck(:id)
+          -  other_emotion = Emotion.where(user_id: other_user).where.not(book_id: emotion.book.id).pluck(:book_id)
+          -  @other_books = Book.where(id: other_emotion).order("RAND()").limit(5)
+          - if @other_books.length != 0
+            .mybest-book-wrapper__list__heading
+              = "”#{emotion.book.title}” を ”好きな人が好きな本”"
+            .mybest-book-wrapper__list__view-other    
+              - @other_books.sample(5).each do |book|
+                .mybest-book-wrapper__list__view-other__list
+                  .mybest-book-wrapper__list__view-other__list__image
+                    = link_to(image_tag(book.image_url,size: "128x192"), book_path(book.id))
+                  .mybest-book-wrapper__list__view-other__list__title
+                    = book.title
+          - else
+            .yohaku
 
     = paginate @user_emotions
