@@ -2,19 +2,9 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   def show
     @book = Book.find(params[:id])
-    @other_users = []
-    @book.users.each do |user|
-      @other_users.push(user) if user.books.length > 1
-    end
-    @other_books = []
-    5.times do
-      break if @other_users.empty?
-
-      user = @other_users.sample
-      other_book = user.books.where.not(id: params[:id].to_i).order("RAND()").limit(1)
-      @other_books.push(other_book)
-      @other_users.delete(user)
-    end
+    other_user = @book.users.where.not(id: current_user.id ).pluck(:id)
+    other_emotion = Emotion.where(user_id: other_user).where.not(book_id: params[:id]).pluck(:book_id)
+    @other_books = Book.where(id: other_emotion).order("RAND()").limit(5)
   end
 
   def new; end

@@ -25,35 +25,64 @@
               = f.submit '' , class: 'book-search-form__submit'
               = fa_icon 'search', class: "one-btn"
         - if user_signed_in?
-          .div
+          .arrow_content
             %li.devise-box__nav__edit.two 
               = link_to user_path(current_user.id) do
                 = fa_icon 'bookmark', class: "two-btn"
-            %p.arrow_box 好きな本たち
-          .div
+            %p.arrow_box
+              = "#{current_user.username}さんのマイベスト！"
+          .arrow_content
             %li.devise-box__nav__edit.two 
               = link_to reads_path do
                 = fa_icon 'history', class: "two-btn"
-            %p.arrow_box 読書履歴
-          .div
+            %p.arrow_box 
+              読書履歴！
+              %br
+              = "#{current_user.username}さんが、今まで読んできた本の履歴です。"
+              %br
+              読んだ本を検索・読書マークを押して、
+              %br
+              履歴に追加しましょう！
+          .arrow_content
             %li.devise-box__nav__edit.two 
               = link_to emotions_path do
                 = fa_icon 'commenting', class: "two-btn"
-            %p.arrow_box みんなの本への思い
-          .div
+            %p.arrow_box 
+              みんなの本への思い!
+              %br
+              他のユーザーのマイベスト本とその理由の一覧です。
+              %br
+              好みが合うユーザーはフォローしましょう！
+          .arrow_content
             %li.devise-box__nav__edit.two 
               = link_to page_path(current_user.id) do
                 = fa_icon 'user', class: "two-btn"
-            %p.arrow_box マイページ
-          .div
+            %p.arrow_box
+              マイページ! 
+              %br
+              フォローユーザーの最新の、
+              %br
+              マイベスト・読書履歴が分かります。
+              %br
+              = "また「#{current_user.username}」さんの、"
+              %br
+              読書量もグラフで確認出来ます！
+          .arrow_content
             %li.devise-box__nav__edit.two 
               = link_to maps_path do
                 = fa_icon 'map', class: "two-btn"
-            %p.arrow_box 聖地巡礼
+            %p.arrow_box 
+              聖地巡礼! 
+              %br
+              マイベスト本の舞台を旅して、
+              %br
+              写真と一緒に思い出を投稿しましょう！
           %li.three
-            %ui.devise-box__nav__edit  
-              = link_to destroy_user_session_path, method: :delete do
-                = fa_icon 'sign-out', class: "two-btn"
+            %ul
+              %li.devise-box__nav__edit  
+                = link_to destroy_user_session_path, method: :delete do
+                  = fa_icon 'sign-out', class: "two-btn"
+              %p.arrow_box ログアウト
         - else
           .three
             %li.devise-box__nav__edit.outer-btn

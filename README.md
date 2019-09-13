@@ -1,20 +1,20 @@
 # マイベストブック！
 
-好きな本を検索→好きな本が好きなわけを投稿・共有できます。
+好きな本を検索→好きな本が好きな理由を投稿・共有できます。
 詳しくはこちらをご覧ください。
 <http://www.mybestbooks.xyz>
 
 ## 開発環境
 - Ruby 2.5.0
 - Ruby on Rails 5.2.3
-- mysql  Ver 8.0.17
+- mysql  Ver 5.7
 - SASS
 - Haml
 - Dockerにて開発環境構築
 
 ## 機能一覧,使用gem,API
 - 簡単ログインでポートフォリオをご確認いただけます
-- google maps API をしようして、マーキング、位置情報の登録、思い出の投稿ができます
+- google maps API を使用して、マーキング、位置情報の登録、思い出の投稿ができます
 - ユーザ登録/編集機能/アイコン画像添付(device/Active Storage)
 - ユーザフォロー機能(jqueryにてAjax)
 - 読んだ本をマークする機能(jqueryにてAjax)
