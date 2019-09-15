@@ -2,8 +2,6 @@
   %h2.map-title 本を片手に町へ行こう！
   .map-index-wrapper
     .map-index-wrapper__map
-      .map-initial
-        = image_tag("fotor.png",class: 'image')
       .map#map
       .map-index-wrapper__map__search
         = form_with(model: @map, url:maps_path ,class:"map-search-form",method: :GET) do |f|
@@ -65,6 +63,8 @@
     .map-form-wrapper__form
       = form_with(model: @map, url: maps_path, method: :post, local: true,class: 'map-create-form') do |f|
         .map-create-form__book
+          .map-create-form__book__label
+            = f.label :book, "行った場所の舞台となった本は？"
           = f.select :book,@books
         .map-create-form__memori
           = f.text_area :memori,placeholder: "思い出を記録しよう！！"
@@ -78,3 +78,9 @@
         = f.hidden_field :address
         = f.hidden_field :latitude
         = f.hidden_field :longitude
+  
+  - if session[:map] != "on"
+    .model-backgraund-intro
+    .map-initial
+      = image_tag("intro.png",class: 'image')
+  - session[:map] = "on"
