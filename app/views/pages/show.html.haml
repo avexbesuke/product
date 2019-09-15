@@ -23,12 +23,6 @@
           -if @fast_best_book != nil
             .page-show-wrapper__mypage__best-book__image
               = link_to(image_tag(@fast_best_book.image_url,size: "148x228"),book_path(@fast_best_book.id))
-            %li.tab_li
-              %a.tab4.tab_a.chart{href:"#tab4"}
-                .title
-                  = "読書量グラフ"      
-                .icon  
-                  = fa_icon 'bar-chart'
       
       .page-show-wrapper__side
         .page-show-wrapper__side__profile
@@ -40,9 +34,21 @@
           %li.tab_li
             %a.current.tab1.tab_a{href:"#tab1"}= "直近読書履歴"
           %li.tab_li
-            %a.tab2.tab_a{href:"#tab2"}= "フォローユーザー直近マイベスト"
+            %a.tab2.tab_a{href:"#tab2"}
+              = "フォローユーザー"
+              %br
+              = "直近マイベスト"
           %li.tab_li
-            %a.tab3.tab_a{href:"#tab3"}= "フォローユーザー直近読書履歴"
+            %a.tab3.tab_a{href:"#tab3"}
+              = "フォローユーザー"
+              %br
+              = "直近読書履歴"
+          %li.tab_li
+            %a.tab4.tab_a.chart{href:"#tab4"}
+              .title
+                = "読書量グラフ"      
+              .icon  
+                = fa_icon 'bar-chart'
 
         .page-show-wrapper__side__content.contents
           .tab1#tab1.tab_b
