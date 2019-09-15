@@ -12,22 +12,6 @@
       width: 100%;
       height: 100%;
     }
-    & .map-initial{
-      position: absolute;
-      top: 70px;
-      background-color: rgba(0, 0, 0, 0.5);
-      width: 100%;
-      height: 89%;
-      z-index: 10;
-      right: 20px;
-      & .image{
-        position: absolute;
-        max-width:90%;
-        max-height:90%;
-        z-index: 15;
-        margin:30px
-      }
-    }
     &__search{
       position: absolute;
       top: 27px;
@@ -152,7 +136,7 @@
   background-color: #fff;
   border-radius: 10px;
   width: 550px;
-  height: 450px;
+  height: 500px;
   top: 0;
   left: 0;
   bottom: 0;
@@ -161,9 +145,47 @@
   border: 1px solid #eee;
   display: none;
   text-align: right;
+  &__form {
+    display: none;
+    text-align: center;
+    & .map-create-form{
+      &__book{
+        &__label{
+          font-size: 20px;
+          margin: 0 0 10px 0;
+        }
+      }
+    }
+  }
 }
 
-.map-form-wrapper__form {
-  display: none;
-  text-align: center;
+.model-backgraund-intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .3;
+  // display: none;
+}
+
+.map-initial{
+  position: absolute;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 80%;
+  height: 80%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 1px solid #eee;
+  // display: none;
+  text-align: right;
+  margin: 30px auto;
+  & img{
+    width: 100%;
+    height: 100%;
+  }
 }
