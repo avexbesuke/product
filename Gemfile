@@ -102,4 +102,4 @@ gem 'gon'
 gem 'jquery-turbolinks'
 gem "gmaps4rails"
 gem "geocoder"
-gem 'webpacker', github: 'rails/webpacker'
+gem 'webpacker'
