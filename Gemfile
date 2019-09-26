@@ -103,5 +103,5 @@ gem 'jquery-turbolinks'
 gem "gmaps4rails"
 gem "geocoder"
 source "https://github.com/rails/webpacker.git" do
-  gem 'webpacker', github: 'rails/webpacker'
+  gem 'webpacker'
 end
