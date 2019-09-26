@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://github.com/rails/webpacker.git/
   specs:
     actioncable (5.2.3)
       actionpack (= 5.2.3)
