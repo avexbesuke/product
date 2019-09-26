@@ -33,5 +33,4 @@ Rails.application.routes.draw do
   get 'emotion_write', to: 'emotions#new'
 
   resources :maps, only: [:index,:create,:destroy]
-  resources :nices, onry: [:create]
 end
