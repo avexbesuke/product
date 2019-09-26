@@ -26,7 +26,7 @@
               .body  
                 = simple_format(emotion.body)
                 
-          -  other_user = emotion.book.users.where.not(id: current_user.id ).pluck(:id)
+          -  other_user = emotion.book.users.where.not(id: current_user.id ).order("RAND()").limit(1000).pluck(:id)
           -  other_emotion = Emotion.where(user_id: other_user).where.not(book_id: emotion.book.id).pluck(:book_id)
           -  @other_books = Book.where(id: other_emotion).order("RAND()").limit(5)
           - if @other_books.length != 0
