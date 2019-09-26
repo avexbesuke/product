@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+# source "https://github.com/rails/webpacker.git"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.0'
@@ -101,4 +102,6 @@ gem 'gon'
 gem 'jquery-turbolinks'
 gem "gmaps4rails"
 gem "geocoder"
-gem 'webpacker', github: 'rails/webpacker'
+source "https://github.com/rails/webpacker.git" do
+  gem 'webpacker', github: 'rails/webpacker'
+end
