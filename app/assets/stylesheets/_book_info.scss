@@ -1,57 +1,57 @@
-// .best-btn{
-//   display: inline-block;
-//   padding: 0.5em 1em;
-//   text-decoration: none;
-//   color: #67c5ff;
-//   border: double 4px #67c5ff;
-//   border-radius: 3px;
-//   transition: .4s;
-// }
+.best-btn{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: double 4px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
 
-// .readed{
-//   color: #ffef15 !important;
-//   transition: .3s !important;
-//   font-size: 20px !important;
-//   border-bottom: solid 0.5px !important;
-//   border-color: #3d00e6 !important;
-// }
+.readed{
+  color: #ffef15 !important;
+  transition: .3s !important;
+  font-size: 20px !important;
+  border-bottom: solid 0.5px !important;
+  border-color: #3d00e6 !important;
+}
 
-// .bested-btn{
-//   background: #fffbef;
-//   display: inline-block;
-//   padding: 0.5em 1em;
-//   text-decoration: none;
-//   color: #930ea5;
-//   border: double 4px #9e0992;
-//   border-radius: 3px;
-// }
+.bested-btn{
+  background: #fffbef;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #930ea5;
+  border: double 4px #9e0992;
+  border-radius: 3px;
+}
 
-// .best-btn:hover {
-//   background: #fffbef;
-// }
+.best-btn:hover {
+  background: #fffbef;
+}
 
-// .image-field{
-//   position: relative;
-// }
+.image-field{
+  position: relative;
+}
 
-// .image {
-//   width: 121px;
-//   height: 181px;
-// }
+.info-image {
+  width: 121px;
+  height: 181px;
+}
 
-// .read-btn{
-//   position: absolute;
-//   right: 70px;
-//   color: #000000;
-//   transition: .3s;
-//   font-size: 20px;
-//   border-bottom: solid 0.5px;
-// }
+.read-btn{
+  position: absolute;
+  right: 70px;
+  color: #000000;
+  transition: .3s;
+  font-size: 20px;
+  border-bottom: solid 0.5px;
+}
 
-// .book-title, .book-author{
-//   max-width: 250px;      
-//   max-height: 24px;
-//   text-overflow: ellipsis;
-//   overflow: hidden;
-//   white-space: nowrap;
-// }
+.book-title, .book-author{
+  max-width: 250px;      
+  max-height: 24px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

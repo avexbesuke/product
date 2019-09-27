@@ -3,8 +3,8 @@
     <div class="image-field">
       <font-awesome-icon v-if="this.read_bids.indexOf(book.bid) >= 0" icon="book" :id="book.bid" class="read-btn" @click="readclick" :class="{readed: isActive}"/>
       <font-awesome-icon v-else icon="book" :id="book.bid" class="read-btn" @click="readclick" :class="{readed: isActive==false}"/>
-      <img v-if="book.image.length != 0" :class="{ linkable }" :src="book.image" class="image"/>
-      <img v-else :class="{ linkable }" src="../../assets/noimage.png" class="image"/>
+      <img v-if="book.image.length != 0" :class="{ linkable }" :src="book.image" class="info-image"/>
+      <img v-else :class="{ linkable }" src="../../assets/noimage.png" class="info-image"/>
     </div>
     <p :class="{ linkable }" class="book-title">{{book.title}}</p>
     <p v-if="book.author.length != 0" class="book-author">{{book.author}}</p>
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-.best-btn{
+/* .best-btn{
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -115,5 +115,5 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-}
+} */
 </style>
