@@ -97,7 +97,7 @@
 </script>
 
 <style>
-.el-form-item{
+/* .el-form-item{
   margin-bottom: 0px !important;
 }
 
@@ -125,12 +125,12 @@
 
 .el-input__inner{
   width: 220px !important;
-}
+} */
 </style>
 
 <style scoped>
 
-.form-h2{
+/* .form-h2{
   padding: 20px 40px;
   font-size: 38px;
   font-weight: bold;
@@ -173,6 +173,6 @@
 
 .emotion-btn{
   margin-left: 270px !important;
-}
+} */
 
 </style>
