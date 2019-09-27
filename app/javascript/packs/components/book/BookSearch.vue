@@ -55,13 +55,13 @@
       console.log(this.read_bids)
       this.delayFunc = _.debounce(this.onclick,200);
     },
-    // watch:{
-    //   keyword: function(newValue,oldValue){
-    //     if (this.keyword != ''){
-    //       this.delayFunc();
-    //     }
-    //   }
-    // },
+    watch:{
+      keyword: function(newValue,oldValue){
+        if (this.keyword != ''){
+          this.delayFunc();
+        }
+      }
+    },
     methods: {
       ...mapActions([UPDATE_BID]),
       onclick: function(){ 
