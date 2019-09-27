@@ -1,13 +1,13 @@
 <template>
   <div class="menu">
     <div class="image-field">
-      <font-awesome-icon v-if="this.read_bids.indexOf(book.bid) >= 0" icon="book" :id="book.bid" class="read-btn" @click="readclick" :class="{on: isActive}"/>
-      <font-awesome-icon v-else icon="book" :id="book.bid" class="read-btn" @click="readclick" :class="{on: isActive==false}"/>
+      <font-awesome-icon v-if="this.read_bids.indexOf(book.bid) >= 0" icon="book" :id="book.bid" class="read-btn" @click="readclick" :class="{readed: isActive}"/>
+      <font-awesome-icon v-else icon="book" :id="book.bid" class="read-btn" @click="readclick" :class="{readed: isActive==false}"/>
       <img v-if="book.image.length != 0" :class="{ linkable }" :src="book.image" class="image"/>
       <img v-else :class="{ linkable }" src="../../assets/noimage.png" class="image"/>
     </div>
-    <p :class="{ linkable }" class="title">{{book.title}}</p>
-    <p v-if="book.author.length != 0" class="author">{{book.author}}</p>
+    <p :class="{ linkable }" class="book-title">{{book.title}}</p>
+    <p v-if="book.author.length != 0" class="book-author">{{book.author}}</p>
     <p v-else class="author">作者情報なし</p>
       <input v-if="this.bids.indexOf(book.bid) == -1" class="best-btn" type="button" @click="onclick" value="マイベストにする"/>
       <p v-else class="bested-btn">マイベスト！</p>
@@ -69,7 +69,7 @@ export default {
   transition: .4s;
 }
 
-.on{
+.readed{
   color: #ffef15 !important;
   transition: .3s !important;
   font-size: 20px !important;
@@ -109,7 +109,7 @@ export default {
   border-bottom: solid 0.5px;
 }
 
-.title, .author{
+.book-title, .book-author{
   max-width: 250px;      
   max-height: 24px;
   text-overflow: ellipsis;
