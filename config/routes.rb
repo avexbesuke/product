@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'pages#about'
-  get '/form', to: 'pages#about'
 
   resources :pages , only: [:show,:index]
 

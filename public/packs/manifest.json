@@ -1,45 +1,45 @@
 {
-  "assets/noimage.js": "/packs/js/assets/noimage-9b2f538817d6a3851556.js",
-  "assets/noimage.js.map": "/packs/js/assets/noimage-9b2f538817d6a3851556.js.map",
-  "components/book/BookForm.js": "/packs/js/components/book/BookForm-23725c8fab0d7a7ab072.js",
-  "components/book/BookForm.js.map": "/packs/js/components/book/BookForm-23725c8fab0d7a7ab072.js.map",
-  "components/book/BookInfo.js": "/packs/js/components/book/BookInfo-a6af61f55e399bc95d3e.js",
-  "components/book/BookInfo.js.map": "/packs/js/components/book/BookInfo-a6af61f55e399bc95d3e.js.map",
-  "components/book/BookSearch.js": "/packs/js/components/book/BookSearch-ca32b8bde719edf0fab5.js",
-  "components/book/BookSearch.js.map": "/packs/js/components/book/BookSearch-ca32b8bde719edf0fab5.js.map",
+  "assets/noimage.js": "/packs/js/assets/noimage-f7808f0fbfdbf3cd275e.js",
+  "assets/noimage.js.map": "/packs/js/assets/noimage-f7808f0fbfdbf3cd275e.js.map",
+  "components/book/BookForm.js": "/packs/js/components/book/BookForm-8cabf35651d05aefb785.js",
+  "components/book/BookForm.js.map": "/packs/js/components/book/BookForm-8cabf35651d05aefb785.js.map",
+  "components/book/BookInfo.js": "/packs/js/components/book/BookInfo-1721d3051f4b7337ad20.js",
+  "components/book/BookInfo.js.map": "/packs/js/components/book/BookInfo-1721d3051f4b7337ad20.js.map",
+  "components/book/BookSearch.js": "/packs/js/components/book/BookSearch-c250473533cdadbee676.js",
+  "components/book/BookSearch.js.map": "/packs/js/components/book/BookSearch-c250473533cdadbee676.js.map",
   "element-variables.js": "/packs/js/element-variables-a6e76083fb22c0b8f84b.js",
   "element-variables.js.map": "/packs/js/element-variables-a6e76083fb22c0b8f84b.js.map",
   "entrypoints": {
     "assets/noimage": {
       "js": [
-        "/packs/js/assets/noimage-9b2f538817d6a3851556.js"
+        "/packs/js/assets/noimage-f7808f0fbfdbf3cd275e.js"
       ],
       "js.map": [
-        "/packs/js/assets/noimage-9b2f538817d6a3851556.js.map"
+        "/packs/js/assets/noimage-f7808f0fbfdbf3cd275e.js.map"
       ]
     },
     "components/book/BookForm": {
       "js": [
-        "/packs/js/components/book/BookForm-23725c8fab0d7a7ab072.js"
+        "/packs/js/components/book/BookForm-8cabf35651d05aefb785.js"
       ],
       "js.map": [
-        "/packs/js/components/book/BookForm-23725c8fab0d7a7ab072.js.map"
+        "/packs/js/components/book/BookForm-8cabf35651d05aefb785.js.map"
       ]
     },
     "components/book/BookInfo": {
       "js": [
-        "/packs/js/components/book/BookInfo-a6af61f55e399bc95d3e.js"
+        "/packs/js/components/book/BookInfo-1721d3051f4b7337ad20.js"
       ],
       "js.map": [
-        "/packs/js/components/book/BookInfo-a6af61f55e399bc95d3e.js.map"
+        "/packs/js/components/book/BookInfo-1721d3051f4b7337ad20.js.map"
       ]
     },
     "components/book/BookSearch": {
       "js": [
-        "/packs/js/components/book/BookSearch-ca32b8bde719edf0fab5.js"
+        "/packs/js/components/book/BookSearch-c250473533cdadbee676.js"
       ],
       "js.map": [
-        "/packs/js/components/book/BookSearch-ca32b8bde719edf0fab5.js.map"
+        "/packs/js/components/book/BookSearch-c250473533cdadbee676.js.map"
       ]
     },
     "element-variables": {
