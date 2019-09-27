@@ -1,18 +1,38 @@
-<template>
+<template>  
   <div id="form">
-    <BookInfo :book="book"></BookInfo>
     <hr />
-    <el-form ref="form" :model="form" :rules="rules" label-width="120px">
-      <el-form-item label="読了日">
-        <el-date-picker type="date" v-model="form.read"></el-date-picker>
-      </el-form-item>
-      <el-form-item label="感想" prop="memo">
-        <el-input type="textarea" size="large" v-model="form.memo"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="createBook">登録</el-button>
-      </el-form-item>
-    </el-form>
+    <h2 class="form-h2">"{{book.title}}" が好きな理由</h2>
+    <!-- <BookInfo :book="book"></BookInfo> -->
+    <div class="emotion-list">
+      <div class="emotion-list__view">
+        <div class="emotion-list__view__data">
+          <img v-if="book.image.length != 0" :class="{ linkable }" :src="book.image" class="data__image"/>
+          <img v-else :class="{ linkable }" src="../../assets/noimage.png" class="data__image"/>
+          <el-form ref="form" :model="form" :rules="rules" label-width="120px">
+            <div class="data">
+              <div class="title">
+                <div class="readed_at">
+                  <span class="date-label">読了日</span>
+                  <el-date-picker type="date" v-model="form.read"></el-date-picker>
+                </div>
+              </div>
+            </div>
+            <div class="lead">
+                <el-form-item prop="memo">
+                  <p class="lead">この本が好きな理由</p>
+                  <el-input type="textarea" maxlength="200"
+                    resize="none" v-model="form.memo"></el-input>
+                </el-form-item>
+                <div class="tag-btn">
+                  <el-input type="text" maxlength="8"
+                      resize="none" v-model="form.tag" class="emotion-tag" placeholder="タグ付け(感動,シリアス)"></el-input>
+                  <el-button type="primary" @click="createBook" class="emotion-btn">登録</el-button>
+                </div>
+            </div>
+          </el-form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -53,29 +73,13 @@
       this.book = Object.assign({}, this.current) //選択中の書籍情報をbook{}に入れる
     },
     methods: {
-      ...mapActions([UPDATE_CURRENT]), //アクションとメソッドを紐つけ
-      // onsubmit(){ //登録ボタンで、データ登録
-      //   this.$refs['form'].validate((valid) => { //検証に成功したらストアに反映
-      //     if (valid){
-      //       this[UPDATE_CURRENT](null) //選択中の書籍情報リセット
-      //       this.$notify({ //処理成功の通知メッセージ
-      //         title: '処理成功の通知メッセージ',
-      //         message: this.$createElement('p',{style: 'color:#009'},'読書情報の登録に成功'),
-      //         duration: 2000
-      //       })
-      //       this.form.read = new Date() // フォームの内容をクリア
-      //       this.form.memo = ''
-      //       this.$router.push('/') //トップページにリダイレクト
-      //     }
-      //   })
-      // },
+      ...mapActions([UPDATE_CURRENT]),
       createBook(){
         this.$refs['form'].validate((valid) => { //検証に成功したらストアに反映
           if (valid){
-            axios.post('/api/books', { books: { title: this.book.title, image: this.book.image, 
-              author:this.book.author, description: this.book.description, 
-              body: this.form.memo, readed_at: this.form.read, bid: this.book.bid} }).then((response) => {
-            // this.books.unshift(response.data.book);
+            axios.post('/api/emotions', { books: { title: this.book.title, image_url: this.book.image, 
+              author:this.book.author, synopsis: this.book.description, 
+              body: this.form.memo, readed_at: this.form.read, bid: this.book.bid, tag_list:this.form.tag} }).then((response) => {
             }, (error) => {
               aleart("error");
             }); 
@@ -91,3 +95,84 @@
     }
   }
 </script>
+
+<style>
+.el-form-item{
+  margin-bottom: 0px !important;
+}
+
+.el-form-item__content{
+  margin-left: 0px !important;
+}
+
+.el-form{
+  padding: 0 30px;
+}
+
+.el-textarea{
+  height: 200px;
+  width: 400px;
+}
+
+.el-textarea__inner{
+  height: 200px;
+  width: 400px;
+  resize: none;
+  padding: 0 12px;
+  border-radius: 5px;
+  background-color: rgba(238, 238, 238, 0.1);
+}
+
+.el-input__inner{
+  width: 220px !important;
+}
+</style>
+
+<style scoped>
+
+.form-h2{
+  padding: 20px 40px;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.emotion-list{
+  word-wrap:break-all;
+  display: flex;
+  margin: 0 0 20px 0;
+}
+
+.emotion-list__view{
+  padding: 20px 70px 40px 40px;
+}
+
+.emotion-list__view__data{
+  display: flex;
+  position: relative;
+  width: 150%;
+}
+
+.data__image{
+  width: 186px;
+  height: 276px;
+}
+
+.lead{
+  font-size: 18px;
+  width: 400px;
+}
+
+.tag-btn{
+  display: flex;
+  margin-top: 5px;
+}
+
+.emotion-tag{
+  width: 60px;
+}
+
+.emotion-btn{
+  margin-left: 270px !important;
+}
+
+</style>

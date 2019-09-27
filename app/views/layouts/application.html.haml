@@ -12,22 +12,18 @@
     %script{src: "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
   %body
     // = render 'layouts/flash'
-    // コンポーネント描画ーーーーーーーーーーーーーーーーーーーーーーーーーーー
     %header.devise-box
       %h2 
         = link_to root_path do 
           = "MyBest_Books"
-      .component-field#app
-        %router-view
-      = javascript_pack_tag 'main'
 
       %ul.devise-box__nav.nav-menu
-        %li.devise-box__nav__edit.one 
-          = form_with url:book_search_path,method: :post,local: true,class:'book-search-form' do |f|
-            = f.text_field :keyword,placeholder: "好きな本を探す",class:'book-search-form__text'
-            %label.label
-              = f.submit '' , class: 'book-search-form__submit'
-              = fa_icon 'search', class: "one-btn"
+        -# %li.devise-box__nav__edit.one 
+          -# = form_with url:book_search_path,method: :post,local: true,class:'book-search-form' do |f|
+          -#   = f.text_field :keyword,placeholder: "好きな本を探す",class:'book-search-form__text'
+          -#   %label.label
+          -#     = f.submit '' , class: 'book-search-form__submit'
+          -#     = fa_icon 'search', class: "one-btn"
         - if user_signed_in?
           .arrow_content
             %li.devise-box__nav__edit.two 
@@ -93,4 +89,8 @@
               = link_to '新規登録', new_user_registration_path
             %li.devise-box__nav__edit.outer-btn
               = link_to 'ログイン', new_user_session_path
+      .component-field#app
+        %router-view
+      %hr.nav-hr
+      = javascript_pack_tag 'main'
     = yield
