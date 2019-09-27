@@ -23,7 +23,7 @@ class Api::EmotionsController < ApplicationController
 
   def book_params
     params.require(:books).permit(:title, :image_url, :author,
-                                  :synopsis, :readed_at, :bid)
+      :synopsis, :readed_at, :bid)
   end
 
   def emotion_params
