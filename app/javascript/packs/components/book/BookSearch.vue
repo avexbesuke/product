@@ -91,7 +91,7 @@
 </script>
 
 <style>
-.el-form{
+/* .el-form{
   height: 40px;
 }
 
@@ -113,5 +113,5 @@
   min-height: 300px;
   text-align: center;
   margin: 10px;
-}
+} */
 </style>

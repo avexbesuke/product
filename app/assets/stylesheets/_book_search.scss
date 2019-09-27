@@ -1,0 +1,23 @@
+.el-form{
+  height: 40px;
+}
+
+.book-hr{
+  margin: 5px 0 0 0;
+}
+
+.book-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+  margin: 0 0 0 30px;
+}
+.book-content{
+  width: 250px;
+  height: 300px;
+  min-width: 250px;
+  min-height: 300px;
+  text-align: center;
+  margin: 10px;
+}

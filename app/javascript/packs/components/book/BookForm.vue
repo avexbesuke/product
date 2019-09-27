@@ -17,9 +17,9 @@
                 </div>
               </div>
             </div>
-            <div class="lead">
+            <div class="lead-menu">
                 <el-form-item prop="memo">
-                  <p class="lead">この本が好きな理由</p>
+                  <p class="lead-menu">この本が好きな理由</p>
                   <el-input type="textarea" maxlength="200"
                     resize="none" v-model="form.memo"></el-input>
                 </el-form-item>
@@ -157,7 +157,7 @@
   height: 276px;
 }
 
-.lead{
+.lead-menu{
   font-size: 18px;
   width: 400px;
 }
