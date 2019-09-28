@@ -323,6 +323,8 @@ GEM
       rspec-expectations (~> 3.8.0)
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
+    rspec-retry (0.6.1)
+      rspec-core (> 3.3)
     rspec-support (3.8.2)
     rubocop (0.36.0)
       parser (>= 2.3.0.0, < 3.0)
@@ -442,6 +444,7 @@ DEPENDENCIES
   rails-i18n
   ransack
   rspec-rails (~> 3.7)
+  rspec-retry
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver

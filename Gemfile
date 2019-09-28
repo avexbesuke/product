@@ -54,6 +54,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'rspec-retry'
 end
 
 group :development do

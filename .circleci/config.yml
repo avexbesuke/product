@@ -21,7 +21,6 @@ jobs:
           keys:
             - v2-dependencies-{{ checksum "Gemfile.lock" }}
             - v2-dependencies- 
-            - my-cache
       - run:
           name: yarn install --check-files
           command: |
@@ -34,10 +33,6 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v2-dependencies-{{ checksum "Gemfile.lock" }}
-      - save_cache:
-          key: my-cache
-          paths:
-            - product/app
       - run:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
