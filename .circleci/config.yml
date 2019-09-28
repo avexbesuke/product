@@ -19,8 +19,9 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - v1-dependencies-
+             - m2-{{ checksum "pom.xml" }}
+            # - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # - v1-dependencies-
       - run:
           name: yarn install --check-files
           command: |
