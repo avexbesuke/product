@@ -3,10 +3,10 @@
     <div class="image-field">
       <font-awesome-icon v-if="this.read_bids.indexOf(book.bid) >= 0" icon="book" :id="book.bid" class="read-btn" @click="readclick" :class="{readed: isActive}"/>
       <font-awesome-icon v-else icon="book" :id="book.bid" class="read-btn" @click="readclick" :class="{readed: isActive==false}"/>
-      <img v-if="book.image.length != 0" :class="{ linkable }" :src="book.image" class="info-image"/>
-      <img v-else :class="{ linkable }" src="../../assets/noimage.png" class="info-image"/>
+      <img v-if="book.image.length != 0" :src="book.image" class="info-image"/>
+      <img v-else src="../../assets/noimage.png" class="info-image"/>
     </div>
-    <p :class="{ linkable }" class="book-title">{{book.title}}</p>
+    <p class="book-title">{{book.title}}</p>
     <p v-if="book.author.length != 0" class="book-author">{{book.author}}</p>
     <p v-else class="author">作者情報なし</p>
       <input v-if="this.bids.indexOf(book.bid) == -1" class="best-btn" type="button" @click="onclick" value="マイベストにする"/>
@@ -32,7 +32,6 @@ export default {
   },
   props: {
     index: { type: Number },
-    linkable: { type: Boolean, default: true },
     book: { type: Object },
     bids: { type: Array },
     read_bids: { type: Array },

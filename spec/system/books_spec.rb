@@ -15,7 +15,7 @@ describe '本の機能', type: :system do
     context '本を検索した時' do
       before do
         fill_in 'keyword', with: '星の王子'
-        page.first(".fa-search").click
+        page.first(".el-button").click
       end
       it '星の王子様が表示される' do
         expect(page).to have_content '星の王子さま'

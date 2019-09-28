@@ -2,7 +2,7 @@
   <div id="search">
     <el-form :inline="true">
       <el-form-item>
-        <el-input type="text" size="large" v-model="keyword" placeholder="好きな本を探す"></el-input>
+        <el-input type="text" size="large" v-model="keyword" placeholder="好きな本を探す" id="keyword"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" size="large" @click='onclick'>検索</el-button>

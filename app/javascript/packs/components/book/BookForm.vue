@@ -5,8 +5,8 @@
     <div class="emotion-list">
       <div class="emotion-list__view">
         <div class="emotion-list__view__data">
-          <img v-if="book.image.length != 0" :class="{ linkable }" :src="book.image" class="data__image"/>
-          <img v-else :class="{ linkable }" src="../../assets/noimage.png" class="data__image"/>
+          <img v-if="book.image.length != 0"  :src="book.image" class="data__image"/>
+          <img v-else src="../../assets/noimage.png" class="data__image"/>
           <el-form ref="form" :model="form" :rules="rules" label-width="120px">
             <div class="data">
               <div class="title">
@@ -20,11 +20,11 @@
                 <el-form-item prop="memo">
                   <p class="lead-menu">この本が好きな理由</p>
                   <el-input type="textarea" maxlength="200"
-                    resize="none" v-model="form.memo"></el-input>
+                    resize="none" v-model="form.memo" id="emotion_body"></el-input>
                 </el-form-item>
                 <div class="tag-btn">
                   <el-input type="text" maxlength="8"
-                      resize="none" v-model="form.tag" class="emotion-tag" placeholder="タグ付け(感動,シリアス)"></el-input>
+                      resize="none" v-model="form.tag" class="emotion-tag" placeholder="タグ付け(感動,シリアス)" id="emotion_tag_list"></el-input>
                   <el-button type="primary" @click="createBook" class="emotion-btn">登録</el-button>
                 </div>
             </div>
