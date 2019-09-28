@@ -8,7 +8,7 @@ describe '本を好きな理由投稿機能', type: :system do
 
       visit new_user_session_path
       visit current_path
-      fill_in 'user[email]', with: 'test@test.com'
+      # fill_in 'user[email]', with: 'test@test.com'
       fill_in 'user[password]', with: 'testpass'
       click_button "ログイン"
     end
