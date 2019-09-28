@@ -20,11 +20,7 @@ jobs:
       - restore_cache:
           keys:
             - v2-dependencies-{{ checksum "Gemfile.lock" }}
-            - v2-dependencies-
-      - run:
-          name: cashclear
-          command: |
-            docker images --no-trunc --format '{{.ID}}' | xargs docker rmi      
+            - v2-dependencies- 
       - run:
           name: yarn install --check-files
           command: |
