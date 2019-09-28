@@ -22,9 +22,9 @@ jobs:
             - v2-dependencies-{{ checksum "Gemfile.lock" }}
             - v2-dependencies-
       - run:
-        name: cash clear
-        command: |
-          docker images --no-trunc --format '{{.ID}}' | xargs docker rmi      
+          name: cashclear
+          command: |
+            docker images --no-trunc --format '{{.ID}}' | xargs docker rmi      
       - run:
           name: yarn install --check-files
           command: |
