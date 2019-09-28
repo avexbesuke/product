@@ -10,6 +10,8 @@ document.addEventListener('turbolinks:load',function(){
         $('#map_longitude').val(longitude)
       }
 
+
+
       $(document).on('click', '.model-backgraund, .form-delete-btn', function() {
         $('.model-backgraund').hide();
         $('.map-form-wrapper').hide();
