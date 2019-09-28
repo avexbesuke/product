@@ -19,12 +19,12 @@ Rails.application.routes.draw do
   post 'book_search', to: 'books#index'
   get 'book_search', to: 'books#index'
 
-  resources :emotions, only: [:new,:create,:index,:edit,:update,:destroy]
+  resources :emotions, only: [:index,:edit,:update,:destroy]
   post 'emotion_write', to: 'emotions#new'
 
   resources :users, only: [:show]
 
-  resources :reads, only: [:create,:index]
+  resources :reads, only: [:index]
 
   resources :users do
     resources :relationships, onry: [:create, :destroy]

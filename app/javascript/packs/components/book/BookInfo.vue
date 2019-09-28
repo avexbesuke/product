@@ -95,7 +95,7 @@ export default {
   position: relative;
 }
 
-.image {
+.info-image {
   width: 121px;
   height: 181px;
 }
