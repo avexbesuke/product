@@ -81,7 +81,7 @@
             %li.devise-box__nav__edit.outer-btn
               = link_to '新規登録', new_user_registration_path
             %li.devise-box__nav__edit.outer-btn
-              = link_to 'ログイン', new_user_session_path
+              = link_to 'ログイン', new_user_session_path, class:"session-link"
       - if current_user != nil
         .component-field#app
           %router-view
