@@ -22,6 +22,10 @@ jobs:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
       - run:
+          name: yarn install --check-files
+          command: |
+            yarn install --check-files
+      - run:
           name: install bundle
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
