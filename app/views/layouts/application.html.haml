@@ -89,8 +89,10 @@
               = link_to '新規登録', new_user_registration_path
             %li.devise-box__nav__edit.outer-btn
               = link_to 'ログイン', new_user_session_path
-      .component-field#app
-        %router-view
-      %hr.nav-hr
-      = javascript_pack_tag 'main'
+      - if current_user != nil
+        .component-field#app
+          %router-view
+        %hr.nav-hr
+        = javascript_pack_tag 'main'
+        = stylesheet_pack_tag 'main'
     = yield
