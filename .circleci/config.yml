@@ -1,4 +1,4 @@
-version: 2
+version: 1
 
 jobs:
   test:
@@ -19,7 +19,6 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-             - m2-{{ checksum "pom.xml" }}
             # - v1-dependencies-{{ checksum "Gemfile.lock" }}
             # - v1-dependencies-
       - run:
