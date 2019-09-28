@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 describe '本を好きな理由投稿機能', type: :system do
-  describe 'わけ登録' do
+  describe '理由' do
     before do
       user_a = FactoryBot.create(:user)
       FactoryBot.build(:book)
 
-      visit new_user_session_path
-      visit new_user_session_path
       visit new_user_session_path
       fill_in 'user_email', with: 'test@test.com'
       fill_in 'user_password', with: 'testpass'
@@ -45,9 +43,19 @@ describe '本を好きな理由投稿機能', type: :system do
         expect(page).to have_content '感動'
       end
 
+      it '編集した時に本文が変わる' do
+        page.first(".fa-bookmark").click
+        page.first(".fa-edit").click
+        fill_in 'emotion_body', with: '良き本です'
+        click_on "決定"
+        page.first(".fa-bookmark").click
+        expect(page).to have_content '良き本です'
+      end
+
       it '削除した時に表示されない' do
         page.first(".fa-bookmark").click
-        expect(page).to have_content '感動'
+        page.first(".fa-trash").click
+        expect(page).not_to have_content '良き本です'
       end
     end
   end
