@@ -2,7 +2,6 @@
   <div id="form">
     <hr />
     <h2 class="form-h2">"{{book.title}}" が好きな理由</h2>
-    <!-- <BookInfo :book="book"></BookInfo> -->
     <div class="emotion-list">
       <div class="emotion-list__view">
         <div class="emotion-list__view__data">

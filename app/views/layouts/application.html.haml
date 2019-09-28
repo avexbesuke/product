@@ -9,7 +9,6 @@
     %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=" + Rails.application.credentials.dig(:google, :maps_access_key_id) + "&callback=initMap"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    -# %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=" + Rails.application.credentials.dig(:google, :maps_access_key_id) + "&callback=initMap"}
     %script{src: "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
   %body
     // = render 'layouts/flash'
@@ -18,12 +17,6 @@
         = link_to root_path do 
           = "MyBest_Books"
       %ul.devise-box__nav.nav-menu
-        -# %li.devise-box__nav__edit.one 
-        -#   = form_with url:book_search_path,method: :post,local: true,class:'book-search-form' do |f|
-        -#     = f.text_field :keyword,placeholder: "好きな本を探す",class:'book-search-form__text'
-        -#     %label.label
-        -#       = f.submit '' , class: 'book-search-form__submit'
-        -#       = fa_icon 'search', class: "one-btn"
         - if user_signed_in?
           .arrow_content
             %li.devise-box__nav__edit.two 
