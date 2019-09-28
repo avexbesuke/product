@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-/* .best-btn{
+.best-btn{
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -115,5 +115,5 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-} */
+}
 </style>
