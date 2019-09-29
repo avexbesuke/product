@@ -16,7 +16,6 @@ library.add(faBook)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(Vuex)
 
-// 本番環境では消すのだっけ↓
 Vue.config.productionTip = false
 Vue.prototype.$http = (url,opts) => fetch(url,opts)
 
