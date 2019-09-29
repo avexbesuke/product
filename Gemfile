@@ -104,3 +104,4 @@ gem "gmaps4rails"
 gem "geocoder"
 gem 'webpacker', github: 'rails/webpacker'
 gem 'owlcarousel-rails'
+gem 'config'
