@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @readed_books = @user.read_books.order("created_at DESC").limit(10)
+    @readed_books = @user.read_books.order("created_at DESC").limit(Settings.data[:readed_books_num])
     @fast_best_book = @user.books.first
     @fast_best_emotion = @user.emotions.first
 
@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     end
 
     unless @user.reads.empty?
-      reads = @user.reads.group("CONCAT(YEAR(created_at), MONTH(created_at))").count.sort.pop(6)
+      reads = @user.reads.group("CONCAT(YEAR(created_at), MONTH(created_at))").count.sort.pop(Settings.data[:follow_user_readed_num])
       reads_flat = reads.flatten!
       reads_numeric = []
       reads_flat.each do |read|
@@ -46,7 +46,7 @@ class PagesController < ApplicationController
         now = now << 1
       end
 
-      gon.reads = read_date.sort.pop(6)
+      gon.reads = read_date.sort.pop(Settings.data[:follow_user_readed_num])
       gon.year_month = year_month
     end
   end

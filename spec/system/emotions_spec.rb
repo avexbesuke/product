@@ -21,7 +21,7 @@ describe '本を好きな理由投稿機能', type: :system do
         click_on "登録"
       end
 
-      it 'マイベスト一覧に理由が表示される' do
+      it 'マイベスト一覧に理由が表示される', retry: 3 do
         visit emotions_path
         expect(page).to have_content '好きな本です'
       end
