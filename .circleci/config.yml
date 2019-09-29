@@ -49,7 +49,9 @@ jobs:
             # Align chrome-driver's version installed by chromedriver-helper
       - run: 
           name: rspecを実行
-          command: bundle exec rspec
+          command: |
+            bundle exec rspec ＼
+              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       - store_artifacts:
           path: tmp/capybara/
   
