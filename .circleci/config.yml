@@ -49,11 +49,19 @@ jobs:
             # Align chrome-driver's version installed by chromedriver-helper
       - run: 
           name: rspecを実行
+          command: bundle exec rspec
+      - run:
+          name: ダミーアーティファクトの作成
           command: |
-            bundle exec rspec ＼
-              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+            echo "my artifact file" > /tmp/artifact-1;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
       - store_artifacts:
-          path: tmp/capybara/
+          path: /tmp/artifact-1
+          destination: artifact-file
+
+      - store_artifacts:
+          path: /tmp/artifacts
   
   code-check:
     docker:
