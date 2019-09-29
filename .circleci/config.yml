@@ -53,9 +53,9 @@ jobs:
       - run:
           name: ダミーアーティファクトの作成
           command: |
-            echo "my artifact file" > /tmp/artifact-1;
+            echo "my artifact file" > /tmp/capybara/;
             mkdir /tmp/artifacts;
-            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
+            echo "my artifact files in a dir" > /tmp/capybara/;
       - store_artifacts:
           path: /tmp/capybara/
           destination: artifact-file
