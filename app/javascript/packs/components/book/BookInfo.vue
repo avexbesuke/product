@@ -17,14 +17,10 @@
 <script>
 import { mapActions } from 'vuex'
 import { UPDATE_CURRENT } from './../../mutation-types'
-
-import store from './../../store.js'
-
 import axios from 'axios';
 
 export default {
   name: 'book-info',
-  store: store,
   data: function(){
     return {
       isActive: true,
@@ -44,7 +40,6 @@ export default {
     },
     readclick(){
       this[UPDATE_CURRENT](this.book) 
-      console.log('押した')
       axios.post('/api/reads', {books: { title: this.book.title, image_url: this.book.image, 
         author:this.book.author, synopsis: this.book.description, 
         bid: this.book.bid}}).then((response) => {

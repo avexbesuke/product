@@ -41,21 +41,18 @@
   import BookSearch from './BookSearch.vue'
   import { UPDATE_CURRENT } from './../../mutation-types'
   import axios from 'axios';
-  import store from './../../store.js'
 
   export default {
     name: 'book-form',
-    store: store,
     components:{
       BookInfo,
-      // BookSearch
     },
     data(){
       return {
-        book: {}, //選択中の書籍情報
+        book: {}, 
         form: {
-          read: new Date(), //読了日
-          memo: '',          //感想
+          read: new Date(), 
+          memo: '',         
         },
         rules:{
           memo:[
@@ -65,16 +62,16 @@
       }
     },
     computed: mapGetters([ 'current']),
-    created(){ //ページロード時の処理
-      if (!this.current){ //選択中の書籍がない場合、トップページにリダイレクト
+    created(){ 
+      if (!this.current){
         this.$router.push('/')
       }
-      this.book = Object.assign({}, this.current) //選択中の書籍情報をbook{}に入れる
+      this.book = Object.assign({}, this.current) 
     },
     methods: {
       ...mapActions([UPDATE_CURRENT]),
       createBook(){
-        this.$refs['form'].validate((valid) => { //検証に成功したらストアに反映
+        this.$refs['form'].validate((valid) => { 
           if (valid){
             axios.post('/api/emotions', { books: { title: this.book.title, image_url: this.book.image, 
               author:this.book.author, synopsis: this.book.description, 
@@ -83,7 +80,7 @@
               aleart("error");
             }); 
             this.$router.push('/')
-              this.$notify({ //処理成功の通知メッセージ
+              this.$notify({ 
               title: `”${this.book.title}”`,
               message: this.$createElement('p',{style: 'color:#000'},'の好きな理由を投稿しました！'),
               duration: 2000
