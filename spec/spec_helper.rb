@@ -24,11 +24,8 @@ RSpec.configure do |config|
   end
   config.retry_callback = proc do |ex|
     # run some additional clean up task - can be filtered by example metadata
-    if ex.metadata[:js]
-      Capybara.reset!     
-    end
+    Capybara.reset! if ex.metadata[:js]
   end
-
 
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless

@@ -19,8 +19,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - m2-{{ checksum "app/views/devise/sessions/new.html.haml" }}
-            - m2- 
+            - m2-dependencies-{{ checksum "app/views/devise/sessions/new.html.haml" }}
+            - m2-dependencies- 
             - v2-dependencies-{{ checksum "Gemfile.lock" }}
             - v2-dependencies- 
       - run:
@@ -35,6 +35,10 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v2-dependencies-{{ checksum "Gemfile.lock" }}
+      - save_cache:
+          paths:
+            - ./app/views/devise/sessions
+          key: v2-dependencies-{{ checksum "new.html.haml" }}
       - run:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
@@ -53,7 +57,7 @@ jobs:
           name: rspecを実行
           command: bundle exec rspec
       - store_artifacts:
-          path: /tmp/screenshots/
+          path: tmp/screenshots/
           destination: capybara
   
   code-check:

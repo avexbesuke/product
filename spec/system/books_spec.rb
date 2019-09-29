@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe '本の機能', type: :system do
-  describe '本についての機能',:retry => 3  do
+  describe '本についての機能', retry: 3  do
     before do
       user_a = FactoryBot.create(:user)
       FactoryBot.build(:book)
@@ -35,6 +35,5 @@ describe '本の機能', type: :system do
         expect(page).to have_content '星の王子さま'
       end
     end
-    
   end
 end
