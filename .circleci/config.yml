@@ -51,10 +51,10 @@ jobs:
             # Align chrome-driver's version installed by chromedriver-helper
       - run: 
           name: rspecを実行
-          command: bundle update
-      - run: 
-          name: rspecを実行
           command: bundle exec rspec
+      - store_artifacts:
+          path: /tmp/screenshots/
+          destination: capybara
   
   code-check:
     docker:
