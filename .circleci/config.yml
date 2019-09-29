@@ -50,6 +50,8 @@ jobs:
       - run: 
           name: rspecを実行
           command: bundle exec rspec
+      - store_artifacts:
+          path: tmp/capybara/
   
   code-check:
     docker:
