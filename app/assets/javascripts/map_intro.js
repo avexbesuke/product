@@ -7,7 +7,6 @@ document.addEventListener('turbolinks:load',function(){
       })
 
       $(".fa-question-circle").on("click",function(){
-        console.log(1)
         $('.model-backgraund-intro-session').show();
         $('.map-initial-session').show();
       })
