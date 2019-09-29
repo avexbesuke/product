@@ -57,11 +57,11 @@ jobs:
             mkdir /tmp/artifacts;
             echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
       - store_artifacts:
-          path: /tmp/artifact-1
+          path: /tmp/capybara/
           destination: artifact-file
 
       - store_artifacts:
-          path: /tmp/artifacts
+          path: /tmp/capybara/
   
   code-check:
     docker:
