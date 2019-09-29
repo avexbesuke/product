@@ -14,7 +14,20 @@ document.addEventListener('turbolinks:load',function(){
         $('.model-backgraund').hide();
         $('.map-form-wrapper').hide();
         $('.map-form-wrapper__form').hide();
+        deleteMakers();
       })
+
+      var marker = null;
+      function create_marker(options){
+        var m =  new google.maps.Marker(options);
+        return m;
+      }
+      function deleteMakers() {
+          if(marker != null){
+            marker.setMap(null);
+          }
+          marker = null;
+      }
 
       $(document).ready(function(){
         function codeAddress(address){
@@ -28,9 +41,10 @@ document.addEventListener('turbolinks:load',function(){
               map.setCenter(results[0].geometry.location);
 
               function myListener(event){
-                var marker = new google.maps.Marker();
-                marker.setPosition(new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()));
-                marker.setMap(map);
+                marker = create_marker({
+                  map:map,
+                  position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
+                })
                 var geocoder = new google.maps.Geocoder();
                 geocoder.geocode({location: event.latLng},function(results,status){
                   if (status === 'OK' && results[0]){
@@ -71,9 +85,10 @@ document.addEventListener('turbolinks:load',function(){
             });
         
             function myListener(event){
-              var marker = new google.maps.Marker();
-              marker.setPosition(new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()));
-              marker.setMap(map);
+              marker = create_marker({
+                map:map,
+                position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
+              })
               var geocoder = new google.maps.Geocoder();
               geocoder.geocode({location: event.latLng},function(results,status){
                 if (status === 'OK' && results[0]){

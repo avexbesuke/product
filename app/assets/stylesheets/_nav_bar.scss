@@ -30,9 +30,20 @@
     min-width: 230px;
   }
   & .two{
-    width: 30px;
-    min-width: 30px;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0 0 0 10px;
+    a{
+      border-bottom: dashed 1px rgb(162, 162, 162);
+    }
   }
+
+  & .two:hover{
+    a{
+      border-bottom: solid 1px;
+    }
+  }
+
   & .three {
     margin-left: auto;
     width: 150px;

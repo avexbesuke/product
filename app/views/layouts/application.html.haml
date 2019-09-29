@@ -6,7 +6,7 @@
     = Gon::Base.render_data
     = csrf_meta_tags
     = csp_meta_tag
-    %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=" + Rails.application.credentials.dig(:google, :maps_access_key_id) + "&callback=initMap"}
+    %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=" + Rails.application.credentials.dig(:google, :maps_access_key_id).to_s + "&callback=initMap"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %script{src: "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
@@ -22,12 +22,14 @@
             %li.devise-box__nav__edit.two 
               = link_to user_path(current_user.id) do
                 = fa_icon 'bookmark', class: "two-btn"
+                = "マイベストブック"
             %p.arrow_box
               = "#{current_user.username}さんのマイベスト！"
           .arrow_content
             %li.devise-box__nav__edit.two 
               = link_to reads_path do
                 = fa_icon 'history', class: "two-btn"
+                = "読書履歴"
             %p.arrow_box 
               読書履歴！
               %br
@@ -40,6 +42,7 @@
             %li.devise-box__nav__edit.two 
               = link_to emotions_path do
                 = fa_icon 'commenting', class: "two-btn"
+                = "みんなの好きな本"
             %p.arrow_box 
               みんなの本への思い!
               %br
@@ -50,6 +53,7 @@
             %li.devise-box__nav__edit.two 
               = link_to page_path(current_user.id) do
                 = fa_icon 'user', class: "two-btn"
+                = "マイページ"
             %p.arrow_box
               マイページ! 
               %br
@@ -64,6 +68,7 @@
             %li.devise-box__nav__edit.two 
               = link_to maps_path do
                 = fa_icon 'map', class: "two-btn"
+                = "聖地巡礼"
             %p.arrow_box 
               聖地巡礼! 
               %br
@@ -75,13 +80,14 @@
               %li.devise-box__nav__edit  
                 = link_to destroy_user_session_path, method: :delete do
                   = fa_icon 'sign-out', class: "two-btn"
+                  ="ログアウト"
               %p.arrow_box ログアウト
         - else
           .three
             %li.devise-box__nav__edit.outer-btn
               = link_to '新規登録', new_user_registration_path
             %li.devise-box__nav__edit.outer-btn
-              = link_to 'ログイン', new_user_session_path
+              = link_to 'ログイン', new_user_session_path, class:"session-link"
       - if current_user != nil
         .component-field#app
           %router-view

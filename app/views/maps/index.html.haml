@@ -1,5 +1,7 @@
 %html.default
-  %h2.map-title 本を片手に町へ行こう！
+  %h2.map-title 
+    = "本を片手に町へ行こう！"
+    = fa_icon 'question-circle'
   .map-index-wrapper
     .map-index-wrapper__map
       .map#map
@@ -82,5 +84,9 @@
   - if session[:map] != "on"
     .model-backgraund-intro
     .map-initial
+      = image_tag("intro.png",class: 'image')
+  -else
+    .model-backgraund-intro-session
+    .map-initial-session
       = image_tag("intro.png",class: 'image')
   - session[:map] = "on"

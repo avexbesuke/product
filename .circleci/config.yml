@@ -19,8 +19,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - v1-dependencies-
+            - v2-dependencies-{{ checksum "Gemfile.lock" }}
+            - v2-dependencies- 
+      - run:
+          name: yarn install --check-files
+          command: |
+            yarn install --check-files
       - run:
           name: install bundle
           command: |
@@ -28,7 +32,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
@@ -46,6 +50,9 @@ jobs:
       - run: 
           name: rspecを実行
           command: bundle exec rspec
+      - store_artifacts:
+          path: tmp/screenshots/
+          destination: capybara
   
   code-check:
     docker:

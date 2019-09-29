@@ -54,6 +54,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'rspec-retry'
 end
 
 group :development do
@@ -102,3 +103,4 @@ gem 'jquery-turbolinks'
 gem "gmaps4rails"
 gem "geocoder"
 gem 'webpacker', github: 'rails/webpacker'
+gem 'owlcarousel-rails'

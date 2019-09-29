@@ -11,15 +11,17 @@
 - SASS
 - Haml
 - Dockerにて開発環境構築
+- Vue.js
+- webpacker
 
 ## 機能一覧,使用gem,API
 - 簡単ログインでポートフォリオをご確認いただけます
 - google maps API を使用して、マーキング、位置情報の登録、思い出の投稿ができます
 - ユーザ登録/編集機能/アイコン画像添付(device/Active Storage)
 - ユーザフォロー機能(jqueryにてAjax)
-- 読んだ本をマークする機能(jqueryにてAjax)
-- GoogleBooksAPI を用いた本の情報検索/表示
-- 本を好きなわけを投稿する機能(CRUD)
+- 読んだ本をマークする機能(Vue.jsにて実装)
+- GoogleBooksAPI を用いた本の情報検索/表示(Vue.js)
+- 本を好きなわけを投稿する機能(CRUD) ※このうち登録はVue.jsにて実装
 - ページネーション機能(kaminari)
 - マイページにフォローユーザのタイムライン表示
 - 自分が好きな本を好きな人が好きな本をランダムで表示
@@ -30,7 +32,6 @@
 
 ## テスト
 - 統合テスト(system spec)
-- 機能テスト(request spec)
 - 単体テスト(モデル等)
 - rubocopによる静的コード解析
 - 上記circleciを使ってGitHubへのpush時に自動実行
@@ -44,5 +45,4 @@
 
 ## 今後実装したいこと
 - コードを美しく記述
-- Reactを使用した機能実装
 - AWSのその他の機能使用

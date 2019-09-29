@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require owl.carousel
 //= require Chart.min
 //= require underscore
 //= require gmaps/google

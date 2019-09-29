@@ -240,6 +240,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    owlcarousel-rails (2.2.3.5)
     parser (2.6.4.1)
       ast (~> 2.4.0)
     polyamorous (2.3.0)
@@ -323,6 +324,8 @@ GEM
       rspec-expectations (~> 3.8.0)
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
+    rspec-retry (0.6.1)
+      rspec-core (> 3.3)
     rspec-support (3.8.2)
     rubocop (0.36.0)
       parser (>= 2.3.0.0, < 3.0)
@@ -435,6 +438,7 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   mysql2 (>= 0.4.4, < 0.6.0)
   omniauth-twitter
+  owlcarousel-rails
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.3)
@@ -442,6 +446,7 @@ DEPENDENCIES
   rails-i18n
   ransack
   rspec-rails (~> 3.7)
+  rspec-retry
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
