@@ -3,14 +3,14 @@ require 'rails_helper'
 describe '本を好きな理由投稿機能', type: :system do
   describe '理由' do
     before do
-      user_a = FactoryBot.create(:user)
+      user_a = FactoryBot.create(:user ,email: "karimen@karimen.com", password:"karimen@karimen.com" )
       FactoryBot.build(:book)
 
       visit new_user_session_path
-      visit current_path
+      # visit current_path
       # fill_in 'user[email]', with: 'test@test.com'
-      fill_in 'user[password]', with: 'testpass'
-      click_button "ログイン"
+      # fill_in 'user[password]', with: 'testpass'
+      click_button "簡単ログイン"
     end
 
     context '本をマイベストにした時' do

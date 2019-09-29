@@ -7,7 +7,8 @@ describe '本の機能', type: :system do
       FactoryBot.build(:book)
 
       visit new_user_session_path
-      # fill_in 'user[email]', with: 'test@test.com'
+      visit "/users/sign_in"
+      fill_in 'user[email]', with: 'test@test.com'
       fill_in 'user[password]', with: 'testpass'
       click_button "ログイン"
     end
