@@ -27,7 +27,6 @@ class Api::EmotionsController < ApplicationController
   end
 
   def emotion_params
-    # params.require(:books).permit(:body, :tag_list).merge(user_id: current_user.id)
     params.require(:books).permit(:body, :tag_list).merge(user_id: current_user.id)
   end
 end

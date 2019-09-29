@@ -20,14 +20,12 @@
 
 <script>
   import BookInfo from './BookInfo.vue'
-  import store from './../../store.js'
   import { mapActions } from 'vuex'
   import { throttle, debounce } from 'lodash';
   import { UPDATE_CURRENT,UPDATE_BID } from './../../mutation-types'
   import axios from 'axios';
   export default {
     name: 'book-search',
-    store: store,
     components: {
       BookInfo
     },
@@ -52,7 +50,6 @@
           this.read_bids.push(response.data.reads[bid])
         }
       })
-      console.log(this.read_bids)
       this.delayFunc = _.debounce(this.onclick,200);
     },
     watch:{
@@ -67,10 +64,10 @@
       onclick: function(){ 
         this.$http('https://www.googleapis.com/books/v1/volumes?q='
         + this.keyword)
-        .then((response) => {      //帰ってきたデータ(response)をjsonで取得
+        .then((response) => {    
           return response.json()
         })
-        .then((data) => { //json文字列の内容をbooks配列に格納
+        .then((data) => { 
           this.books = []
           for (let book of data.items){
             let bid     = book.id
