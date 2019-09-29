@@ -19,6 +19,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
+            - m2-{{ checksum "app/views/devise/sessions/new.html.haml" }}
+            - m2- 
             - v2-dependencies-{{ checksum "Gemfile.lock" }}
             - v2-dependencies- 
       - run:
@@ -49,19 +51,10 @@ jobs:
             # Align chrome-driver's version installed by chromedriver-helper
       - run: 
           name: rspecを実行
+          command: bundle update
+      - run: 
+          name: rspecを実行
           command: bundle exec rspec
-      - run:
-          name: ダミーアーティファクトの作成
-          command: |
-            echo "my artifact file" > /tmp/capybara/;
-            mkdir /tmp/capybara/;
-            echo "my artifact files in a dir" > /tmp/capybara/;
-      - store_artifacts:
-          path: /tmp/capybara/
-          destination: artifact-file
-
-      - store_artifacts:
-          path: /tmp/capybara/
   
   code-check:
     docker:
