@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post 'book_search', to: 'books#index'
   get 'book_search', to: 'books#index'
 
-  resources :emotions, only: [:index,:edit,:update,:destroy]
+  resources :emotions, only: [:index,:edit,:update,:destroy,:new,:create]
   post 'emotion_write', to: 'emotions#new'
 
   resources :users, only: [:show]
