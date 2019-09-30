@@ -5,3 +5,4 @@ number:
 data:
   readed_books_num: 10
   follow_user_readed_num: 6
+  sample_books_num: 5

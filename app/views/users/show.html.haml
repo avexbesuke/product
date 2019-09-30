@@ -28,7 +28,7 @@
                 
           -  other_user = emotion.book.users.where.not(id: current_user.id ).pluck(:id)
           -  other_emotion = Emotion.where(user_id: other_user).where.not(book_id: emotion.book.id).pluck(:book_id)
-          -  @other_books = Book.where(id: other_emotion).order("RAND()").limit(5)
+          -  @other_books = Book.where(id: other_emotion).order("RAND()").limit(Settings.data[:sample_books_num])
           - if @other_books.length != 0
             .mybest-book-wrapper__list__heading
               = "”#{emotion.book.title}” を ”好きな人が好きな本”"
