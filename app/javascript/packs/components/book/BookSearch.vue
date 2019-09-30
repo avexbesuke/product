@@ -50,7 +50,7 @@
           this.read_bids.push(response.data.reads[bid])
         }
       })
-      this.delayFunc = _.debounce(this.onclick,200);
+      this.delayFunc = _.debounce(this.onclick,200);
     },
     watch:{
       keyword: function(newValue,oldValue){
@@ -91,11 +91,9 @@
 .el-form{
   height: 40px;
 }
-
 .book-hr{
   margin: 5px 0 0 0;
 }
-
 .book-container{
   display: flex;
   flex-wrap: wrap;

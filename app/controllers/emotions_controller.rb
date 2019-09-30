@@ -1,4 +1,21 @@
 class EmotionsController < ApplicationController
+  def new
+    redirect_to root_path if params[:bid].nil?
+    @book = Book.find_by(bid: params[:bid])
+    @emotion = Emotion.new
+  end
+
+  def create
+    book_id = Book.find_by(bid: book_params[:bid]).id
+    @emotion = Emotion.new(emotion_params)
+    @emotion.book_id = book_id
+    if @emotion.save
+      redirect_to user_path(@emotion.user.id)
+    else
+      render :new
+    end
+  end
+
   def edit
     @emotion = Emotion.find(params[:id])
   end
@@ -39,6 +56,6 @@ class EmotionsController < ApplicationController
   end
 
   def book_params
-    params.require(:emotion).permit(:title, :author, :image_url, :synopsis)
+    params.require(:emotion).permit(:bid)
   end
 end

@@ -81,8 +81,8 @@
             }); 
             this.$router.push('/')
               this.$notify({ 
-              title: `”${this.book.title}”`,
-              message: this.$createElement('p',{style: 'color:#000'},'の好きな理由を投稿しました！'),
+              title: `”${this.book.title}”を`,
+              message: this.$createElement('p',{style: 'color:#000'},'マイベストブックに登録しました！'),
               duration: 2000
             })
           }

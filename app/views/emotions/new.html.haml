@@ -2,12 +2,12 @@
   %body
     .emotions-new-wrapper
       %h2 
-        = "”#{params[:title]}” を好きなわけ"
+        = "”#{@book.title}” を好きなわけ"
       .emotions-new-wrapper__list
         .emotions-new-wrapper__list__view
           .emotions-new-wrapper__list__view__data
             .emotions-new-wrapper__list__view__data__image
-              = image_tag(params[:image_url], size: "186x276")
+              = image_tag(@book.image_url, size: "186x276")
             .data
               .title
                 = params[:title]
@@ -20,10 +20,7 @@
               .lead
                 = "本への思い"
                 = form_with model:@emotion,url: emotions_path, method: :post,local: true,class: 'emotion_create_form' do |f|
-                  = f.hidden_field :title, value: params[:title]
-                  = f.hidden_field :author, value: params[:author]
                   = f.text_area :body,class: 'emotion-area',maxlength: "200"
-                  = f.hidden_field :synopsis, value: params[:synopsis]
-                  = f.hidden_field :image_url, value: params[:image_url]
-                  = f.text_field :tag_list,class: 'tag-area', value: @emotion.tag_list.join(','),placeholder: "タグ付け(感動,シリアス)",maxlength: "20"
-                  = f.submit '決定'
+                  = f.hidden_field :bid, value: params[:bid]
+                  = f.text_field :tag_list,class: 'tag-area', value: @emotion.tag_list.join(','),placeholder: "タグ付け(感動,シリアス)",maxlength: "8"
+                  = f.submit '登録'
