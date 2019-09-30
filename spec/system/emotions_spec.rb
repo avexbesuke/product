@@ -14,14 +14,13 @@ describe '本を好きな理由投稿機能', type: :system do
       before do
         fill_in 'keyword', with: '星の王子'
         page.first(".el-button").click
-
         page.first(".best-btn").click
         fill_in 'emotion_body', with: '好きな本です'
         fill_in 'emotion_tag_list', with: '感動,笑える'
         click_on "登録"
       end
 
-      it 'マイベスト一覧に理由が表示される', retry: 3 do
+      it 'マイベスト一覧に理由が表示される' do
         visit emotions_path
         expect(page).to have_content '好きな本です'
       end
@@ -61,6 +60,22 @@ describe '本を好きな理由投稿機能', type: :system do
         page.first(".fa-bookmark").click
         page.first(".fa-trash").click
         expect(page).not_to have_content '良き本です'
+      end
+    end
+
+    context '本を検索して読書ボタンを付けた時' do
+      before do
+        fill_in 'keyword', with: '星の王子'
+        page.first(".el-button").click
+        page.first(".read-btn").click
+      end
+
+      it '読書履歴からマイベストの登録出来る' do
+        page.first(".fa-history").click
+        click_on "マイベストにする!"
+        fill_in 'emotion_body', with: '好きな本です'
+        click_on "登録"
+        expect(page).to have_content '好きな本です'
       end
     end
   end
