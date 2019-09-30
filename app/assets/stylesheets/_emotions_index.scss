@@ -9,6 +9,8 @@
     }
     &__search{
       margin: auto 0;
+      max-width: 720px;
+      min-width: 560px;
       & .emotion-search-form{
         max-width: 260px;
       }
