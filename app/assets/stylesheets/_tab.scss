@@ -21,8 +21,11 @@
       color:#FFF;
     }
     & .tab_a.current{
-      background:#00a008;;
       color:rgb(0, 0, 0);
+      background-color: rgba($color: #f5f5f5, $alpha: 0.4);
+      border-top: solid 1px rgb(174, 174, 174);
+      border-right: solid 1px rgb(174, 174, 174);
+      border-left: solid 1px rgb(174, 174, 174);
     }
   }
 }
