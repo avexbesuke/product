@@ -30,6 +30,7 @@
                     %label.label
                       = f.submit '', class: 'memori-search-form__submit'
                       = fa_icon 'map',class: 'one-btn map-move'
+                      = "住所"
                     = f.hidden_field :address,id: 'memori-address', value: map.address
               .memori-images
                 - if map.images.attached?
@@ -38,7 +39,8 @@
                       = image_tag(image, size: "190x147")
           .map-index-wrapper__views__view__panel
             %dt.accordion-icon
-              = fa_icon "caret-down"
+              = fa_icon "caret-down detail"
+              %span= "詳細"
             %dd.map-index-wrapper__views__view__panel__content
               .memori
                 .lead
