@@ -1,6 +1,6 @@
 <template>
   <div id="search">
-    <el-form :inline="true">
+    <el-form :inline="true" onsubmit="return false;">
       <el-form-item>
         <el-input type="text" size="large" v-model="keyword" placeholder="好きな本を探す" id="keyword"></el-input>
       </el-form-item>
@@ -69,18 +69,20 @@
         })
         .then((data) => { 
           this.books = []
-          for (let book of data.items){
-            let bid     = book.id
-            let authors = book.volumeInfo.authors
-            let img     = book.volumeInfo.imageLinks
-            this.books.push({
-              title: book.volumeInfo.title,
-              description: book.volumeInfo.description,
-              author: authors ? authors.join(',') : '',
-              image: img ? img.thumbnail : '',
-              bid: bid,
-            })
-          }
+          if (data.totalItems !== 0 && data.error == null){
+            for (let book of data.items){
+              let bid     = book.id
+              let authors = book.volumeInfo.authors
+              let img     = book.volumeInfo.imageLinks
+              this.books.push({
+                title: book.volumeInfo.title,
+                description: book.volumeInfo.description,
+                author: authors ? authors.join(',') : '',
+                image: img ? img.thumbnail : '',
+                bid: bid,
+              })
+            }
+          } 
         })
       },
     }
