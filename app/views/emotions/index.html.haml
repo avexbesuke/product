@@ -12,7 +12,7 @@
                   = link_to tag, emotions_path(tag_name: tag.name)
 
           = search_form_for @search_emotions,class:'emotion-search-form' do |f|
-            = f.search_field :body_or_book_title_cont,placeholder: "本についての思いを探す",class:'emotion-search-form__text'
+            = f.search_field :body_or_book_author_or_book_title_cont,placeholder: "本についての思いを探す",class:'emotion-search-form__text'
             %label.label
               = f.submit '' , class: 'emotion-search-form__submit'
               = fa_icon 'search', class: "one-btn"
