@@ -85,6 +85,8 @@
           } else{
             this.$notify({ 
               title: '検索結果がありません',
+              message: this.$createElement('p',{style: 'color:#000 white-space: pre'},
+                "または検索数上限に達しました。時間を於いてから検索願います"),
               duration: 2000
             })
           }
