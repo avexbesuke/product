@@ -80,10 +80,10 @@
               aleart("error");
             }); 
             this.$router.push('/')
-              this.$notify({ 
+            this.$notify({ 
               title: `”${this.book.title}”を`,
               message: this.$createElement('p',{style: 'color:#000'},'マイベストブックに登録しました！'),
-              duration: 2000
+              duration: 4000
             })
           }
         })

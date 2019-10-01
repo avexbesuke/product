@@ -82,7 +82,12 @@
                 bid: bid,
               })
             }
-          } 
+          } else{
+            this.$notify({ 
+              title: '検索結果がありません',
+              duration: 2000
+            })
+          }
         })
       },
     }
