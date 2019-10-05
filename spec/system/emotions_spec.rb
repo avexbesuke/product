@@ -25,14 +25,14 @@ describe '本を好きな理由投稿機能', type: :system do
         expect(page).to have_content '好きな本です'
       end
 
-      it 'マイベスト一覧にタグが表示される' do
+      it 'マイベスト一覧にタグが表示される', retry: 3 do
         page.first(".fa-commenting").click
         expect(page).to have_content '感動'
       end
 
       it 'マイベスト一覧から検索が出来る' do
         page.first(".fa-commenting").click
-        fill_in 'q_body_or_book_title_cont', with: '好きな本です'
+        fill_in 'q_body_or_book_author_or_book_title_cont', with: '好きな本です'
         page.first(".fa-search").click
         expect(page).to have_content '好きな本です'
       end
