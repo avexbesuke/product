@@ -17,6 +17,6 @@ export default new Router({
     {path: '/books/*', name: 'search', component: BookSearch},
     {path: '/users/*', name: 'search', component: BookSearch},
     {path: '/form', name: 'form', component: BookForm},
-    // {path: '*', redirect: '/'}
+    {path: '*', redirect: '/'}
   ],
 })
