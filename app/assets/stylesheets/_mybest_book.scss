@@ -7,7 +7,7 @@
       display: flex;
       position: relative;
       padding: 20px 0 ;
-      border-top: solid 0.5px #CCC!important;
+      border-top: solid 0.5px rgb(0, 0, 0)!important;
       background-color: rgba(150, 130, 95, 0.1);
       &__data{
         padding: 0 0 0 40px;
@@ -28,7 +28,7 @@
             }
           }
           & .edit{
-            padding: 3px 0 0 10px;
+            padding: 3px 10px 0px 10px;
             & a{
               text-decoration: none;
               color: rgb(81, 81, 81);

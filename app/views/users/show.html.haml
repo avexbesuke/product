@@ -20,11 +20,11 @@
                     = emotion.book.title
                 .edit
                   = link_to edit_emotion_path(emotion.id) do
-                    = "編集："
+                    = "編集"
                     = fa_icon "edit"
                 .delete
                   = link_to emotion_path(emotion.id),method: :delete do
-                    = "削除："
+                    = "削除"
                     = fa_icon "trash"
               .label
                 = "好きな理由"
