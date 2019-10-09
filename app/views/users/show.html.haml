@@ -11,18 +11,24 @@
                 = link_to(image_tag(emotion.book.image_url, size: "226x316"),book_path(emotion.book.id))
             .mybest-book-wrapper__list__view__emotion
               - if emotion.tag_list.length != 0
-                = render 'emotions/tag_list', tag_list: emotion.tag_list
+                .tag
+                  = "タグ："
+                  = render 'emotions/tag_list', tag_list: emotion.tag_list
               .lead
                 .title
-                  = emotion.book.title
+                  %p.title__text
+                    = emotion.book.title
                 .edit
                   = link_to edit_emotion_path(emotion.id) do
+                    = "編集："
                     = fa_icon "edit"
                 .delete
                   = link_to emotion_path(emotion.id),method: :delete do
+                    = "削除："
                     = fa_icon "trash"
               .label
-                = "好きな理由:"
+                = "好きな理由"
+              %hr
               .body  
                 = simple_format(emotion.body)
                 
@@ -31,12 +37,12 @@
           -  @other_books = Book.where(id: other_emotion).order("RAND()").limit(Settings.data[:sample_books_num])
           - if @other_books.length != 0
             .mybest-book-wrapper__list__heading
-              = "”#{emotion.book.title}” を ”好きな人が好きな本”"
+              = "”#{emotion.book.title}” を 好きな人におすすめの本"
             .mybest-book-wrapper__list__view-other    
               - @other_books.sample(5).each do |book|
                 .mybest-book-wrapper__list__view-other__list
                   .mybest-book-wrapper__list__view-other__list__image
-                    = link_to(image_tag(book.image_url,size: "128x192"), book_path(book.id))
+                    = link_to(image_tag(book.image_url,size: "100x140"), book_path(book.id))
                   .mybest-book-wrapper__list__view-other__list__title
                     = book.title
           - else

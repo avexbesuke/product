@@ -16,7 +16,6 @@ default: &default
   username: root
   password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
   host: <%= ENV['DB_HOST'] %>
-
 development:
   <<: *default
   database: app_name_development

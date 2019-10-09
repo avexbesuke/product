@@ -2,7 +2,7 @@
   %body
     .emotions-index-wrapper
       .emotions-index-wrapper__head
-        %h2 本への思い
+        %h2 みんなの好きな本
         .emotions-index-wrapper__head__search
           .emotions-index-wrapper__head__search_tags
             = "タグ検索:"
@@ -25,7 +25,8 @@
                 = link_to(image_tag(emotion.book.image_url, size: "186x276"),book_path(emotion.book.id))
               .data
                 .title
-                  = emotion.book.title
+                  %p.title__text
+                    = emotion.book.title
                   .user
                     .lead
                       = "この本が好きな人:"
@@ -35,13 +36,14 @@
                       - if current_user != emotion.user
                         = link_to user_relationships_path(emotion.user.id), method: :post,remote: true,class: "emotion__follow__link" do
                           - if emotion.user.followed_by?(current_user)
-                            = fa_icon 'user-circle', class: "follow-btn follow-btn-on"
+                            = fa_icon 'user-circle', class: "follow-btn follow-btn-on", id:emotion.user.id
                           - else
-                            = fa_icon 'user-circle', class: "follow-btn follow-btn-off"
+                            = fa_icon 'user-circle', class: "follow-btn follow-btn-off", id:emotion.user.id
                     .day
                       = emotion.created_at.strftime("%y年%m月%d日")
                 .lead
-                  = "本への思い"
+                  = "好きな理由"
+                %hr
                 = simple_format(emotion.body,class:'emotion')
 
       .pagenate-top

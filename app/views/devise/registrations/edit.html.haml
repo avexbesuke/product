@@ -10,7 +10,7 @@
           %label.label
             .lead
               = "プロフィール画像選択"
-            = f.file_field :image, class:"user-edit-image"
+            = f.file_field :image, class:"user-edit-image",accept: "image/jpeg, image/png"
             = fa_icon 'image', class: "edit-image"
         .edit-user-wrapper__container__profile.edit-form-item
           = f.text_area :profile,maxlength: "60",placeholder: "あなたの紹介文", class:"user-edit-area"

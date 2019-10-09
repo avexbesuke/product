@@ -44,6 +44,19 @@ export default {
         author:this.book.author, synopsis: this.book.description, 
         bid: this.book.bid}}).then((response) => {
           this.isActive = !this.isActive
+          if (this.isActive==false) {
+            this.$notify({ 
+              title: `”${this.book.title}”を`,
+              message: this.$createElement('p',{style: 'color:#000'},'読書履歴に登録しました！'),
+              duration: 4000
+            })
+          } else{
+            this.$notify({ 
+              title: `”${this.book.title}”を`,
+              message: this.$createElement('p',{style: 'color:#000'},'読書履歴から削除しました！'),
+              duration: 4000
+            })
+          }
         }, (error) => {
           aleart("error");
       }); 

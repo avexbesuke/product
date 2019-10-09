@@ -31,6 +31,10 @@
           & .title{
             font-size: 18px;
             padding: 0 0 5px 0;
+            & .title__text{
+              border-left: solid 5px rgb(143, 140, 140);
+              padding: 0 0 0 5px;
+            }
             & .user{
               padding: 2px 0 0 0;
               display: flex;
@@ -53,7 +57,9 @@
           }
           & .lead{
             font-size: 18px;
-            padding: 0 0 5px 0;
+          }
+          & hr{
+            margin: 0;
           }
           & .emotion{
             width: 400px;

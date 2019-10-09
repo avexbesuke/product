@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
   def index
     @map = Map.new
-    @maps = current_user.maps.order("created_at DESC")
+    @maps = Map.order("created_at DESC")
     @books = current_user.books.pluck('title')
   end
 
