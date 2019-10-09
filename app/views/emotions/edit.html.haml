@@ -18,7 +18,7 @@
                   .day
                     = Date.today.to_time.strftime("%y年%m月%d日")
               .lead
-                = "本への思い"
+                = "この本が好きな理由"
                 = form_with model:@emotion,url: emotion_path,local: true,class: 'emotion_create_form' do |f|
                   = f.text_area :body,class: 'emotion-area',maxlength: "200"
                   = f.text_field :tag_list,class: 'tag-area', value: @emotion.tag_list.join(','),placeholder: "タグ付け(感動,シリアス)",maxlength: "20"

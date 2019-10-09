@@ -18,7 +18,7 @@
                   .day
                     = Date.today.to_time.strftime("%y年%m月%d日")
               .lead
-                = "本への思い"
+                = "この本が好きな理由"
                 = form_with model:@emotion,url: emotions_path, method: :post,local: true,class: 'emotion_create_form' do |f|
                   = f.text_area :body,class: 'emotion-area',maxlength: "200"
                   = f.hidden_field :bid, value: params[:bid]
