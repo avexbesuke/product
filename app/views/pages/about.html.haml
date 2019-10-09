@@ -11,7 +11,7 @@
           .first
             = "あなたのマイベストな本を検索"
           .second
-            = "好きな”理由・体験”を書いてマイベストに登録"
+            = "好きな”理由・体験”を書いてマイベストに登録しましょう。"
       .page_about-wrapper__left__image
         .image
           = image_tag("about.jpg",size: "670x390")
@@ -24,9 +24,9 @@
             %h2.b="あなたのマイベストブックス！"
         .page_about-wrapper__right__content__descript
           .first
-            = "あなたが ”好きな本” を ”好きな人” が ”好きな本” も表示されます"
+            = "”あなたが好きな本” からおすすめの本も表示されます。"
           .second  
-            = "好きな本から、また別の本へと繋がります"
+            = "好きな本から、また別の本へと繋がります。"
       .page_about-wrapper__right__content
         .page_about-wrapper__right__content__icon-title
           .icon
@@ -35,9 +35,9 @@
             %h2.c= "読書履歴！"
         .page_about-wrapper__right__content__descript
           .first
-            = "どの本を読んできたか歴史が、分かる"
+            = "どの本を読んできたか歴史が分かります。"
           .second
-            = "本の検索結果から読書ボタンを押すだけ"
+            = "本の検索結果から読書ボタンを押して履歴登録できます！"
             = fa_icon "book"
           
       .page_about-wrapper__right__content
@@ -45,9 +45,9 @@
           .icon
             = fa_icon "commenting"
           .title
-            %h2.d= "様々な人の、本が好きな理由"
+            %h2.d= "他のユーザーが好きな本！"
         .page_about-wrapper__right__content__descript
-          = "好みが合う人はフォローしよう"
+          = "好みが合う人はフォローしましょう。"
           = fa_icon "user-circle"
       .page_about-wrapper__right__content
         .page_about-wrapper__right__content__icon-title
@@ -57,7 +57,7 @@
             %h2.e="マイページ！"
         .page_about-wrapper__right__content__descript
           .first
-            = "読書グラフ,フォローユーザの直近マイベスト・読書履歴が表示されます"
+            = "読書グラフ・フォローユーザーの直近マイベスト・読書履歴が表示されます。"
       .page_about-wrapper__right__content
         .page_about-wrapper__right__content__icon-title
           .icon
@@ -66,7 +66,7 @@
             %h2.e="聖地巡礼！！"
         .page_about-wrapper__right__content__descript
           .first
-            = "自分の好きな本の舞台に旅行したら写真と思い出を投稿しよう！！"
+            = "自分の好きな本の舞台に旅行したら写真と思い出を投稿しましょう！！"
           .second
             = "住所を入力して、マップの行った場所をクリック！！！！！！！！！"
           - if user_signed_in?
