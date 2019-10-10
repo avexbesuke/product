@@ -45,7 +45,5 @@
                     = link_to(image_tag(book.image_url,size: "100x140"), book_path(book.id))
                   .mybest-book-wrapper__list__view-other__list__title
                     = book.title
-          - else
-            .yohaku
 
     = paginate @user_emotions

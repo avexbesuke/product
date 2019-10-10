@@ -3,9 +3,10 @@
   // width: 100%;
   & a{
     border-radius: 2px;
-    background-color: #21bec9; 
+    padding: 3px;
+    background-color: hsl(123, 57%, 47%); 
     text-align: center;
-    color: black;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     transition-duration: 0.3s;
   }
