@@ -12,7 +12,7 @@ class EmotionsController < ApplicationController
     if @emotion.save
       redirect_to user_path(@emotion.user.id)
     else
-      render :new
+      redirect_to emotion_write_path(book_params)
     end
   end
 

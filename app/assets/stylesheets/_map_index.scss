@@ -171,6 +171,16 @@
         }
       }
     }
+    &__message{
+      font-size: 26px;
+    }
+    &__image{
+      padding: 50px 0 0 0;
+      & img{
+        width: 450px;
+        height: 260px;
+      }
+    }
   }
 }
 

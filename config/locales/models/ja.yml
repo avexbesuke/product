@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      emotion: 本を好きな理由
+    attributes:
+      emotion:
+        body: 好きな理由

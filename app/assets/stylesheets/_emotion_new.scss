@@ -33,6 +33,9 @@
           & .lead{
             font-size: 18px;
             padding: 0 0 5px 0;
+            & .error-text{
+              color: red;
+            }
             & .emotion_create_form{
               & .emotion-area{
                 height: 200px;

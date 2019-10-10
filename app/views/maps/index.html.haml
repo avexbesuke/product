@@ -60,28 +60,38 @@
                     = link_to map_path(map.id), method: :delete do
                       = fa_icon "trash"
   .model-backgraund
+  - if current_user.emotions != []
+    .map-form-wrapper
+      .form-delete-btn
+        = fa_icon "remove"
+      .map-form-wrapper__form
+        = form_with(model: @map, url: maps_path, method: :post, local: true,class: 'map-create-form') do |f|
+          .map-create-form__book
+            .map-create-form__book__label
+              = f.label :book, "行った場所の舞台となった本は？"
+            = f.select :book,@books
+          .map-create-form__memori
+            = f.text_area :memori,placeholder: "思い出を記録しよう！！"
+          .map-create-form__images
+            %label.label
+              .lead
+                = "画像選択"
+              = f.file_field :images,multiple: true, class:"file_field",accept: "image/jpeg, image/png"
+              = fa_icon 'image', class: "file-icon"
+          = f.submit '投稿！',class: "map-create-form__submit"
+          = f.hidden_field :address
+          = f.hidden_field :latitude
+          = f.hidden_field :longitude
+  - else
+    .map-form-wrapper
+      .form-delete-btn
+        = fa_icon "remove"
+      .map-form-wrapper__form
+        .map-form-wrapper__form__message
+          = "まずは好きな本を登録してみましょう！"
+        .map-form-wrapper__form__image
+          = image_tag("search.png")
 
-  .map-form-wrapper
-    .form-delete-btn
-      = fa_icon "remove"
-    .map-form-wrapper__form
-      = form_with(model: @map, url: maps_path, method: :post, local: true,class: 'map-create-form') do |f|
-        .map-create-form__book
-          .map-create-form__book__label
-            = f.label :book, "行った場所の舞台となった本は？"
-          = f.select :book,@books
-        .map-create-form__memori
-          = f.text_area :memori,placeholder: "思い出を記録しよう！！"
-        .map-create-form__images
-          %label.label
-            .lead
-              = "画像選択"
-            = f.file_field :images,multiple: true, class:"file_field",accept: "image/jpeg, image/png"
-            = fa_icon 'image', class: "file-icon"
-        = f.submit '投稿！',class: "map-create-form__submit"
-        = f.hidden_field :address
-        = f.hidden_field :latitude
-        = f.hidden_field :longitude
   
   - if session[:map] != "on"
     .model-backgraund-intro
