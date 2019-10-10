@@ -5,7 +5,6 @@ describe '本の機能', type: :system do
     before do
       user_a = FactoryBot.create(:user)
       FactoryBot.build(:book)
-
       visit new_user_session_path
       visit "/users/sign_in"
       fill_in 'user[email]', with: 'test@test.com'
