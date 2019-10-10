@@ -42,17 +42,23 @@
             padding: 40px 0 10px 0;
           }
           & .btn{
+            width: 200px;
+            border: solid 1px;
+            border-radius: 5px;
+            text-align: center;
             & a{
               color: #000000;
               text-decoration: none;
-              border: solid 1px;
-              text-align: center;
               background-color: rgb(235, 235, 235);
               transition: .4s;
             }
-            & a:hover{
+          }
+          & .btn:hover{
+            a{
               background-color: rgb(114, 122, 199);
             }
+            background-color: rgb(114, 122, 199);
+            transition: .4s;
           }
         }
       }

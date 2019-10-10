@@ -1,7 +1,7 @@
 %html.default
   %body
     .emotions-new-wrapper
-      %h2 
+      %h2
         = "”#{@emotion.book.title}” を好きなわけ"
       .emotions-new-wrapper__list
         .emotions-new-wrapper__list__view
@@ -19,6 +19,9 @@
                     = Date.today.to_time.strftime("%y年%m月%d日")
               .lead
                 = "この本が好きな理由"
+                - if @emotion.errors.any?
+                  - @emotion.errors.full_messages.each do |message|
+                    %span.error-text= message
                 = form_with model:@emotion,url: emotion_path,local: true,class: 'emotion_create_form' do |f|
                   = f.text_area :body,class: 'emotion-area',maxlength: "200"
                   = f.text_field :tag_list,class: 'tag-area', value: @emotion.tag_list.join(','),placeholder: "タグ付け(感動,シリアス)",maxlength: "20"

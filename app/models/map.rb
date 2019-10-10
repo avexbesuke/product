@@ -9,6 +9,8 @@ class Map < ApplicationRecord
 
   validate :file_type
   validate :image_size
+  validates :book_id, presence: true
+  validates :user_id, presence: true
 
   private
 
