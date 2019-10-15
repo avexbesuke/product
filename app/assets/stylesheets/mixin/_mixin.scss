@@ -23,7 +23,7 @@
   font-size: 14px;
 }
 
-@mixin btn($width:300px){
+@mixin btn($width:300px,$background:#fffffc){
   display: inline-block;
   padding: 0.5px 1px;
   color: #67c5ff;
@@ -31,7 +31,7 @@
   transition: .4s;
   width: $width;
   height: 35px;
-  background: #fffffc
+  background: $background
 }
 
 @mixin devise_container($width:400px,$height:400px) {
