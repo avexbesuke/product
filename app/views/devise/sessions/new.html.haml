@@ -3,6 +3,11 @@
     = render "devise/shared/error_messages", resource: resource
     .login-wrapper__container
       %h2 ログイン
+      = "こちらから簡単にポートフォリオをご確認頂けます"
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = f.hidden_field :email,value:"karimen@karimen.com"
+        = f.hidden_field :password,value:"karimen@karimen.com"
+        = f.submit "簡単ログイン", class: 'btn-easylogin'
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .new_user__field.new_user__email
           = f.email_field :email, autofocus: true, class: "new_user__input user-email",placeholder: "  あなたのメールアドレス"
@@ -11,10 +16,3 @@
           = f.password_field :password, autocomplete: "off", class: "new_user__input user-pass",placeholder: "  あなたのパスワード(6文字以上)"
           .alert パスワードの入力をお願いします。
         = f.submit "ログイン", class: 'btn-login'
-      %p.login-wrapper__container__forget-pass
-        パスワードを忘れた場合こちら！
-
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        = f.hidden_field :email,value:"karimen@karimen.com"
-        = f.hidden_field :password,value:"karimen@karimen.com"
-        = f.submit "簡単ログイン", class: 'btn-easylogin'
