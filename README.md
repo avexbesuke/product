@@ -17,11 +17,11 @@
 ## 機能一覧,使用gem,API
 - 簡単ログインでポートフォリオをご確認いただけます
 - google maps API を使用して、マーキング、位置情報の登録、思い出の投稿ができます
+- GoogleBooksAPI を用いた本の情報検索/表示(Vue.js)
+- 本を好きなわけを投稿する機能(CRUD) ※このうち登録はVue.js(vuex,axios)にて実装
 - ユーザ登録/編集機能/アイコン画像添付(device/Active Storage)
 - ユーザフォロー機能(jqueryにてAjax)
 - 読んだ本をマークする機能(Vue.jsにて実装)
-- GoogleBooksAPI を用いた本の情報検索/表示(Vue.js)
-- 本を好きなわけを投稿する機能(CRUD) ※このうち登録はVue.js(vuex,axios)にて実装
 - ページネーション機能(kaminari)
 - マイページにフォローユーザのタイムライン表示
 - 自分が好きな本を好きな人が好きな本をランダムで表示
