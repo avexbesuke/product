@@ -11,16 +11,6 @@ describe '本を好きな理由投稿機能', type: :system do
     end
 
     context '本をマイベストにした時' do
-      it "理由がないとマイベストにできない", retry: 3 do
-        fill_in 'keyword', with: '星の王子'
-        page.first(".el-button").click
-        page.first(".best-btn").click
-        fill_in 'emotion_body', with: ''
-        fill_in 'emotion_tag_list', with: '感動,笑える'
-        click_on "登録"
-        expect(page).to have_content 'この本が好きな理由'
-      end
-
       before do
         fill_in 'keyword', with: '星の王子'
         page.first(".el-button").click
