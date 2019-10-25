@@ -17,4 +17,14 @@ document.addEventListener('turbolinks:load',function(){
       })
     }
   })
+
+  $(".map-create-form").submit(function(e){
+    if ($("#map_memori").val() == ""){
+      e.preventDefault()
+      window.alert("思い出を入力願います")
+    }
+  })
+  $("#map_memori").on('click',function(){
+    $(".map-create-form__submit").removeAttr('disabled');
+  })
 })
