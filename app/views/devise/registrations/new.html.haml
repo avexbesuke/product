@@ -5,15 +5,15 @@
       %h2 新規登録
       = form_for(resource, as: resource_name, url: user_registration_path,method: :post) do |f|
         .new_user__field.new_user__username
-          = f.text_field :username, autofocus: true, class: "new_user__input user-username",placeholder: "  あなたのお名前(10文字以内)",maxlength: "10"
           .alert お名前の入力をお願いします。
+          = f.text_field :username, autofocus: true, class: "new_user__input user-username",placeholder: "  あなたのお名前(10文字以内)",maxlength: "10"
         .new_user__field.new_user__email
-          = f.email_field :email, autofocus: true, class: "new_user__input user-email",placeholder: "  あなたのメールアドレス"
           .alert メールアドレスの入力をお願いします。
+          = f.email_field :email, autofocus: true, class: "new_user__input user-email",placeholder: "  あなたのメールアドレス"
         .new_user__field.new_user__pass
-          = f.password_field :password, autocomplete: "off", class: "new_user__input user-pass",placeholder: "  あなたのパスワード(6文字以上)"
           .alert パスワードの入力をお願いします。
+          = f.password_field :password, autocomplete: "off", class: "new_user__input user-pass",placeholder: "  あなたのパスワード(6文字以上)"
         .new_user__field.new_user__passcon
-          = f.password_field :password_confirmation, autocomplete: "off", class: "new_user__input user-passcon",placeholder: "  もう一度パスワード入力願います"
           .alert パスワードの再入力をお願いします。
+          = f.password_field :password_confirmation, autocomplete: "off", class: "new_user__input user-passcon",placeholder: "  もう一度パスワード入力願います"
         = f.submit "新規登録", class: 'btn-signup'

@@ -4,14 +4,15 @@
 .signup-wrapper{
   @include devise_wrraper();
   &__container{
-    @include devise_container($height:600px);
+    padding: 0 0 30px;
+    @include devise_container($height:auto);
     & h2{
-      margin: 0 0 40px 0;
+      margin: 0 0 10px 0;
       border-bottom: solid 0.5px;
+      font-size: 26px;
     }
   }
   & .new_user *{
-    margin: 0 0 25px 0;
     font-size: 16px;
   }
   & .new_user{
@@ -22,10 +23,21 @@
       @include input_alert();
     }
     & .btn-signup{
-      @include btn();
+      display: inline-block;
+      padding: 0.5px 1px;
+      color: #000000;
+      transition: .4s;
+      width: 321px;
+      height: 46px;
+      background: #fffffc;
     }
     & .btn-signup:hover{
-      background: #0d1c36;
+      background: #00a008;
+      color: #ffffff;
     }
   }
+}
+
+.new_user__input{
+  margin: 0 0 25px 0;
 }

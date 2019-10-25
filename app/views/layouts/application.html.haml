@@ -15,7 +15,7 @@
     // = render 'layouts/flash'
     %header.devise-box
       %h2
-        = link_to root_path do 
+        = link_to root_path ,data: {turbolinks: false} do 
           = "MyBest_Books"
       %ul.devise-box__nav.nav-menu
         - if user_signed_in?
@@ -79,16 +79,16 @@
           %li.three
             %ul
               %li.devise-box__nav__edit  
-                = link_to destroy_user_session_path, method: :delete do
+                = link_to destroy_user_session_path, method: :delete ,data: {turbolinks: false} do
                   = fa_icon 'sign-out', class: "two-btn"
                   ="ログアウト"
               %p.arrow_box ログアウト
         - else
           .three
             %li.devise-box__nav__edit.outer-btn
-              = link_to '新規登録', new_user_registration_path
+              = link_to '新規登録', new_user_registration_path,data: {turbolinks: false}
             %li.devise-box__nav__edit.outer-btn
-              = link_to 'ログイン', new_user_session_path, class:"session-link"
+              = link_to 'ログイン', new_user_session_path, class:"session-link",data: {turbolinks: false}
       - if current_user != nil
         .component-field#app
           %router-view

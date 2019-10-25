@@ -1,13 +1,31 @@
 .login-body{
-  @include body();
+  @include body($url:'book.jpg');
 }
+// .login-wrapper__diagonal-right{
+//   border-top: 25vh solid #ffffff;
+//   border-left: 30vw solid transparent;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+// }
+
+// .login-wrapper__diagonal-left{
+//   border-bottom: 25vh solid #ffffff;
+//   border-right: 30vw solid transparent;
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+// }
 .login-wrapper{
   @include devise_wrraper();
   &__container{
     @include devise_container();
+    height: auto;
+    padding: 0 0 30px;
     & h2{
-      margin: 0 0 40px 0;
+      margin: 0 0 10px 0;
       border-bottom: solid 0.5px;
+      font-size: 26px;
     }
     &__forget-pass{
       opacity: 0.7;
@@ -21,7 +39,6 @@
     }
   }
   & .new_user *{
-    margin: 0 0 25px 0;
     font-size: 16px;
   }
   & .new_user{
@@ -32,16 +49,36 @@
       @include input_alert();
     }
     & .btn-login{
-      @include btn();
+      display: inline-block;
+      padding: 0.5px 1px;
+      color: #000000;
+      transition: .4s;
+      width: 321px;
+      height: 46px;
+      background: #fffffc;
     }
     & .btn-login:hover{
-      background: #0d1c36;
+      background: #00a008;
+      color: #ffffff;
     }
     & .btn-easylogin{
-      @include btn($background:#dede4e);
+      display: inline-block;
+      padding: 0.5px 1px;
+      color: #000000;
+      border: duble 4px #67c5ff;
+      transition: .4s;
+      width: 321px;
+      height: 46px;
+      background: #dede4e;
+      margin: 0 0 20px 0;
     }
     & .btn-easylogin:hover{
-      background: #0d1c36;
+      background: #00a008;
+      color: #ffffff;
     }
   }
+}
+
+.new_user__input{
+  padding: 0 10px;
 }
