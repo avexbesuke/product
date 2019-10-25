@@ -64,7 +64,9 @@
       background-color: rgba($color: #f5f5f5, $alpha: 0.4);
       border-right: solid 1px rgb(174, 174, 174);
       border-left: solid 1px rgb(174, 174, 174);
+      border-bottom: solid 1px rgb(174, 174, 174);
       max-width: 840px;
+      margin: 0 0 40px 0;
       & .tab1{
         & .data{
           max-width: 850px;
@@ -98,14 +100,19 @@
         & .data{
           max-width: 850px;
           display: flex;
-          padding: 20px 0 0 0;
+          padding: 40px 0 0 0;
+          & .image{
+            padding: 0 0 0 20px;
+          }
           & .title-name-emotion{
             padding: 0 0 0 20px;
             & .title-name{
               display: flex;
               & .title{
                 font-size: 16px;
-                padding: 0 20px 5px 0;
+                border-left: solid 5px rgb(143, 140, 140);
+                padding: 0 5px 0 5px;
+                margin: 0 0 10px 0;
               }
               & .name{
                 & a{
@@ -116,6 +123,13 @@
             }
             & .emotion{
               font-size: 14px;
+              &__body{
+                width: 620px;
+                height: 125px;
+                word-break: keep-all;
+                text-overflow: ellipsis;
+                overflow: hidden;
+              }
             }
           }
         }
@@ -124,14 +138,19 @@
         & .data{
           max-width: 850px;
           display: flex;
-          padding: 20px 0 0 0;
+          padding: 40px 0 0 0;
+          & .image{
+            padding: 0 0 0 20px;
+          }
           & .title-name-crated-synopsis{
             padding: 0 0 0 20px;
             & .title-name-created{
               display: flex;
               & .title{
                 font-size: 16px;
-                padding: 0 20px 5px 0;
+                border-left: solid 5px rgb(143, 140, 140);
+                padding: 0 5px 0 5px;
+                margin: 0 0 10px 0;
               }
               & .name{
                 & a{
@@ -146,7 +165,13 @@
             }
             & .synopsis{
               word-break: keep-all;
-              font-size: 13px;
+              font-size: 14px;
+              &__body{
+                width: 620px;
+                height: 125px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+              }
             }
           }
         }
