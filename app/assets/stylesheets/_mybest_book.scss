@@ -2,17 +2,26 @@
   & h2{
     @include h2();
   }
+  & .mybest-book-wrapper__list__contenter{
+    border: solid 0.5px rgb(0, 0, 0)!important;
+    background-color: rgba(150, 130, 95, 0.1);
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto 20px;
+  }
   &__list{
+    width: 100%;
     &__view{
+      margin: 0 auto;
       display: flex;
       position: relative;
       padding: 20px 0 ;
-      border-top: solid 0.5px rgb(0, 0, 0)!important;
-      background-color: rgba(150, 130, 95, 0.1);
+      border-radius: 5px;
       &__data{
         padding: 0 0 0 40px;
       }
       &__emotion{
+        width: 100%;
         padding: 0 30px;
         & .tag{
           padding: 0 0 5px 0;
@@ -54,42 +63,42 @@
         & .label{
           font-size: 18px;
         }
-        & .body{
-          width: 550px;
-        }
       }
     }
     &__heading{
-      padding: 15px 40px;
-      font-size: 20px;
-    }
-    &__view-other{
-      margin: 0 0 40px 30px;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      &__list{
-        width: 160px;
-        height: 160px;
-        min-width: 160px;
-        min-height: 160px;
-        text-align: center;
-        margin: 10px 50px 10px 10px;
-        &__image{
-          transition-duration: 0.3s;
-        }
-        &__image:hover{
-          opacity: 0.6;
-          transition-duration: 0.3s;
-        }
-        &__title{
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
+      margin: 0 auto 20px;
+      &__head{
+        padding: 15px 40px;
+        font-size: 20px;
+      }
+      &__view-other{
+        margin: 0 0 40px 30px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        &__list{
+          width: 160px;
+          height: 160px;
+          min-width: 160px;
+          min-height: 160px;
+          text-align: center;
+          margin: 10px 50px 10px 10px;
+          &__image{
+            transition-duration: 0.3s;
+          }
+          &__image:hover{
+            opacity: 0.6;
+            transition-duration: 0.3s;
+          }
+          &__title{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
         }
       }
     }

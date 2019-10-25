@@ -59,26 +59,28 @@
 
 @mixin best-btn{
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0em 1em;
   text-decoration: none;
-  color: #67c5ff;
-  border: double 4px #67c5ff;
+  color: #000000;
   border-radius: 3px;
   transition: .4s;
+  max-width: 165px;
+  height: 38px;
 }
 
 @mixin best-btn-hover {
-  background: #fffbef;
+  background: #00a008;
+  color: #ffffff;
 }
 
 @mixin best-btn-after {
-  background: #fffbef;
+  background: #00a008;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
-  color: #930ea5;
-  border: double 4px #9e0992;
+  color: #ffffff;
   border-radius: 3px;
+  text-align: center;
 }
 
 @mixin search_form($width,$btn-raight:25px,$top:5px) {

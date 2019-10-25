@@ -69,16 +69,27 @@
         & .data{
           max-width: 850px;
           display: flex;
-          padding: 20px 0 0 0;
-          & .title-synops{
+          padding: 40px 0 0 0;
+          & .image{
             padding: 0 0 0 20px;
+          }
+          & .title-synops{
+            padding: 0 0 5px 20px;
             & .title{
               font-size: 16px;
-              padding: 0 0 5px 0;
+              border-left: solid 5px rgb(143, 140, 140);
+              padding: 0 0 0 5px;
+              margin: 0 0 10px 0;
             }
             & .synopsis{
               word-break: keep-all;
-              font-size: 13px;
+              font-size: 14px;
+              &__body{
+                width: 620px;
+                height: 125px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+              }
             }
           }
         }

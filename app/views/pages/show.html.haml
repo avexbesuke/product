@@ -50,12 +50,15 @@
             - @readed_books.each do |book|
               .data
                 .image
-                  = link_to(image_tag(book.image_url,size: "128x208"),book_path(book.id))
+                  = link_to(image_tag(book.image_url,size: "138x198"),book_path(book.id))
                 .title-synops
                   .title
                     = book.title
                   .synopsis
-                    = book.synopsis
+                    = "あらすじ"
+                    %hr
+                    .synopsis__body
+                      = book.synopsis
           .tab2#tab2.tab_b
             - @othere_emotions.each do |emotion|
               .data

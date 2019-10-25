@@ -118,4 +118,8 @@
   text-align: center;
   margin: 10px;
 }
+
+.el-button--primary{
+  background-color: #00a008 !important;
+}
 </style>

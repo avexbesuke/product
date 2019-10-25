@@ -10,11 +10,14 @@
     padding: 0 0 0 40px;
     &__list{
       display: inline-block;
-      padding: 20px 20px 30px 20px;
-      height: 300px;
-      min-height: 300px;
+      padding: 20px;
+      height: 200px;
+      min-height: 200px;
       display: flex;
       position: relative;
+      border: solid 1px black;
+      background-color: rgba(150, 130, 95, 0.1);
+      margin: 0 0 20px 45px;
       &__image{
         transition-duration: 0.3s;
       }
@@ -27,14 +30,19 @@
         &__title{
           font-size: 18px;
           padding: 0 0 10px 0;
-          max-width: 200px;
+          max-width: 180px;
           max-height: 37px;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
+          &__text{
+            border-left: solid 5px rgb(143, 140, 140);
+            padding: 0 0 0 5px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            min-width: 180px;
+          }
         }
         &__submit{
-          text-align: center;
+          padding: 60px 0 0 0;
           & .best-btn{
             @include best-btn;
           }

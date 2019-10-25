@@ -11,10 +11,12 @@
               = image_tag(@book.image_url, size: "226x316")
               .mybest-book-wrapper__list__view__image-show__syno-title
                 .title
-                  = @book.title
+                  .title__text
+                    = @book.title
                 .book-show__date__view__synopsis
                   .lead
-                    = "あらすじ:" 
+                    = "あらすじ" 
+                  %hr
                   .body
                     = simple_format(@book.synopsis)
         - if @other_books.length != 0

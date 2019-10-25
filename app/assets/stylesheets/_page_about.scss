@@ -8,7 +8,7 @@
           padding: 0 0 5px 30px;
           & .icon{
             padding: 3px 5px 0 0;
-            color: #e05252
+            color: #00a008;
           }
           & .title{
             font-size: 22px;
@@ -24,14 +24,20 @@
     }
     &__right{
       padding: 50px 0 0 0;
+      display:flex;
+      flex-flow: column;
+      justify-content:space-between;
       &__content{
-        padding: 0 0 25px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+        padding: 25px 0 0 0;
         &__icon-title{
           display: flex;
           padding: 0 0 3px 0;
           & .icon{
             padding: 1px 5px 0 0;
-            color: #b66666
+            color: #00a008;
           }
           & .title{
             font-size: 18px;
