@@ -30,7 +30,7 @@
                     %label.label
                       = f.submit '', class: 'memori-search-form__submit'
                       = fa_icon 'map',class: 'one-btn map-move'
-                      = "住所"
+                      = "移動"
                     = f.hidden_field :address,id: 'memori-address', value: map.address
               .memori-images
                 - if map.images.attached?
@@ -38,13 +38,10 @@
                     .memori-images__image
                       = image_tag(image, size: "190x147")
           .map-index-wrapper__views__view__panel
-            %dt.accordion-icon
-              = fa_icon "caret-down detail"
-              %span= "詳細"
-            %dd.map-index-wrapper__views__view__panel__content
+            .map-index-wrapper__views__view__panel__content
               .memori
-                .lead
-                  = '思い出'
+                -# .lead
+                -#   = '思い出'
                 .body
                   = simple_format(map.memori)
               .name-address

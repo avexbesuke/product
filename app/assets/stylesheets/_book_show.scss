@@ -2,14 +2,22 @@
   display: flex;
   &__syno-title{
     padding: 0 30px;
-    width: 550px;
+    width: 1020px;
     word-break: keep-all;
     & .title{
       font-size: 20px;
-      padding: 0 0 5px 0;
+      padding: 0 0 15px 0;
+      &__text{
+        border-left: solid 5px rgb(143, 140, 140);
+        padding: 0 0 0 5px;
+      }
     }
     & .lead{
       font-size: 18px;
+    }
+    & .book-show__date__view__synopsis{
+      & .body{
+      }
     }
   }
 }

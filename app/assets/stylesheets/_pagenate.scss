@@ -2,14 +2,25 @@
   position: absolute;
   top: 0;
   margin-left: 80%;
-  background-color: rgb(238, 228, 211);
+  background-color: #00a008;
+  & .pagination{
+    & a{
+      color: rgb(255, 255, 255);
+      border: 1px solid rgb(255, 255, 255);
+    }
+  }
 }
-
 
 .pagenate-bottom{
   position: absolute;
   margin-left: 80%;
-  background-color: rgb(238, 228, 211);
+  background-color: #00a008;
+  & .pagination{
+    & a{
+      color: rgb(255, 255, 255);
+      border: 1px solid rgb(255, 255, 255);
+    }
+  }
 }
 
 .pagination{

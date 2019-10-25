@@ -36,15 +36,16 @@
       }
       & .map-create-form__submit{
         display: inline-block;
-        color: #67c5ff;
-        border: duble 4px #67c5ff;
+        color: #000000;
+        border: duble 4px #ffffff;
         transition: .4s;
         width: 300px;
         height: 35px;
-        background: #fffffc
+        border-radius: 3px;
+        background: #ffffff
       }
       & .map-create-form__submit:hover{
-        background: #0d1c36;
+        background: #00a008;
       }
     }
   }
