@@ -9,7 +9,7 @@
     <p class="book-title">{{book.title}}</p>
     <p v-if="book.author.length != 0" class="book-author">{{book.author}}</p>
     <p v-else class="author">作者情報なし</p>
-      <input v-if="this.bids.indexOf(book.bid) == -1" class="best-btn" type="button" @click="onclick" value="マイベストにする"/>
+      <input v-if="this.bids.indexOf(book.bid) == -1" class="best-btn" type="button" @click="onclick" value="マイベストにする！"/>
       <p v-else class="bested-btn">マイベスト！</p>
   </div>
 </template>
@@ -68,34 +68,36 @@ export default {
 <style scoped>
 .best-btn{
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0em 1em;
   text-decoration: none;
-  color: #67c5ff;
-  border: double 4px #67c5ff;
+  color: #000000;
   border-radius: 3px;
   transition: .4s;
+  max-width: 165px;
+  height: 38px;
 }
 
 .readed{
-  color: #ffef15 !important;
+  color: #00a008!important;
   transition: .3s !important;
   font-size: 20px !important;
-  border-bottom: solid 0.5px !important;
-  border-color: #3d00e6 !important;
 }
 
 .bested-btn{
-  background: #fffbef;
+  background: #00a008;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
-  color: #930ea5;
-  border: double 4px #9e0992;
+  color: #ffffff;
   border-radius: 3px;
+  text-align: center;
+  width: 133px;
+  height: 22px;
 }
 
 .best-btn:hover {
-  background: #fffbef;
+  background: #00a008;
+  color: #ffffff;
 }
 
 .image-field{
