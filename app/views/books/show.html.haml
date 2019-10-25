@@ -23,6 +23,7 @@
           .book-show__other-book
             .mybest-book-wrapper__list__heading
               = "”#{@book.title}” を ”好きな人が好きな本”"
+              %hr
             .mybest-book-wrapper__list__view-other
               - @other_books.each do |book|
                 .mybest-book-wrapper__list__view-other__list

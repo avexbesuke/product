@@ -63,7 +63,7 @@
             - @othere_emotions.each do |emotion|
               .data
                 .image
-                  = link_to(image_tag(emotion.book.image_url,size: "128x208"),book_path(emotion.book.id))
+                  = link_to(image_tag(emotion.book.image_url,size: "138x198"),book_path(emotion.book.id))
                 .title-name-emotion
                   .title-name
                     .title
@@ -71,12 +71,15 @@
                     .name
                       = link_to(emotion.user.username,page_path(emotion.user.id))
                   .emotion
-                    = simple_format(emotion.body)
+                    = "好きな理由"
+                    %hr
+                    .emotion__body
+                      = emotion.body
           .tab3#tab3.tab_b
             - @othere_reads.each do |read|
               .data
                 .image
-                  = link_to(image_tag(read.book.image_url,size: "128x208"),book_path(read.book.id))
+                  = link_to(image_tag(read.book.image_url,size: "138x198"),book_path(read.book.id))
                 .title-name-crated-synopsis
                   .title-name-created
                     .title
@@ -86,7 +89,10 @@
                     .created
                       = read.created_at.strftime("%y.%m.%d")
                   .synopsis
-                    = read.book.synopsis
+                    = "あらすじ"
+                    %hr
+                    .synopsis__body
+                      = read.book.synopsis
           .tab4#tab4.tab_b
             .data
               %canvas#read_chart
