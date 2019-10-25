@@ -1,10 +1,12 @@
 .devise-box{
   background-color: rgba(150, 130, 95, 0.1);
    & h2{
+    font-family: 'Abril Fatface', cursive;
      padding: 0 0 10px 20px;
      font-size: 26px;
      font-weight: bold;
      & a{
+      font-family: 'Abril Fatface', cursive;
       text-decoration: none;
       color: #00a008;
      }
@@ -50,7 +52,7 @@
     min-width: 100px;
     display: flex;
     & .outer-btn a:hover{
-      color: rgb(30, 114, 209)
+      color: #00a008;
     }
   }
   & .one-btn{

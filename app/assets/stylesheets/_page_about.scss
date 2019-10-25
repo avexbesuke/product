@@ -1,7 +1,7 @@
 .page_about-wrapper{
   display: flex;
     &__left{
-      padding: 80px 50px 0 60px;
+      padding: 50px 50px 0 60px;
       &__content{
         &__icon-title{
           display: flex;
@@ -23,7 +23,6 @@
       }
     }
     &__right{
-      padding: 50px 0 0 0;
       display:flex;
       flex-flow: column;
       justify-content:space-between;
@@ -48,22 +47,25 @@
             padding: 40px 0 10px 0;
           }
           & .btn{
-            width: 200px;
             border: solid 1px;
             border-radius: 5px;
+            width: 100px;
+            height: 40px;
             text-align: center;
+            color: #000000;
+            text-decoration: none;
+            background-color: rgb(235, 235, 235);
+            transition: .4s;
+            line-height: 40px;
             & a{
-              color: #000000;
+              font-size: 22px;
               text-decoration: none;
-              background-color: rgb(235, 235, 235);
-              transition: .4s;
+              color: #000;
             }
           }
           & .btn:hover{
-            a{
-              background-color: rgb(114, 122, 199);
-            }
-            background-color: rgb(114, 122, 199);
+            background-color: #00a008;
+            color: #ffffff;
             transition: .4s;
           }
         }

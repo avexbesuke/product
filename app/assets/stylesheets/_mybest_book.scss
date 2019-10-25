@@ -42,6 +42,9 @@
               text-decoration: none;
               color: rgb(81, 81, 81);
               border-bottom: dashed 1px #a2a2a2;
+              & i{
+                color: #00a008;
+              }
             }
             & a:hover{
               border-bottom: solid 1px;
@@ -54,6 +57,9 @@
               text-decoration: none;
               color: rgb(81, 81, 81);
               border-bottom: dashed 1px #a2a2a2;
+              & i{
+                color: #00a008;
+              }
             }
             & a:hover{
               border-bottom: solid 1px;

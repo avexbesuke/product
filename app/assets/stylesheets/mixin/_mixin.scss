@@ -18,7 +18,7 @@
 }
 
 @mixin  input_alert(){
-  color: #e956c9;
+  color: #ff0000;
   opacity: 0.9;
   font-size: 14px;
 }
@@ -35,12 +35,11 @@
 }
 
 @mixin devise_container($width:400px,$height:400px) {
-  border: solid 0.5px #0066ff;
   width: $width;
   margin: 0 auto;
   border-radius: 10px;
   height: $height;
-  background: rgba(145, 196, 243, 0.8);
+  background: #f3f3f3;
 }
 
 @mixin h2($padding:40px,$font-size:38px){
@@ -53,7 +52,6 @@
   color: $coloer;
   transition: .3s;
   font-size: $font-size;
-  border-bottom: solid 0.5px;
   border-color: $border-coler;
 }
 
