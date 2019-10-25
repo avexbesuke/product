@@ -81,6 +81,7 @@ export default {
   color: #00a008!important;
   transition: .3s !important;
   font-size: 20px !important;
+  cursor: pointer;
 }
 
 .bested-btn{
@@ -116,6 +117,7 @@ export default {
   transition: .3s;
   font-size: 20px;
   border-bottom: solid 0.5px;
+  cursor: pointer;
 }
 
 .book-title, .book-author{

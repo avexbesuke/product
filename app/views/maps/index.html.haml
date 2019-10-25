@@ -32,18 +32,17 @@
                       = fa_icon 'map',class: 'one-btn map-move'
                       = "移動"
                     = f.hidden_field :address,id: 'memori-address', value: map.address
-              .memori-images
+              %hr
+              .memori
+                .body
+                  = map.memori
+          .map-index-wrapper__views__view__panel
+            .map-index-wrapper__views__view__panel__content
+              %section.memori-images.owl-carousel.owl-theme
                 - if map.images.attached?
                   - map.images.each do |image|
                     .memori-images__image
                       = image_tag(image, size: "190x147")
-          .map-index-wrapper__views__view__panel
-            .map-index-wrapper__views__view__panel__content
-              .memori
-                -# .lead
-                -#   = '思い出'
-                .body
-                  = simple_format(map.memori)
               .name-address
                 .name
                   = '投稿者:'
@@ -56,6 +55,7 @@
                   .delete-icon
                     = link_to map_path(map.id), method: :delete do
                       = fa_icon "trash"
+                      = "削除"
   .model-backgraund
   - if current_user.emotions != []
     .map-form-wrapper
@@ -68,7 +68,7 @@
               = f.label :book, "行った場所の舞台となった本は？"
             = f.select :book,@books
           .map-create-form__memori
-            = f.text_area :memori,placeholder: "思い出を記録しよう！！"
+            = f.text_area :memori,placeholder: "思い出を記録しよう！！",maxlength: "180"
           .map-create-form__images
             %label.label
               .lead

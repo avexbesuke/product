@@ -13,9 +13,10 @@
 }
 .map-index-wrapper{
   display: flex;
+  margin-bottom: 40px;
   &__map{
     position: relative;
-    width: 40%;
+    width: 50%;
     height: 75vh;
     padding: 20px 20px 0px 0px;
     & .map{
@@ -36,10 +37,13 @@
       }
     }
   }
+  &__views::-webkit-scrollbar {
+    display: none;
+  }
   &__views{
-    overflow: scroll;
+    overflow-y: scroll;
     height: 80vh;
-    width: 60%;
+    width: 50%;
     position: relative;
     &__h3{
       font-size: 20px;
@@ -52,17 +56,24 @@
         padding: 10px 0 0 0;
         display: flex;
         & .title-name-memori{
+          width: 500px;
+          margin: 0 0 0 10px;
           & .title-name{
             display: flex;
             & .title{
-              padding: 0 10px 5px 10px
+              border-left: solid 5px rgb(143, 140, 140);
+              padding: 0 5px 0 5px;
             }
           }
-        }
-        & .memori-images{
-          display: flex;
-          &__image{
-            padding: 0 0 0 20px;
+          & .memori{
+            word-wrap:break-all;
+            width: 500px;
+            height: 140px;
+            & .body{
+              width: 500px;
+              height: 140px;
+              overflow-wrap: break-word;
+            }
           }
         }
         & .map{
@@ -86,6 +97,18 @@
       }
       &__panel{
         position: relative;
+        & .memori-images{
+          padding: 5px 10px;
+          margin: 10px 0 0 0;
+          display: flex;
+          &__image{
+            padding: 0 0 0 20px;
+            width: 190px;
+            & img{
+              width: 190px;
+            }
+          }
+        }
         & .accordion-icon{
           & .fa-detail{
             color: rgb(0, 160, 8);
@@ -108,9 +131,6 @@
             width: 100%;
             height: 100%;
             padding: 0 0 5px 0;
-            // & .lead{
-            //   font-size: 18px;
-            // }
             & .body{
               width: 100%;
               height: 100%;
@@ -124,9 +144,19 @@
             font-size: 14px;
             & .name{
               padding: 0 20px 0 0;
+              & a{
+                color: #a5a1a1;
+                text-decoration: none;
+              }
             }
             & .address{
               padding: 0 20px 0 0;
+            }
+            & .delete-icon{
+              & a{
+                color: #a5a1a1;
+                text-decoration: none;
+              }
             }
           }
         }
@@ -144,9 +174,11 @@
   background-color: black;
   opacity: .3;
   display: none;
+  z-index: 3;
 }
 
 .map-form-wrapper{
+  z-index: 3;
   position: absolute;
   background-color: #fff;
   border-radius: 10px;
@@ -170,6 +202,11 @@
           margin: 0 0 10px 0;
         }
       }
+      &__images{
+        & .fa-image{
+          cursor: pointer;
+        }
+      }
     }
     &__message{
       font-size: 26px;
@@ -185,6 +222,7 @@
 }
 
 .model-backgraund-intro {
+  z-index: 3;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -194,6 +232,7 @@
   opacity: .3;
 }
 .model-backgraund-intro-session {
+  z-index: 3;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -205,6 +244,7 @@
 }
 
 .map-initial{
+  z-index: 3;
   position: absolute;
   background-color: #fff;
   border-radius: 10px;
@@ -224,6 +264,7 @@
 }
 
 .map-initial-session{
+  z-index: 3;
   position: absolute;
   background-color: #fff;
   border-radius: 10px;
