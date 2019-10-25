@@ -1,6 +1,21 @@
 .login-body{
   @include body($url:'book.jpg');
 }
+// .login-wrapper__diagonal-right{
+//   border-top: 25vh solid #ffffff;
+//   border-left: 30vw solid transparent;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+// }
+
+// .login-wrapper__diagonal-left{
+//   border-bottom: 25vh solid #ffffff;
+//   border-right: 30vw solid transparent;
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+// }
 .login-wrapper{
   @include devise_wrraper();
   &__container{

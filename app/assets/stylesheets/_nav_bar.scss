@@ -21,6 +21,8 @@
   & li{
     height: 30px;
     text-align: center;
+    z-index: 1;
+    line-height: -20px;
     & a{
       text-decoration: none;
       color: #000;
@@ -48,12 +50,27 @@
 
   & .three {
     margin-left: auto;
-    width: 150px;
+    width: 190px;
     min-width: 100px;
     display: flex;
-    & .outer-btn a:hover{
-      color: #00a008;
+    & .outer-btn{
+      text-align: center;
+      border: solid 1px #000;
+      margin: 0 10px 0 0;
+      background-color: rgb(255, 255, 255);
+      height: auto;
+      & a{
+        padding: 5px;
+      }
     }
+    & .outer-btn a:hover{
+      color: #ffffff;
+      background-color: #00a008;
+    }
+  }
+  & .one-btn{
+    color: rgb(38, 40, 177);
+    font-size: 18px;
   }
   & .one-btn{
     color: rgb(38, 40, 177);
