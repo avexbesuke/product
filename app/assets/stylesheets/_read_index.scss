@@ -19,6 +19,7 @@
       background-color: rgba(150, 130, 95, 0.1);
       margin: 0 0 20px 45px;
       &__image{
+        perspective:500px;
         transition-duration: 0.3s;
       }
       &__image:hover{
