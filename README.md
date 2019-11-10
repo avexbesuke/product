@@ -2,7 +2,7 @@
 
 好きな本を検索→好きな本が好きな理由を投稿・共有できます。
 詳しくはこちらをご覧ください。
-<http://www.mybestbooks.xyz>
+<https://www.mybestbooks.xyz/>
 
 ## 開発環境
 - Ruby 2.5.0
@@ -41,6 +41,7 @@
 ## 本番環境
 - AWS(EC2,S3(ActiveStorageの画像を保存しています))
 - capistranoを使用した自動デプロイ
+- ACM ELB でSSL/TLS
 - Route53でドメイン管理
 
 ## 今後実装したいこと
